@@ -1,0 +1,225 @@
+---
+import { companyData } from "../data/home";
+
+import transviaLogo from "../assets/transviaLogo.png";
+import mobileMenuImage from "../assets/menu.jpg";
+import homeIcon from "../assets/home.svg";
+import arrowIcon from "../assets/chevron-right.svg";
+
+interface Props {
+    location    : string;
+}
+
+const { location } = Astro.props
+const isHome : boolean = location === "/";
+
+let locationLabel = "";
+if (!isHome) {
+    locationLabel = location.replace("/","");
+    locationLabel = locationLabel.charAt(0).toUpperCase() + locationLabel.slice(1)
+}
+---
+
+<header class="header">
+    <ul class="header__contact-Desktop">
+        <li class="contact-item">
+            <div class="contact-item__icon contact-item__email-icon"></div>
+            <span class="contact-item__contact-label">direccion@dominio.cl</span>
+        </li>
+        <li class="contact-item">
+            <div class="contact-item__icon contact-item__phone-icon"></div>
+            <span class="contact-item__contact-label">+56 9 1234 5678</span>
+        </li>
+        <li class="contactDataItem">
+            <div class="contact-item__icon contact-item__map-icon"></div>
+            <span class="contact-item__contact-label">direccion@dominio.cl</span>
+        </li>
+    </ul>
+
+    <section class="header__navbar">
+        <nav class="menu-desktop">
+            <a class="menu-desktop__item">Proyectos</a>
+            <a class="menu-desktop__item">Valores</a>
+        </nav>
+
+        <a class="logo" href="/">
+            <img src={transviaLogo.src} alt="Logo Transvia Ingenieria">
+        </a>
+        
+        <nav class="menu-desktop">
+            <a class="menuDesktopItem">Nosotros</a>
+            <a class="menuDesktopItem">Contacto</a>
+        </nav>
+
+        <label class="menu-deployer" for="isDeployed">
+            <div class="menu-deployer__menu-icon"></div>
+            <span class="menu-deployer__menu-label">Menú</span>
+        </label>
+    </section>
+
+    <input class="header__checker" type="checkbox" id="isDeployed">
+    <hr>
+    <section class="header__deploy-menu">
+        <img class="menu-image" src={mobileMenuImage.src} alt="Calle en plano cenital">
+        <nav class="mobile-nav">
+            <a class="mobile-nav__item" href="/">Inicio</a>
+            <a class="mobile-nav__item" href="/nosotros">Nosotros</a>
+            <a class="mobile-nav__item" href="/valores">Valores</a>
+            <a class="mobile-nav__item" href="/proyectos">Proyectos</a>
+            <a class="mobile-nav__item" href="/contacto">Contacto</a>
+        </nav>
+        <aside class="company-information">
+            <p class="company-information__item">
+                {companyData.email}
+                <br>
+                {companyData.phone}
+            </p>
+            <p class="company-information__item">
+                {companyData.location}
+                <br>
+                {companyData.city}
+            </p>
+            <span class="company-information__copyright">© Transvia Ingeniería 2024</span>
+        </aside>
+    </section>
+</header>
+{   
+    !isHome ? 
+        <nav class="path">
+            <a class="path__home-icon" href="/">
+                <img src={homeIcon.src} alt="Icono de redireccion al inicio">
+            </a>
+            <img class="path__path-icon" src={arrowIcon.src} alt="Icono de flecha a la derecha">
+            <span class="path__location-label">{locationLabel}</span>
+        </nav>
+    : ""
+}
+
+
+<style>
+.header{
+    position: sticky;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: var(--white);
+}
+.header__contact-Desktop{
+    display: none;
+}
+.header__navbar{
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.menu-desktop{
+    display:  none;
+}
+
+.logo{
+    width: 8rem;
+    height: 3rem;
+}
+
+.menu-deployer{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.menu-deployer__menu-icon{
+    width: 2rem;
+    height: 2rem;
+    background-image: url("../assets/menu.svg");
+}
+.menu-deployer__menu-label{
+    font-family: "Nunito", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.header__checker{
+    display: none;
+}
+
+.header__deploy-menu{
+    display: none;
+    
+}
+.header__checker:checked ~ .header__deploy-menu{
+    display: flex;
+    padding: 5px;
+    gap: 5px;
+}
+.header__checker:checked ~ hr{
+    margin: 0 10px;
+    height: 1px;
+    width: auto;
+    box-sizing: content-box;
+    background-color: var(--text-color);
+}
+
+.menu-image{
+    width: 120px;
+    height: 200px;
+}
+.mobile-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+.mobile-nav__item{
+    width: min-content;
+    padding: 0 .2rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--text-color);
+}
+.company-information{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    gap: 1rem;
+}
+.company-information__item{
+    font-size: 1rem;
+    text-align: end;
+}
+.company-information__copyright{
+    font-size: .8rem;
+    width: max-content;
+}
+
+.path{
+    display: flex;
+    gap: ;
+    padding: 5px 25px;
+    align-items: center;
+}
+.path__home-icon{
+    width: 2rem;
+}
+.path__path-icon{
+    width: 2rem;
+    height: 1.6rem;
+}
+.path__location-label{
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 2.2rem;
+    border-bottom: 2px solid var(--text-color);
+}
+.path__location-label::first-letter{
+    text-transform: capitalize;
+}
+
+@media screen and (min-width: 800px) {
+    
+}
+</style>

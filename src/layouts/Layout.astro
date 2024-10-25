@@ -17,8 +17,7 @@ keywords.forEach(key => {
 
 /*
 TODO:
- - Investigar Etiquetas Meta
-
+    - Investigar Etiquetas Meta
 */
 
 ---
@@ -37,7 +36,7 @@ TODO:
 		<meta name="description" content={description} />
 	</head>
 	<body>
-		<Header/>
+		<Header location={Astro.url.pathname} />
 		<main>
 			<slot />
 		</main>
@@ -47,22 +46,32 @@ TODO:
 
 
 <style is:global>
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Work+Sans:wght@100..900&display=swap');
+
 :root{
+    font-size: 62.5%;
     /* Colors */
     --primary-color     :#73BC44;
     --secondary-color  	:#046CBC;
     --accent-color 	    :#44C4F4;
-	--background-color	:#DCDCDC;
+	--white				:#C4C4C4;
+    --black             :#040404;
+	--background-color	: linear-gradient(rgba(220,220,220,50%),rgba(220,220,220,50%)),linear-gradient(90deg, var(--white) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
 
     --text-color 		:#212529;
+
+    --min-width-mobile      :360px;
+    --desktop-break-point   :760px;
+    --max-width             :1440px;
 }
 /* Modo oscuro */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     :root{
-        --background-color  :#040404;
+        	--background-color	: linear-gradient(rgba(220,220,220,50%),rgba(220,220,220,50%)),linear-gradient(90deg, var(--white) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
         --text-color		:#DEDEDE;
     }
-}
+} */
 /* Modo alto contraste */
 /* @media (prefers-contrast: high){
     :root{
@@ -89,8 +98,11 @@ TODO:
     margin          : 0;
     padding         : 0;
     border          : 0;
+
     box-sizing      : border-box;
-    vertical-align  : baseline;   
+    vertical-align  : baseline; 
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 img , picture , video , iframe , figure{
     max-width       : 100%;
@@ -115,7 +127,7 @@ html {
     scroll-behavior : smooth;
 }
 h1 , h2 , h3 , h4 , h5 , h6 , p ,span , a , strong , blockquote , i , b , u , em {
-    font-size       : 1rem;
+    font-size       : 1.6rem;
     font-weight     : inherit;
     font-style      : inherit;
     text-decoration : none;
@@ -144,12 +156,12 @@ svg{
     fill            : currentColor;
 }   
 body {
-    // min-width   : $min-mobile-width;
-    font-family : $primary-font;
+    min-width   : var(--min-width-mobile);
+    max-width   : var(--max-width);
+	min-height  : 100vh;
+    max-height  : min-content;
+    font-family : "Work Sans", sans-serif;
     color       : var(--text-color);
-    font-smooth: always;/* opcional */
-    -webkit-font-smoothing: antialiased;/* opcional */
-    -moz-osx-font-smoothing: grayscale;/* opcional */
-    background-color: var(--background-color);
+    background  : var(--background-color);
 }
 </style>

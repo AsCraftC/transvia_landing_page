@@ -1,0 +1,103 @@
+---
+import { companyData } from "../data/home";
+
+import transviaLogoWhite from "../assets/transviaLogoClaro.png";
+import igIcon from "../assets/intagramIconWhite.svg";
+import liIcon from "../assets/linkedinIconWhite.svg";
+import waIcon from "../assets/whatsappIconWhite.svg";
+---
+
+<footer class="footer">
+    <h1 class="footer__title">
+        Contactanos Contactanos Contactanos
+    </h1>
+    <article class="footer__right">
+        <img class="logo" src={transviaLogoWhite.src} alt="Logo de Transvia Ingenieríia en color blanco">
+        <h2 class="company-name">{companyData.companyName}</h2>
+        <p class="company-location">{companyData.location}, {companyData.city}</p>
+    </article>
+    <aside class="footer__left">
+        <p class="company-contact"> {companyData.email} </p>
+        <p class="company-contact"> {companyData.phone} </p>
+        <ul class="social-network">
+            <li class="social-network__link"><a href=""><img src={waIcon.src} alt="Icono de Whatsapp"></a></li>
+            <li class="social-network__link"><a href=""><img src={igIcon.src} alt="Icono de Instagram"></a></li>
+            <li class="social-network__link"><a href=""><img src={liIcon.src} alt="Icono de Linked In"></a></li>
+        </ul>
+    </aside>
+    <footer class="footer__botton">
+        <span class="botton__item">© Transvia Ingeniería 2024</span>
+        <span class="botton__item">Cristóbal Contreras Beltrán</span>
+    </footer>
+</footer>
+
+<style>
+.footer{
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(3, min-content);
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1rem;
+}
+.footer__title{
+    position: relative;
+    font-family: "Nunito", sans-serif;
+    grid-area: 1 / 1 / 2 / 3;
+    font-weight: 600;
+    font-size: 4rem;
+    text-wrap: nowrap;
+    animation: linear hTranslation 5s infinite;
+}
+@keyframes hTranslation {
+    from{left: 0px;}
+    to{left:-23.9rem;}
+}
+.footer__right{
+    grid-area: 2 / 1 / 3 / 2;
+    margin-bottom: 3rem;
+}
+.logo{
+    width: 8rem;
+}
+.company-name{
+    font-family: "Nunito", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-wrap: nowrap;
+}
+.company-location{
+    margin-top: 5px;
+    font-size: 1.2rem;
+}
+
+.footer__left{
+    grid-area: 2 / 2/ 3 / 3;
+
+}
+.company-contact{
+    text-align: end;
+    font-size: 1.2rem;
+    letter-spacing: -3%;
+}
+.social-network{
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+.social-network__link{
+    width: 2rem;
+}
+
+.footer__botton{
+    border-top: 1px solid var(--white);
+    padding-top: 10px;
+    grid-area: 3 / 1 / 4 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.botton__item{
+    font-size: 1rem;
+}
+</style>
