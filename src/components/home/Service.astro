@@ -1,0 +1,72 @@
+---
+interface Props {
+    index   : number;
+    imgPath : string;
+    number  : number;
+    title   : string;
+    desc    : string;
+}
+
+const { index, imgPath, number, title, desc } = Astro.props
+
+const isOdd : boolean = index % 2 === 1;
+const lessThan10 : boolean = index < 10;
+//hacer funcion modulo para definir posicion
+//hacer modulo para posicion de texto.
+---
+
+<article class:list={['service', isOdd && 'service--inverse']}>
+    <img class="service__img " src={imgPath} alt="Imagen de servicio">
+    <div class:list={['service__info', isOdd && 'service__info--reverse']}>
+        <span class="service__number"> {lessThan10 && "0"}{number} </span>
+        <p class="service__title"> {title} </p>
+        <hr>
+        <p class="service__desc"> {desc} </p>
+    </div>
+</article>
+
+<style>
+.service{
+    display: flex;
+    padding: 0 1rem;
+    gap: 1rem;
+    
+}
+.service--inverse{
+    flex-direction: row-reverse;
+}
+.service__img{
+    width: 9.5rem;
+    aspect-ratio: 19 / 20;
+    
+}
+.service__info{
+    display: flex;
+    flex-direction: column;
+    width: 21rem;
+    gap: .5rem;
+}
+.service__info--reverse{
+    text-align: end;
+}
+.service__number{
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    font-weight: 700;
+}
+.service__title{
+    font-family: "Nunito", sans-serif;+
+    font-size: 2rem;
+}
+hr{
+    height: 1px;
+    width: auto;
+    box-sizing: content-box;
+    background-color: var(--text-color);
+}
+.service__desc{
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    letter-spacing: -.05rem;
+}
+</style>

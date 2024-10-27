@@ -36,10 +36,8 @@ TODO:
 		<meta name="description" content={description} />
 	</head>
 	<body>
-		<Header location={Astro.url.pathname} />
-		<main>
-			<slot />
-		</main>
+		<Header/>
+		<slot />
 		<Footer/>
 	</body>
 </html>

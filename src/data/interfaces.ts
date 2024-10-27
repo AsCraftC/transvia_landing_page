@@ -1,6 +1,11 @@
 export interface HomeData {
-    eslogan: string;
-    
+    eslogan         : string;
+    estadisticas    : [
+        {valor : number, etiqueta : string},
+        {valor : number, etiqueta : string},
+        {valor : number, etiqueta : string}
+    ];
+    servicios       : {id : number, rutaImagen : string, titulo : string, descripcion : string}[]
 }
 
 export interface CompanyData{

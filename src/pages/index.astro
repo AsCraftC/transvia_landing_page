@@ -1,12 +1,48 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import Overview from "../components/home/Overview.astro";
+import Stats from '../components/home/Stats.astro';
+import Service from '../components/home/Service.astro';
+
 import { homeData } from "../data/home";
+
+/* TODO:
+	- Animar numero para que aumenten al aparecer.
+	- Agregar paralaje a imagenes de servicio.
+*/
 ---
 
 <Layout title="Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
-	{homeData.eslogan}
+	<main class="layout">
+		<Overview slogan={homeData.eslogan} />
+		<Stats stats={homeData.estadisticas}/>
+		<section class="services">
+			{
+				homeData.servicios.map((service, index) => (
+					<Service 
+						index={index} 
+						imgPath={service.rutaImagen}
+						number={service.id}
+						title={service.titulo}
+						desc={service.descripcion}
+						/>
+				))
+			}
+		</section>
+	</main>
 </Layout>
 
 <style>
-
+.layout{
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+	padding: 5rem 0;
+}
+.services{
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
 </style>
