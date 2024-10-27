@@ -8,17 +8,17 @@ import waIcon from "../assets/whatsappIconWhite.svg";
 ---
 
 <footer class="footer">
-    <h1 class="footer__title">
+    <h3 class="footer__title">
         Contactanos Contactanos Contactanos
-    </h1>
+    </h3>
     <article class="footer__right">
         <img class="logo" src={transviaLogoWhite.src} alt="Logo de Transvia Ingenieríia en color blanco">
-        <h2 class="company-name">{companyData.companyName}</h2>
-        <p class="company-location">{companyData.location}, {companyData.city}</p>
+        <h2 class="company-name">{companyData.nombreCompañia}</h2>
+        <p class="company-location">{companyData.direccion}, {companyData.ciudad}</p>
     </article>
     <aside class="footer__left">
         <p class="company-contact"> {companyData.email} </p>
-        <p class="company-contact"> {companyData.phone} </p>
+        <p class="company-contact"> {companyData.telefono} </p>
         <ul class="social-network">
             <li class="social-network__link"><a href=""><img src={waIcon.src} alt="Icono de Whatsapp"></a></li>
             <li class="social-network__link"><a href=""><img src={igIcon.src} alt="Icono de Instagram"></a></li>
@@ -59,6 +59,7 @@ import waIcon from "../assets/whatsappIconWhite.svg";
 }
 .logo{
     width: 8rem;
+    aspect-ratio: 8 / 3;
 }
 .company-name{
     font-family: "Nunito", sans-serif;
@@ -87,6 +88,7 @@ import waIcon from "../assets/whatsappIconWhite.svg";
 }
 .social-network__link{
     width: 2rem;
+    aspect-ratio: 1 / 1;
 }
 
 .footer__botton{

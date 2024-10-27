@@ -4,9 +4,9 @@ export interface HomeData {
 }
 
 export interface CompanyData{
-    companyName : string;
-    email       : string;
-    phone       : string;
-    location    : string;
-    city        : string;
+    nombreCompañia  : string;
+    email           : string;
+    telefono        : string;
+    direccion       : string;
+    ciudad          : string;
 }

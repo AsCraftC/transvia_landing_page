@@ -6,11 +6,7 @@ import mobileMenuImage from "../assets/menu.jpg";
 import homeIcon from "../assets/home.svg";
 import arrowIcon from "../assets/chevron-right.svg";
 
-interface Props {
-    location    : string;
-}
-
-const { location } = Astro.props
+const location : string = Astro.url.pathname;
 const isHome : boolean = location === "/";
 
 let locationLabel = "";
@@ -72,12 +68,12 @@ if (!isHome) {
             <p class="company-information__item">
                 {companyData.email}
                 <br>
-                {companyData.phone}
+                {companyData.telefono}
             </p>
             <p class="company-information__item">
-                {companyData.location}
+                {companyData.direccion}
                 <br>
-                {companyData.city}
+                {companyData.ciudad}
             </p>
             <span class="company-information__copyright">© Transvia Ingeniería 2024</span>
         </aside>
@@ -120,7 +116,7 @@ if (!isHome) {
 
 .logo{
     width: 8rem;
-    height: 3rem;
+    aspect-ratio: 8 / 3;
 }
 
 .menu-deployer{
@@ -130,7 +126,7 @@ if (!isHome) {
 }
 .menu-deployer__menu-icon{
     width: 2rem;
-    height: 2rem;
+    aspect-ratio: 1 / 1;
     background-image: url("../assets/menu.svg");
 }
 .menu-deployer__menu-label{
@@ -162,7 +158,7 @@ if (!isHome) {
 
 .menu-image{
     width: 120px;
-    height: 200px;
+    aspect-ratio: 3 / 5;
 }
 .mobile-nav{
     display: flex;
