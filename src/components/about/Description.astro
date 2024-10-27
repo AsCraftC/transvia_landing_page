@@ -1,0 +1,40 @@
+---
+import SectionTitle from '../SectionTitle.astro';
+import descriptionIMG from "../../assets/about/description.jpg";
+
+interface Props {
+    description  : string;
+}
+
+const { description } = Astro.props
+---
+
+<section class="company-description">
+    <img class="company-description__img" src={descriptionIMG.src} alt="Imagen de un paso de zebra">
+    <div class="company-description__info">
+        <SectionTitle title="Quienes Somos" />
+        <p class="company-description__desc"> { description } </p>
+    </div>
+</section>
+
+<style>
+.company-description{
+    padding: 1rem;
+    display: flex;
+    gap: .5rem;
+    background: rgba(220, 220, 220, 75%);
+}
+.company-description__img{
+    width: 17rem;
+    aspect-ratio: 17 / 15;
+}
+.company-description__info{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.company-description__desc{
+    font-size: 1rem;
+    letter-spacing: .03rem;
+}
+</style>

@@ -1,0 +1,70 @@
+---
+interface Props {
+    mes         : "Ene" | "Feb" | "Mar" | "Abr" | "May" | "Jun" | "Jul" | "Ago" | "Sep" | "Oct" | "Nov" | "Dic" | "Xxx";
+    año         : number | "20XX";
+    titulo      : string;
+    descripcion : string;
+}
+
+
+const { mes, año, titulo, descripcion } = Astro.props
+---
+
+<article class="milestone">
+    <div class="milestone__date">
+        <p class="milestone__date-label">{mes}</p>
+        <p class="milestone__date-label">{año}</p>
+    </div>
+    <div class="milestone__dot"></div>
+    <div class="milestone__info">
+        <h3 class="milestone__title">{titulo}</h3>
+        <hr>
+        <p class="milestone__description">{descripcion}</p>
+    </div>
+</article>
+
+<style>
+.milestone{
+    width: 80vw;
+    display: flex;
+    align-items: flex-start;
+    gap: .3rem;
+}
+.milestone__date{
+
+}
+.milestone__date-label{
+    font-size: 1rem;
+    letter-spacing: -.04rem;
+    text-align: end;
+}
+.milestone__dot{
+    width: 3rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    background-color: var(--primary-color);
+    margin-top: .5rem;
+}
+.milestone__info{
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+.milestone__title{
+    font-size: 1.2rem;
+    letter-spacing: -.04rem;
+    font-weight: 600;
+    margin-left: .5rem;
+}
+hr{
+    margin: 0 2.5rem 0 .5rem;
+    height: 1px;
+    width: auto;
+    box-sizing: content-box;
+    background-color: var(--text-color);
+}
+.milestone__description{
+    font-size: 1rem;
+    letter-spacing: -.04rem;
+}
+</style>

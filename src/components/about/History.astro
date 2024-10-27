@@ -1,0 +1,57 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+
+import { about } from "../../data/about";
+import Milestone from "./Milestone.astro";
+
+---
+
+<section class="history">
+    <SectionTitle title="Nuestra Historia"/>
+    <div class="history-line">
+        <div class="history-line__end"></div>
+        <div class="history-line__body"></div>
+    </div>
+    <div class="milestones">
+        {
+            about.hitos.map( milestone => (
+                <Milestone {... milestone}/>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+.history{
+    position: relative;
+    padding: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.history-line{
+    position: absolute;
+    top: 2rem;
+    left: 5.5em;
+    width: min-content;
+    height: 70%;
+}
+.history-line__end{
+    width: 1.6rem;
+    aspect-ratio: 1 / 1;
+    background-image: url('../../assets/about/arrowPoint.svg');
+    background-size: contain;
+    background-position: bottom;
+}
+.history-line__body{
+    margin: 0 auto;
+    width: 5px;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+.milestones{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+</style>
