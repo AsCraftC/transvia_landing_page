@@ -5,9 +5,6 @@ interface Props {
 
 const { stats } = Astro.props
 ---
-<script></script>
-
-
 <article class="badge-stats">
     <div class="stat stat-0">
         <span class="stat__number"> {new Intl.NumberFormat("es-CL").format(stats[0].valor)} </span>
@@ -61,6 +58,6 @@ const { stats } = Astro.props
 }
 .stat-2{
     top: 8rem;
-    left: 15vw;
+    left: 20vw;
 }
 </style>

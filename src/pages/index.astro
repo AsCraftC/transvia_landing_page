@@ -14,7 +14,7 @@ import { homeData } from "../data/home";
 ---
 
 <Layout title="Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
-	<main class="layout">
+	<main class="home">
 		<Overview slogan={homeData.eslogan} />
 		<Stats stats={homeData.estadisticas}/>
 		<section class="services">
@@ -34,7 +34,7 @@ import { homeData } from "../data/home";
 </Layout>
 
 <style>
-.layout{
+.home{
 	display: flex;
 	flex-direction: column;
 	gap: 5rem;
@@ -43,6 +43,6 @@ import { homeData } from "../data/home";
 .services{
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	gap: 3rem;
 }
 </style>
