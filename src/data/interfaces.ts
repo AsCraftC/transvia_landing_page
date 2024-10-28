@@ -32,5 +32,6 @@ export interface aboutUs {
         apellidos       : string;
         cargo           : string;
         rutaRetrato     : string;
-    }[]
+    }[],
+    colaboracionesLogo  : string[]
 }

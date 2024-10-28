@@ -5,6 +5,7 @@ import History from "../components/about/History.astro";
 
 import { about } from "../data/about";
 import Employees from "../components/about/Employees.astro";
+import Colabs from "../components/about/Colabs.astro";
 ---
 
 <Layout title="Nosotros - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
@@ -13,7 +14,7 @@ import Employees from "../components/about/Employees.astro";
 		<Description description={about.descripcion} />
 		<History />
 		<Employees employees={about.empleados} />
-		
+		<Colabs logos={about.colaboracionesLogo} />
 	</main>
 </Layout>
 

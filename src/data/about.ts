@@ -1,7 +1,11 @@
 import type { aboutUs } from "../data/interfaces";
 
+//Imágenes de empleados
 import alarconPortrait from "../assets/employees/employee1.jpg"
 import CuevasPortrait from "../assets/employees/employee2.jpg";
+
+//Logos de colaboraciones
+import logTransvia from "../assets/transviaLogo.png";
 
 export const about : aboutUs = {
     frase       : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor",
@@ -70,5 +74,15 @@ export const about : aboutUs = {
             cargo           : "Gerente General",
             rutaRetrato     : alarconPortrait.src
         },
+    ],
+    colaboracionesLogo : [
+        logTransvia.src,
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
     ]
 }
