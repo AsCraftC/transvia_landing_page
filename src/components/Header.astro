@@ -94,6 +94,9 @@ if (!isHome) {
 
 <style>
 .header{
+    position: sticky;
+    top: 0px;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -144,9 +147,13 @@ if (!isHome) {
     
 }
 .header__checker:checked ~ .header__deploy-menu{
+    position: fixed;
+    top: 4.2rem;
+    width: 100%;
     display: flex;
     padding: 5px;
     gap: 5px;
+    background-color: var(--white);
 }
 .header__checker:checked ~ hr{
     margin: 0 10px;

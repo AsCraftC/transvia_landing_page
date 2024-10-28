@@ -1,5 +1,8 @@
 import type { aboutUs } from "../data/interfaces";
 
+import alarconPortrait from "../assets/employees/employee1.jpg"
+import CuevasPortrait from "../assets/employees/employee2.jpg";
+
 export const about : aboutUs = {
     frase       : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor",
     descripcion : "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
@@ -33,39 +36,39 @@ export const about : aboutUs = {
 
     empleados   : [
         {
-            gradoAcademico  : "Ingeniero Civil",
+            gradoAcademico  : "Ing. Civil",
             nombres         : "Lucas Miguel",
             apellidos       : "Alarcon Castillo",
             cargo           : "Gerente General",
-            rutaRetrato     : "../assets/about/employee1.jpg"
+            rutaRetrato     : alarconPortrait.src
         },
         {
-            gradoAcademico  : "Ingeniera Comercial",
+            gradoAcademico  : "Ing. Comercial",
             nombres         : "Clara Pilar",
             apellidos       : "Cuevas Machado",
             cargo           : "Gerente Finanzas",
-            rutaRetrato     : "../assets/about/employee2.jpg"
+            rutaRetrato     : CuevasPortrait.src
         },
         {
-            gradoAcademico  : "Ingeniero Civil",
+            gradoAcademico  : "Ing. Civil",
             nombres         : "Lucas Miguel",
             apellidos       : "Alarcon Castillo",
             cargo           : "Gerente General",
-            rutaRetrato     : "../assets/about/employee1.jpg"
+            rutaRetrato     : alarconPortrait.src
         },
         {
-            gradoAcademico  : "Ingeniero Civil",
+            gradoAcademico  : "Ing. Civil",
             nombres         : "Lucas Miguel",
             apellidos       : "Alarcon Castillo",
             cargo           : "Gerente General",
-            rutaRetrato     : "../assets/about/employee1.jpg"
+            rutaRetrato     : alarconPortrait.src
         },
         {
-            gradoAcademico  : "Ingeniero Civil",
+            gradoAcademico  : "Ing. Civil",
             nombres         : "Lucas Miguel",
             apellidos       : "Alarcon Castillo",
             cargo           : "Gerente General",
-            rutaRetrato     : "../assets/about/employee1.jpg"
+            rutaRetrato     : alarconPortrait.src
         },
     ]
 }

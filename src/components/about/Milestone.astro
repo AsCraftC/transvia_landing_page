@@ -31,7 +31,8 @@ const { mes, año, titulo, descripcion } = Astro.props
     gap: .3rem;
 }
 .milestone__date{
-
+    width: 2.4rem;
+    flex-shrink: 0;
 }
 .milestone__date-label{
     font-size: 1rem;
@@ -39,11 +40,12 @@ const { mes, año, titulo, descripcion } = Astro.props
     text-align: end;
 }
 .milestone__dot{
-    width: 3rem;
+    width: 1.6rem;
     aspect-ratio: 1 / 1;
     border-radius: 100%;
     background-color: var(--primary-color);
-    margin-top: .5rem;
+    margin-top: .4rem;
+    flex-shrink: 0;
 }
 .milestone__info{
     display: flex;
