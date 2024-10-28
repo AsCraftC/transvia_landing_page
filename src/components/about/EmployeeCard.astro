@@ -1,0 +1,71 @@
+---interface Props {
+    gradoAcademico  : string;
+    nombres         : string;
+    apellidos       : string;
+    cargo           : string;
+    rutaRetrato     : string;
+}
+const { gradoAcademico, nombres, apellidos, cargo, rutaRetrato } = Astro.props
+
+
+---
+
+<article class="employee">
+    <img class="employee__portrait" src={rutaRetrato} alt='Retrato de ${}'>
+    <div class="employee__info">
+        <span class="employee__subData"> {gradoAcademico} </span>
+        <p class="employee__name">
+            <span> {nombres} </span>
+            <br>
+            <span> {apellidos} </span>
+        </p>
+        <span class="employee__subData accent-color"> {cargo} </span>
+    </div>
+</article>
+
+<style>
+.employee{
+    position: relative;
+    width: 10rem;
+    aspect-ratio: 10 / 13;
+    flex-shrink: 0;
+}
+.employee__portrait{
+    border-radius: .2rem;
+}
+.employee__info {
+    position: absolute;
+    max-width: 100%;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+    padding: .3rem;
+}
+.employee__subData{
+    width: max-content;
+    max-width: 100%;
+    padding: 0 .3rem;
+    font-size: 1rem;
+    letter-spacing: -.05rem;
+    color: #FFF;
+    background-color: var(--primary-color);
+}
+.employee__name{
+    width: max-content;
+    max-width: 100%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -.1rem;
+    color: #FFF;
+    text-decoration-color: var(--primary-color);
+}
+.employee__name span {
+    padding: 0 .3rem;
+    background-color: var(--primary-color);
+
+}
+.accent-color{
+    background-color: var(--accent-color);
+}
+</style>
