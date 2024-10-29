@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import { projectData } from "../data/projects";
+import ProjectCard from "../components/projects/ProjectCard.astro";
+
+---
+
+<Layout title="proyectos - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
+    <main class="projects">
+        {
+            projectData.projects.map( project => (
+                <ProjectCard {... project} />
+            ))
+        }
+        
+    </main>
+</Layout>
+
+<style>
+.projects{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 2.5rem 1rem;
+}
+</style>

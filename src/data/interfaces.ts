@@ -35,3 +35,14 @@ export interface aboutUs {
     }[],
     colaboracionesLogo  : string[]
 }
+
+export interface projectsI{
+    projects    :{
+        imagenMuestra   : string;
+        nombreProyecto  : string;
+        direccion       : string;
+        fechaInicio     : Date;
+        duracion        : number;
+        impacto         : string;
+    }[]
+}

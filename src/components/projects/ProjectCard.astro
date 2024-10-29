@@ -1,0 +1,96 @@
+---
+interface Props {
+    imagenMuestra   : string;
+    nombreProyecto  : string;
+    direccion       : string;
+    fechaInicio     : Date;
+    duracion        : number;
+    impacto         : string;
+}
+const { imagenMuestra, nombreProyecto, direccion, fechaInicio, duracion, impacto } = Astro.props
+
+const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
+
+---
+
+<article class="project">
+    <img class="project__img" src={imagenMuestra} alt="">
+    <div class="project__info">
+        <p class="project__title"> {nombreProyecto} </p>
+        <ul class="project__labels">
+            <li class="project__li">
+                <div class="project__icon location-icon"></div>
+                <p class="project__label"> {direccion} </p>
+            </li>
+            <li class="project__li">
+                <div class="project__icon calendar-icon"></div>
+                <p class="project__label"> {inicioString} </p>
+            </li>
+            <li class="project__li">
+                <div class="project__icon clock-icon"></div>
+                <p class="project__label"> {duracion} Dias </p>
+            </li>
+        </ul>
+        <p id="impact" class="project__label"> <span>Impacto:</span> {impacto} </p>
+    </div>
+</article>
+
+<style>
+.project{
+    position: relative;
+}
+.project:focus > .project__info {
+    color: rebeccapurple;
+}
+.project__img{
+    aspect-ratio: 17 /9;
+}
+.project__info{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    background-color: rgba(4, 108, 188, 70%);
+    padding: 1rem 2.5rem;
+    gap: .5rem;
+}
+.project__title{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+}
+.project__li{
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+.project__labels{
+    display: flex;
+    justify-content: space-between;
+}
+.project__icon{
+    width: 1.6rem;
+    aspect-ratio: 1 / 1;
+    display: inline-block;
+}
+.location-icon{
+    background-image: url("../../assets/project/location-marker.svg");
+}
+.calendar-icon{
+    background-image: url("../../assets/project/calendar.svg");
+}
+.clock-icon{
+    background-image: url("../../assets/project/clock.svg");
+}
+.project__label{
+    font-size: 1rem;
+    color: var(--white);
+}
+#impact{
+    display: none;
+}
+.project__label span{
+    font-weight: 700;
+}
+</style>
