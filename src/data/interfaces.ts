@@ -43,7 +43,7 @@ export interface AboutUs {
 
 export interface Projects{
     projects    :{
-        imagenMuestra   : string;
+        imagenMuestra   : ImageMetadata;
         nombreProyecto  : string;
         direccion       : string;
         fechaInicio     : Date;
