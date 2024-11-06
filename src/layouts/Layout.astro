@@ -70,10 +70,13 @@ main{
     --footer-letter     :#DCDCDC;
 
 	--background-color  :#DCDCDC;
-	--background-grad   : linear-gradient(rgba(220,220,220,50%),rgba(220,220,220,50%)),linear-gradient(90deg, var(--background-color) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
-    --background-banner : rgba(220, 220, 220, 75%);
+    --background-banner :rgba(220, 220, 220, 75%);
+    --background-blur   :rgba(220,220,220,50%);
+	--background-grad   :
+        linear-gradient(var(--background-blur),var(--background-blur)),
+        linear-gradient(90deg, var(--background-color) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
 
-    --text-color 		    :#212529;
+    --text-color 		:#212529;
 
     --min-width-mobile  :360px;
     --min-width-desktop :760px;
@@ -83,8 +86,8 @@ main{
 @media (prefers-color-scheme: dark) {
     :root{
         --background-color  :#212529;
-        --background-grad	: linear-gradient(rgba(4,4,4,50%),rgba(4,4,4,50%)),linear-gradient(90deg, var(--background-color) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
-        --background-banner : rgba(4, 4, 4, 75%);
+        --background-blur   :rgba(4,4,4,50%);
+        --background-banner :rgba(4, 4, 4, 75%);
 
         --text-color		:#DEDEDE;
     }

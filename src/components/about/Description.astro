@@ -1,6 +1,6 @@
 ---
-import SectionTitle from '../SectionTitle.astro';
-import descriptionIMG from "../../assets/about/description.jpg";
+import SectionTitle from '@/components/SectionTitle.astro';
+import descriptionIMG from "@/assets/about/description.jpg";
 
 interface Props {
     description  : string;
@@ -10,7 +10,13 @@ const { description } = Astro.props
 ---
 
 <section class="company-description">
-    <img class="company-description__img" src={descriptionIMG.src} alt="Imagen de un paso de zebra">
+    <img 
+        class="company-description__img"
+        src={descriptionIMG.src}
+        alt="Imagen de un paso de zebra"
+        loading="lazy"
+        decoding="async"
+    >
     <div class="company-description__info">
         <SectionTitle title="Quienes Somos" />
         <p class="company-description__desc"> { description } </p>
@@ -19,22 +25,22 @@ const { description } = Astro.props
 
 <style>
 .company-description{
-    padding: 1rem;
-    display: flex;
-    gap: .5rem;
-    background: rgba(220, 220, 220, 75%);
+    padding         : 2rem;
+    display         : flex;
+    flex-direction  : column;
+    gap             : 1rem;
+    background      : var(--background-banner);
 }
 .company-description__img{
-    width: 17rem;
-    aspect-ratio: 17 / 15;
+    aspect-ratio: 21 / 19;
 }
 .company-description__info{
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+    display         : flex;
+    flex-direction  : column;
+    gap             : .5rem;
 }
 .company-description__desc{
-    font-size: 1rem;
-    letter-spacing: .03rem;
+    font-size       : 1.5rem;
+    letter-spacing  : -.03em;
 }
 </style>

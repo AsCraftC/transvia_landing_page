@@ -11,17 +11,17 @@ import Colabs from "@/components/about/Colabs.astro";
 <Layout title="Nosotros - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
 	<h2 class="phrase"> {about.frase} </h2>
 	<Description description={about.descripcion} />
-	<History />
+	<History hitos={about.hitos}/>
 	<Employees employees={about.empleados} />
 	<Colabs logos={about.colaboracionesLogo} />
 </Layout>
 
 <style>
 .phrase{
-	font-size: 2.4rem;
-	line-height: 3rem;
-	letter-spacing: -.03rem;
-	font-weight: 700;
-	padding-left: 5vw;
+	font-size		: 3rem;
+	letter-spacing	: -.03em;
+	font-weight		: 700;
+	padding-left	: 3rem;
+	padding-right	: 1rem;
 }
 </style>

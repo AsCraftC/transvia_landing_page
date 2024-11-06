@@ -1,12 +1,12 @@
 ---
+import Dot from "@/icons/MilestoneDot.astro";
+
 interface Props {
     mes         : "Ene" | "Feb" | "Mar" | "Abr" | "May" | "Jun" | "Jul" | "Ago" | "Sep" | "Oct" | "Nov" | "Dic" | "Xxx";
     año         : number | "20XX";
     titulo      : string;
     descripcion : string;
 }
-
-
 const { mes, año, titulo, descripcion } = Astro.props
 ---
 
@@ -15,7 +15,9 @@ const { mes, año, titulo, descripcion } = Astro.props
         <p class="milestone__date-label">{mes}</p>
         <p class="milestone__date-label">{año}</p>
     </div>
-    <div class="milestone__dot"></div>
+    <div class="milestone__dot">
+        <Dot />
+    </div>
     <div class="milestone__info">
         <h3 class="milestone__title">{titulo}</h3>
         <hr>
@@ -25,48 +27,44 @@ const { mes, año, titulo, descripcion } = Astro.props
 
 <style>
 .milestone{
-    width: 80vw;
-    display: flex;
-    align-items: flex-start;
-    gap: .3rem;
+    display         : flex;
+    align-items     : flex-start;
+    gap             : .5rem;
 }
 .milestone__date{
-    width: 2.4rem;
-    flex-shrink: 0;
+    width           : 3rem;
+    flex-shrink     : 0;
 }
 .milestone__date-label{
-    font-size: 1rem;
-    letter-spacing: -.04rem;
-    text-align: end;
+    font-size       : 1.5rem;
+    letter-spacing  : -.04em;
+    text-align      : end;
 }
 .milestone__dot{
-    width: 1.6rem;
-    aspect-ratio: 1 / 1;
-    border-radius: 100%;
-    background-color: var(--primary-color);
-    margin-top: .4rem;
-    flex-shrink: 0;
+    width           : 2.5rem;
+    height          : 2.5rem;
+    margin-top      : .5rem;
+    flex-shrink     : 0;
+    z-index         : 1;
 }
 .milestone__info{
-    display: flex;
-    flex-direction: column;
-    gap: .2rem;
+    display         : flex;
+    flex-direction  : column;
+    gap             : .5rem;
 }
 .milestone__title{
-    font-size: 1.2rem;
-    letter-spacing: -.04rem;
-    font-weight: 600;
-    margin-left: .5rem;
+    font-size       : 2rem;
+    letter-spacing  : -.04em;
+    font-weight     : 600;
 }
 hr{
-    margin: 0 2.5rem 0 .5rem;
-    height: 1px;
-    width: auto;
-    box-sizing: content-box;
+    margin-right    : 1rem;
+    height          : 1px;
+    width           : auto;
     background-color: var(--text-color);
 }
 .milestone__description{
-    font-size: 1rem;
-    letter-spacing: -.04rem;
+    font-size       : 1.5rem;
+    letter-spacing  : -.04em;
 }
 </style>

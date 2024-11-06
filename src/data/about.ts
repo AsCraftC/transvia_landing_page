@@ -44,45 +44,45 @@ export const about : AboutUs = {
             nombres         : "Lucas Miguel",
             apellidos       : "Alarcon Castillo",
             cargo           : "Gerente General",
-            rutaRetrato     : alarconPortrait.src
+            retrato         : alarconPortrait
         },
         {
             gradoAcademico  : "Ing. Comercial",
             nombres         : "Clara Pilar",
             apellidos       : "Cuevas Machado",
             cargo           : "Gerente Finanzas",
-            rutaRetrato     : CuevasPortrait.src
+            retrato         : CuevasPortrait
         },
         {
             gradoAcademico  : "Ing. Civil",
             nombres         : "Lucas Miguel",
             apellidos       : "Alarcon Castillo",
             cargo           : "Gerente General",
-            rutaRetrato     : alarconPortrait.src
+            retrato         : alarconPortrait
         },
         {
             gradoAcademico  : "Ing. Civil",
             nombres         : "Lucas Miguel",
             apellidos       : "Alarcon Castillo",
             cargo           : "Gerente General",
-            rutaRetrato     : alarconPortrait.src
+            retrato         : alarconPortrait
         },
         {
             gradoAcademico  : "Ing. Civil",
             nombres         : "Lucas Miguel",
             apellidos       : "Alarcon Castillo",
             cargo           : "Gerente General",
-            rutaRetrato     : alarconPortrait.src
+            retrato         : alarconPortrait
         },
     ],
     colaboracionesLogo : [
-        logTransvia.src,
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
+        logTransvia,
+        logTransvia,
+        logTransvia,
+        logTransvia,
+        logTransvia,
+        logTransvia,
+        logTransvia,
+        logTransvia,
     ]
 }

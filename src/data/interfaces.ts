@@ -36,9 +36,9 @@ export interface AboutUs {
         nombres         : string;
         apellidos       : string;
         cargo           : string;
-        rutaRetrato     : string;
+        retrato         : ImageMetadata;
     }[],
-    colaboracionesLogo  : string[]
+    colaboracionesLogo  : ImageMetadata[]
 }
 
 export interface Projects{

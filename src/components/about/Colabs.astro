@@ -2,7 +2,7 @@
 import SectionTitle from '../SectionTitle.astro';
 
 interface Props {
-    logos   : string[];
+    logos   : ImageMetadata[];
 }
 const { logos } = Astro.props
 
@@ -16,28 +16,28 @@ const logosDown = logos.slice(Math.floor(logos.length / 2),logos.length)
         {
             logosTop.map(logo => (
                 <figure class="colaborations__logo">
-                    <img src={logo} alt="">
+                    <img src={logo.src} alt="">
                 </figure>
             ))
         }
         {
             logosTop.map(logo => (
                 <figure class="colaborations__logo">
-                    <img src={logo} alt="">
+                    <img src={logo.src} alt="">
                 </figure>
             ))
         }
         {
             logosTop.map(logo => (
                 <figure class="colaborations__logo">
-                    <img src={logo} alt="">
+                    <img src={logo.src} alt="">
                 </figure>
             ))
         }
         {
             logosTop.map(logo => (
                 <figure class="colaborations__logo">
-                    <img src={logo} alt="">
+                    <img src={logo.src} alt="">
                 </figure>
             ))
         }
@@ -47,28 +47,28 @@ const logosDown = logos.slice(Math.floor(logos.length / 2),logos.length)
         {
             logosDown.map(logo => (
                 <figure class="colaborations__logo">
-                    <img src={logo} alt="">
+                    <img src={logo.src} alt="">
                 </figure>
             ))
         }
         {
             logosDown.map(logo => (
                 <figure class="colaborations__logo">
-                    <img src={logo} alt="">
+                    <img src={logo.src} alt="">
                 </figure>
             ))
         }
         {
             logosDown.map(logo => (
                 <figure class="colaborations__logo">
-                    <img src={logo} alt="">
+                    <img src={logo.src} alt="">
                 </figure>
             ))
         }
         {
             logosDown.map(logo => (
                 <figure class="colaborations__logo">
-                    <img src={logo} alt="">
+                    <img src={logo.src} alt="">
                 </figure>
             ))
         }
@@ -77,29 +77,27 @@ const logosDown = logos.slice(Math.floor(logos.length / 2),logos.length)
 
 <style>
 .colaborations{
-    margin: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    overflow-x: hidden;
+    margin          : 0 1rem;
+    display         : flex;
+    flex-direction  : column;
+    gap             : 3rem;
+    overflow-x      : hidden;
 }
 
 .colaborations__show{
-    position: relative;
-    display: flex;
-    gap: 1rem;
-    animation: linear colanH 15s infinite;
+    position        : relative;
+    display         : flex;
+    gap             : 1rem;
+    animation       : linear colanH 15s infinite;
 }
 @keyframes colanH {
-    from{left: 0px;}
-    to{left: -36rem;}
+    from{left       : 0;}
+    to{left         : -36rem;}
 }
 
 .colaborations__logo{
-    width: 8rem;
-    height: 3rem;
-    flex-shrink: 0;
-    border: 1px solid #000;
+    width           : 10rem;
+    flex-shrink     : 0;
 }
 
 .colaborations__spacing{
