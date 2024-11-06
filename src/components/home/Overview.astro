@@ -1,35 +1,46 @@
 ---
-    import imagen from '../../assets/home/overview.jpg';
-    interface props{
-        slogan  : string;
-    }
-    const { slogan } = Astro.props
+import imagen from '@/assets/home/overview.jpg';
+interface props{
+    slogan  : string;
+}
+const { slogan } = Astro.props
 ---
 
 <article class="overview">
     <h2 class="overview__slogan">
         {slogan}
     </h2>
-    <img class="overview__img" src={imagen.src} alt="Imagen de un calle X de la ciudad">
+    <img 
+        class="overview__img" 
+        src={imagen.src} 
+        alt="Imagen de un calle X de la ciudad"
+        loading="lazy"
+        decoding="async"
+    >
 </article>
 
 <style>
-    .overview{
-        position: relative;
-        padding: 0 1rem;
+.overview{
+    position    : relative;
+    padding     : 0 1rem;
 
-    }
+}
+.overview__slogan{
+    position    : absolute;
+    top         : 1rem;
+    font-size   : 3rem;
+    font-weight : 700;
+    letter-spacing: -.02em;
+}
+.overview__img{
+    width       : 25rem;
+    height      : 28rem;
+    margin-left: auto;
+}
+
+@media (prefers-color-scheme: dark) {
     .overview__slogan{
-        position: absolute;
-        top: 1rem;
-        font-size: 2.4rem;
-        line-height: 3rem;
-        font-weight: 700;
-        letter-spacing: -.03rem;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     }
-    .overview__img{
-        width: 25rem;
-        aspect-ratio: 25 / 28;
-        margin-left: auto;
-    }
+}
 </style>

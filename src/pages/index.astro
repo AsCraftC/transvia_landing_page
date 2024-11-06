@@ -18,13 +18,8 @@ import Service from '@/components/home/Service.astro';
 	<section class="services">
 		{
 			homeData.servicios.map((service, index) => (
-				<Service 
-					index={index} 
-					imgPath={service.rutaImagen}
-					number={service.id}
-					title={service.titulo}
-					desc={service.descripcion}
-					/>
+				<Service index={index} {... service}
+				/>
 			))
 		}
 	</section>
@@ -32,8 +27,8 @@ import Service from '@/components/home/Service.astro';
 
 <style>
 .services{
-	display: flex;
-	flex-direction: column;
-	gap: 3rem;
+	display			: flex;
+	flex-direction	: column;
+	gap				: 3rem;
 }
 </style>

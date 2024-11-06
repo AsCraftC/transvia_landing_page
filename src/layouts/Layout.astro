@@ -60,28 +60,35 @@ main{
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Work+Sans:wght@100..900&display=swap');
 
 :root{
-    font-size: 62.5%;
+    font-size: 50%;
     /* Colors */
     --primary-color     :#73BC44;
     --secondary-color  	:#046CBC;
     --accent-color 	    :#44C4F4;
-	--white				:#DCDCDC;
-    --black             :#040404;
-	--background-color	: linear-gradient(rgba(220,220,220,50%),rgba(220,220,220,50%)),linear-gradient(90deg, var(--white) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
 
-    --text-color 		:#212529;
+    --footer-color      :#040404;
+    --footer-letter     :#DCDCDC;
 
-    --min-width-mobile      :360px;
-    --desktop-break-point   :760px;
-    --max-width             :1440px;
+	--background-color  :#DCDCDC;
+	--background-grad   : linear-gradient(rgba(220,220,220,50%),rgba(220,220,220,50%)),linear-gradient(90deg, var(--background-color) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
+    --background-banner : rgba(220, 220, 220, 75%);
+
+    --text-color 		    :#212529;
+
+    --min-width-mobile  :360px;
+    --min-width-desktop :760px;
+    --max-width         :1440px;
 }
 /* Modo oscuro */
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     :root{
-        	--background-color	: linear-gradient(rgba(220,220,220,50%),rgba(220,220,220,50%)),linear-gradient(90deg, var(--white) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
+        --background-color  :#212529;
+        --background-grad	: linear-gradient(rgba(4,4,4,50%),rgba(4,4,4,50%)),linear-gradient(90deg, var(--background-color) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
+        --background-banner : rgba(4, 4, 4, 75%);
+
         --text-color		:#DEDEDE;
     }
-} */
+}
 /* Modo alto contraste */
 /* @media (prefers-contrast: high){
     :root{
@@ -97,8 +104,8 @@ main{
 /* Modo sin animation */
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation       : none !important;
-    transition      : none !important;
+        animation           : none !important;
+        transition          : none !important;
     }
 }
 
@@ -111,7 +118,7 @@ main{
 
     box-sizing      : border-box;
     vertical-align  : baseline; 
-    background-size: cover;
+    background-size : cover;
     background-repeat: no-repeat;
 }
 img , picture , video , iframe , figure{
@@ -167,13 +174,13 @@ svg{
     fill            : currentColor;
 }   
 body {
-    min-width   : var(--min-width-mobile);
-    max-width   : var(--max-width);
-	min-height  : 100vh;
-    max-height  : min-content;
-    font-family : "Work Sans", sans-serif;
-    color       : var(--text-color);
-    background  : border-box var(--background-color) border-box no-repeat fixed;
-    font-size   : 1.6rem
+    min-width       : var(--min-width-mobile);
+    max-width       : var(--max-width);
+	min-height      : 100vh;
+    max-height      : min-content;
+    font-family     : "Work Sans", sans-serif;
+    color           : var(--text-color);
+    background      : border-box var(--background-grad) border-box no-repeat fixed;
+    font-size       : 2rem;
 }
 </style>

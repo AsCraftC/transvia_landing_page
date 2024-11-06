@@ -13,7 +13,12 @@ export interface HomeData {
         {valor : number, etiqueta : string},
         {valor : number, etiqueta : string}
     ];
-    servicios       : {id : number, rutaImagen : string, titulo : string, descripcion : string}[]
+    servicios       : {
+        id          : number,
+        imagen      : ImageMetadata,
+        titulo      : string,
+        descripcion : string
+    }[]
 }
 
 

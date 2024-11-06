@@ -2,13 +2,14 @@
 import { companyData } from "@/data/home";
 import { Image } from "astro:assets";
 
+//Iamgens
 import transviaLogo from "@/assets/transviaLogo.png";
 import mobileMenuImage from "@/assets/menu.jpg";
 
+//Icons
 import MenuIcon from "@/icons/MenuIcon.astro";
-
-import homeIcon from "@/assets/home.svg";
-import arrowIcon from "@/assets/chevron-right.svg";
+import HomeIcon from "@/icons/HomeIcon.astro";
+import ArrowIcon from "@/icons/ChevronRightIcon.astro";
 
 const location : string = Astro.url.pathname;
 const isHome : boolean = location === "/";
@@ -16,7 +17,6 @@ const isHome : boolean = location === "/";
 let locationLabel = "";
 if (!isHome) {
     locationLabel = location.replace("/","");
-    locationLabel = locationLabel.charAt(0).toUpperCase() + locationLabel.slice(1)
 }
 ---
 
@@ -43,7 +43,12 @@ if (!isHome) {
         </nav>
 
         <a class="logo" href="/">
-            <img src={transviaLogo.src} alt="Logo Transvia Ingenieria">
+            <img 
+                src={transviaLogo.src} 
+                alt="Logo Transvia Ingenieria"
+                loading="lazy"
+                decoding="async"
+            >
         </a>
         
         <nav class="menu-desktop">
@@ -52,7 +57,7 @@ if (!isHome) {
         </nav>
 
         <label class="menu-deployer" for="isDeployed">
-            <div class="menu-deployer__menu-icon"></div>
+            <div class="menu-deployer__menu-icon"> <MenuIcon /> </div>
             <span class="menu-deployer__menu-label">Menú</span>
         </label>
     </section>
@@ -60,7 +65,13 @@ if (!isHome) {
     <input class="header__checker" type="checkbox" id="isDeployed">
     <hr>
     <section class="header__deploy-menu">
-        <img class="menu-image" src={mobileMenuImage.src} alt="Calle en plano cenital">
+        <img 
+            class="menu-image"
+            src={mobileMenuImage.src}
+            alt="Calle en plano cenital"
+            loading="lazy"
+            decoding="async"
+        >
         <nav class="mobile-nav">
             <a class="mobile-nav__item" href="/">Inicio</a>
             <a class="mobile-nav__item" href="/nosotros">Nosotros</a>
@@ -86,10 +97,8 @@ if (!isHome) {
 {   
     !isHome && 
     <nav class="path">
-        <a class="path__home-icon" href="/">
-            <img src={homeIcon.src} alt="Icono de redireccion al inicio">
-        </a>
-        <img class="path__path-icon" src={arrowIcon.src} alt="Icono de flecha a la derecha">
+        <a class="path__home-icon" href="/"> <HomeIcon /> </a>
+        <div class="path__path-icon"> <ArrowIcon /> </div>
         <span class="path__location-label">{locationLabel}</span>
     </nav>
 }
@@ -97,135 +106,159 @@ if (!isHome) {
 
 <style>
 .header{
-    position: sticky;
-    top: 0px;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    background-color: var(--white);
-    box-sizing: border-box;
+    position        : sticky;
+    top             : 0;
+    z-index         : 100;
+    display         : flex;
+    flex-direction  : column;
+    align-items     : stretch;
+    background-color: var(--background-color);
+    box-sizing      : border-box;
 }
 .header__contact-Desktop{
-    display: none;
+    display         : none;
 }
 .header__navbar{
-    padding: 5px 10px;
-    display: flex;
-    justify-content: space-between;
-    
+    padding         : .5rem 1rem;
+    display         : flex;
+    justify-content : space-between;
 }
 
 .menu-desktop{
-    display:  none;
+    display         : none;
 }
 
 .logo{
-    width: 8rem;
-    aspect-ratio: 8 / 3;
+    width           : 10rem;
+    height          : 4rem;
 }
 
 .menu-deployer{
-    display: flex;
-    gap: 5px;
-    align-items: center;
+    display         : flex;
+    gap             : .5rem;
+    align-items     : center;
 }
 .menu-deployer__menu-icon{
-    width: 2rem;
-    aspect-ratio: 1 / 1;
-    background-image: url("../assets/menu.svg");
+    width           : 3rem;
+    height          : 3rem;
 }
 .menu-deployer__menu-label{
-    font-family: "Nunito", sans-serif;
-    font-size: 1.6rem;
-    font-weight: 500;
+    font-family     : "Nunito", sans-serif;
 }
 
 .header__checker{
-    display: none;
+    display         : none;
+}
+.header__deploy-menu{
+    display         : none;
 }
 
-.header__deploy-menu{
-    display: none;
-    
+.header__checker:checked ~ hr{
+    margin          : 0 2rem;
+    height          : 1px;
+    width           : auto;
+    box-sizing      : content-box;
+    background-color: var(--text-color);
 }
 .header__checker:checked ~ .header__deploy-menu{
-    position: fixed;
-    top: 4.2rem;
-    width: 100%;
-    display: flex;
-    padding: 5px;
-    gap: 5px;
-    background-color: var(--white);
+    position        : fixed;
+    top             : calc(1px + 5rem);
+    width           : 100%;
+    display         : flex;
+    padding         : 1rem;
+    gap             : .5rem;
+    background-color: var(--background-color);
+    -webkit-animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+    animation       : swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }
-.header__checker:checked ~ hr{
-    margin: 0 10px;
-    height: 1px;
-    width: auto;
-    box-sizing: content-box;
-    background-color: var(--text-color);
+@-webkit-keyframes swing-in-top-fwd {
+    0% {
+        -webkit-transform: rotateX(-100deg);
+                transform: rotateX(-100deg);
+        -webkit-transform-origin: top;
+                transform-origin: top;
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        -webkit-transform-origin: top;
+                transform-origin: top;
+        opacity: 1;
+    }
+}
+@keyframes swing-in-top-fwd {
+    0% {
+        -webkit-transform: rotateX(-100deg);
+                transform: rotateX(-100deg);
+        -webkit-transform-origin: top;
+                transform-origin: top;
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: rotateX(0deg);
+                transform: rotateX(0deg);
+        -webkit-transform-origin: top;
+                transform-origin: top;
+        opacity: 1;
+    }
 }
 
 .menu-image{
-    width: 120px;
-    aspect-ratio: 3 / 5;
+    width           : 15rem;
+    height          : 25rem;
 }
 .mobile-nav{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    display         : flex;
+    flex-direction  : column;
+    gap             : 1rem;
 
 }
 .mobile-nav__item{
-    width: min-content;
-    padding: 0 .2rem;
-    font-family: "Nunito", sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
-    border-bottom: 1px solid var(--text-color);
+    width           : min-content;
+    padding         : 0 .25rem;
+    font-family     : "Nunito", sans-serif;
+    font-weight     : 600;
+    border-bottom   : 1px solid var(--text-color);
 }
 .company-information{
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: end;
-    gap: 1rem;
+    flex-grow       : 1;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : end;
+    align-items     : end;
+    gap             : 1rem;
 }
 .company-information__item{
-    font-size: 1rem;
-    text-align: end;
+    font-size       : 1rem;
+    text-align      : end;
 }
 .company-information__copyright{
-    font-size: .8rem;
-    width: max-content;
+    font-size       : .9rem;
+    width           : max-content;
 }
 
 .path{
-    display: flex;
-    gap: ;
-    padding: 5px 25px;
-    align-items: center;
+    display         : flex;
+    padding         : .5rem 3rem;
+    align-items     : center;
 }
 .path__home-icon{
-    width: 2rem;
+    width           : 3rem;
+    height          : 3rem;
 }
 .path__path-icon{
-    width: 2rem;
-    height: 1.6rem;
+    width           : 3rem;
+    height          : 2rem;
 }
 .path__location-label{
-    font-family: "Nunito", sans-serif;
-    font-weight: 700;
-    font-size: 2.4rem;
-    line-height: 2.2rem;
-    border-bottom: 2px solid var(--text-color);
+    font-family     : "Nunito", sans-serif;
+    font-weight     : 700;
+    font-size       : 3rem;
+    line-height     : 2.5rem;
+    border-bottom   : 2px solid var(--text-color);
 }
 .path__location-label::first-letter{
-    text-transform: capitalize;
-}
-
-@media screen and (min-width: 800px) {
-    
+    text-transform  : capitalize;
 }
 </style>

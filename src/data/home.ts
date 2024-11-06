@@ -31,19 +31,19 @@ export const homeData : HomeData = {
     servicios       : [
         {
             id          : 1,
-            rutaImagen  : servicio1.src,
+            imagen      : servicio1,
             titulo      : "Servicio 1",
             descripcion : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua."
         },
         {
             id          : 2,
-            rutaImagen  : servicio2.src,
+            imagen      : servicio2,
             titulo      : "Servicio 2",
             descripcion : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua."
         },
         {
             id          : 3,
-            rutaImagen  : servicio3.src,
+            imagen      : servicio3,
             titulo      : "Servicio 3",
             descripcion : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua."
         }

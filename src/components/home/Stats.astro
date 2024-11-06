@@ -22,42 +22,44 @@ const { stats } = Astro.props
 
 <style>
 .badge-stats{
-    position: relative;
-    height: 15rem;
-    padding: .5rem 2.5rem;
-    background: rgba(220, 220, 220, 75%);
+    position        : relative;
+    height          : 18rem;
+    padding         : .5rem 2.5rem;
+    background      : var(--background-banner);
 
 }
 .stat{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    text-align: center;
+    position        : absolute;
+    display         : flex;
+    flex-direction  : column;
+    flex-wrap       : wrap;
+    align-items     : center;
+    text-align      : center;
 }
 .stat__number{
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 4rem;
+    font-size       : 5rem;
+    font-weight     : 700;
+    line-height     : 1em;
 
 }
 .stat__label{
-    width: 100%;
-    font-size: 1.2rem;
-    font-weight: 900;
-    text-align: center;
+    width           : 100%;
+    font-size       : 1.5rem;
+    font-weight     : 900;
+    text-align      : center;
 }
 .stat-0{
-    width: 6rem;
-    left: 10vw;
+    left            : 10%;
+    width           : 10rem;
 }
 .stat-1{
-    top: 2rem;
-    left: 60vw;
+    top             : 2rem;
+    right           : 12%;
+    width           : 10rem;
 }
 .stat-2{
-    top: 8rem;
-    left: 20vw;
+    bottom          : 1rem;
+    left            : 20%;
+    width           : 23rem;
 }
 </style>

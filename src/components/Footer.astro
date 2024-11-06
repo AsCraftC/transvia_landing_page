@@ -1,28 +1,50 @@
 ---
-import { companyData } from "../data/home";
+import { companyData } from "@/data/home";
 
-import transviaLogoWhite from "../assets/transviaLogoClaro.png";
-import igIcon from "../assets/intagramIconWhite.svg";
-import liIcon from "../assets/linkedinIconWhite.svg";
-import waIcon from "../assets/whatsappIconWhite.svg";
+import transviaLogoWhite from "@/assets/transviaLogoClaro.png";
+import WhatsappLogo from "@/icons/WhatsappLogo.astro";
+import InstagramLogo from "@/icons/InstagramLogo.astro";
+import LinkedinLogo from "@/icons/LinkedinLogo.astro";
 ---
 
 <footer class="footer">
     <h3 class="footer__title">
-        Contactanos Contactanos Contactanos Contactanos Contactanos Contactanos Contactanos
+        <span class="label"> Contactanos&nbsp; </span>
+        <span class="label"> Contactanos&nbsp; </span>       
+        <span class="label"> Contactanos&nbsp; </span>       
+        <span class="label"> Contactanos&nbsp; </span>       
+        <span class="label"> Contactanos&nbsp; </span>       
     </h3>
     <article class="footer__right">
-        <img class="logo" src={transviaLogoWhite.src} alt="Logo de Transvia Ingenieríia en color blanco">
-        <h2 class="company-name">{companyData.nombreCompañia}</h2>
+        <img 
+            class="logo" 
+            src={transviaLogoWhite.src} 
+            alt="Logo de Transvia Ingenieríia en color blanco"
+            loading="lazy"
+            decoding="async"
+        >
+        <h1 class="company-name">{companyData.nombreCompañia}</h1>
         <p class="company-location">{companyData.direccion}, {companyData.ciudad}</p>
     </article>
     <aside class="footer__left">
         <p class="company-contact"> {companyData.email} </p>
         <p class="company-contact"> {companyData.telefono} </p>
         <ul class="social-network">
-            <li class="social-network__link"><a href=""><img src={waIcon.src} alt="Icono de Whatsapp"></a></li>
-            <li class="social-network__link"><a href=""><img src={igIcon.src} alt="Icono de Instagram"></a></li>
-            <li class="social-network__link"><a href=""><img src={liIcon.src} alt="Icono de Linked In"></a></li>
+            <li class="social-network__link">
+                <a href="">
+                    <WhatsappLogo />
+                </a>
+            </li>
+            <li class="social-network__link">
+                <a href="">
+                    <InstagramLogo />
+                </a>
+            </li>
+            <li class="social-network__link">
+                <a href="">
+                    <LinkedinLogo />
+                </a>
+            </li>
         </ul>
     </aside>
     <footer class="footer__botton">
@@ -33,72 +55,78 @@ import waIcon from "../assets/whatsappIconWhite.svg";
 
 <style>
 .footer{
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(3, min-content);
-    background-color: var(--black);
-    color: var(--white);
-    padding: 1rem;
-    overflow-x: hidden;
+    display         : grid;
+    grid-template-columns: repeat(2, 1fr);
+    background-color: var(--footer-color);
+    color           : var(--footer-letter);
+    padding         : 1rem;
 }
 .footer__title{
-    position: relative;
-    font-family: "Nunito", sans-serif;
-    grid-area: 1 / 1 / 2 / 3;
-    font-weight: 600;
-    font-size: 4rem;
-    text-wrap: nowrap;
-    animation: linear hTranslation 5s infinite;
+    position        : relative;
+    display         : flex;
+    flex-flow       : row nowrap;
+    font-family     : "Nunito", sans-serif;
+    grid-area       : 1 / 1 / 2 / 3;
+    font-weight     : 600;
+    font-size       : 5rem;
+    white-space     : nowrap;
+    overflow-x      : hidden;
+}
+.label{
+    display         : inline-block;
+    animation       : hTranslation 5s linear infinite;
+    max-width       : none;
 }
 @keyframes hTranslation {
-    from{left: 0px;}
-    to{left:-23.8rem;}
+    from{transform  : translateX(0);}
+    to{transform    : translateX(-100%);}
 }
 .footer__right{
-    grid-area: 2 / 1 / 3 / 2;
-    margin-bottom: 3rem;
+    grid-area       : 2 / 1 / 3 / 2;
+    margin-bottom   : 3rem;
 }
 .logo{
-    width: 8rem;
-    aspect-ratio: 8 / 3;
+    width           : 10rem;
+    aspect-ratio    : 8 / 3;
 }
 .company-name{
-    font-family: "Nunito", sans-serif;
-    font-size: 2.2rem;
-    font-weight: 600;
-    text-wrap: nowrap;
+    font-family     : "Nunito", sans-serif;
+    font-size       : 3rem;
+    font-weight     : 600;
+    text-wrap       : nowrap;
 }
 .company-location{
-    margin-top: 5px;
-    font-size: 1.2rem;
+    font-size       : 1.5rem;
 }
 
 .footer__left{
-    grid-area: 2 / 2/ 3 / 3;
+    grid-area       : 2 / 2/ 3 / 3;
 
 }
 .company-contact{
-    text-align: end;
-    font-size: 1.2rem;
-    letter-spacing: -3%;
+    text-align      : end;
+    font-size       : 1.5rem;
+    letter-spacing  : -.03em;
+    margin-bottom   : .5rem;
 }
 .social-network{
-    display: flex;
-    justify-content: end;
-    gap: 1rem;
+    display         : flex;
+    justify-content : end;
+    gap             : 1rem;
 }
 .social-network__link{
-    width: 2rem;
-    aspect-ratio: 1 / 1;
+    width           : 3rem;
+    height          : 3rem;
 }
 
 .footer__botton{
-    border-top: 1px solid var(--white);
-    padding-top: 10px;
-    grid-area: 3 / 1 / 4 / 3;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    border-top      : 1px solid var(--footer-letter);
+    margin          : 0 1rem;
+    padding-top     : 1rem;
+    grid-area       : 3 / 1 / 4 / 3;
+    display         : flex;
+    flex-direction  : row;
+    justify-content : space-between;
 }
 .botton__item{
     font-size: 1rem;

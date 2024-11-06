@@ -1,13 +1,13 @@
 ---
 interface Props {
-    index   : number;
-    imgPath : string;
-    number  : number;
-    title   : string;
-    desc    : string;
+    index       : number;
+    id          : number,
+    imagen      : ImageMetadata,
+    titulo      : string,
+    descripcion : string
 }
 
-const { index, imgPath, number, title, desc } = Astro.props
+const { index, id, imagen, titulo, descripcion } = Astro.props
 
 const isOdd : boolean = index % 2 === 1;
 const lessThan10 : boolean = index < 10;
@@ -16,57 +16,81 @@ const lessThan10 : boolean = index < 10;
 ---
 
 <article class:list={['service', isOdd && 'service--inverse']}>
-    <img class="service__img " src={imgPath} alt="Imagen de servicio">
+    <img 
+        class:list={[
+            'service__img', 
+            isOdd && 'service__img--transition-reverse',
+            !isOdd && '.service__img--transition'
+            ]} 
+        src={imagen.src}
+        alt="Imagen de servicio"
+        loading="lazy"
+        decoding="async"
+    >
     <div class:list={['service__info', isOdd && 'service__info--reverse']}>
-        <span class="service__number"> {lessThan10 && "0"}{number} </span>
-        <p class="service__title"> {title} </p>
+        <span class="service__number"> {lessThan10 && "0"}{id} </span>
+        <p class="service__title"> {titulo} </p>
         <hr>
-        <p class="service__desc"> {desc} </p>
+        <p class="service__desc"> {descripcion} </p>
     </div>
 </article>
 
 <style>
 .service{
-    display: flex;
-    padding: 0 1rem;
-    gap: 1rem;
+    display         : flex;
+    padding         : 0 3rem;
+    gap             : 1rem;
     
 }
 .service--inverse{
-    flex-direction: row-reverse;
+    flex-direction  : row-reverse;
 }
+
 .service__img{
-    width: 9.5rem;
-    aspect-ratio: 19 / 20;
-    
+    width           : 12rem;
+    height          : 13rem;
+    /* animation-timeline: scroll(); */
 }
+
+.service__img--transition{
+    animation       : paralax linear alternate;
+}
+.service__img--transition-reverse{
+    animation       : paralax-reverse linear alternate;
+}
+@keyframes paralax {
+    form {transform : translateY(-1rem);}
+    to {transform   : translateY(3rem);}
+}
+@keyframes paralax-reverse {
+    form {transform : translateY(3rem);}
+    to {transform   : translateY(-1rem);}
+}
+
 .service__info{
-    display: flex;
-    flex-direction: column;
-    width: 21rem;
-    gap: .5rem;
+    display         : flex;
+    flex-direction  : column;
+    width           : 26rem;
+    gap             : .5rem;
 }
 .service__info--reverse{
-    text-align: end;
+    text-align      : end;
 }
 .service__number{
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-    font-weight: 700;
+    font-size       : 1.5rem;
+    font-weight     : 700;
 }
 .service__title{
-    font-family: "Nunito", sans-serif;
-    font-size: 2rem;
+    font-family     : "Nunito", sans-serif;
+    font-size       : 2.5rem;
 }
 hr{
-    height: 1px;
-    width: auto;
-    box-sizing: content-box;
+    height          : .7px;
+    width           : auto;
     background-color: var(--text-color);
 }
 .service__desc{
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-    letter-spacing: -.05rem;
+    font-size       : 1.5rem;
+    letter-spacing  : -.07em;
 }
 </style>
