@@ -1,3 +1,4 @@
+
 export interface CompanyData{
     nombreCompañia  : string;
     email           : string;
@@ -49,5 +50,27 @@ export interface Projects{
         fechaInicio     : Date;
         duracion        : number;
         impacto         : string;
+    }[]
+}
+
+export interface Values {
+    mision      : {
+        titulo      : string;
+        descripcion : string;
+        imagen      : ImageMetadata;
+        altImage    : string;
+    }
+    vision      : {
+        titulo      : string;
+        descripcion : string;
+        imagen      : ImageMetadata;
+        altImage    : string;
+    }
+    valores     : {
+        numero      : number;
+        titulo      : string;
+        descripcion : string;
+        icono       : ImageMetadata;
+        imagen      : ImageMetadata;
     }[]
 }

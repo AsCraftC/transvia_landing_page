@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    isMision        : boolean;
+    titulo          : string;
+    descripcion     : string;
+    imagen          : ImageMetadata;
+    altImage        : string;
+}
+
+const { isMision, titulo, descripcion, imagen, altImage} = Astro.props
+---
+<section class="mv-section">
+    <article class:list={['mv-card', {'mv-card--vision' : !isMision}]}>
+        <h3 class:list={['mv-card__title', { 'mv-card__title--vision' : !isMision } ]} >{ isMision ? "Misión" : "Visión"}</h3>
+        <p class="mv-card__subtitle"> {titulo} </p>
+        <p class="mv-card__description"> {descripcion} </p>
+    </article>
+    <div class:list={['mv-section__decoration', {'mv-section__decoration--vision' : !isMision}]} ></div>
+    <Image 
+        class:list={['mv-section__image', {'mv-section__image--vision' : !isMision}]} 
+        src={imagen} 
+        alt={altImage}
+    />
+</section>
+
+<style>
+.mv-section{
+    width           : 100%;
+    padding         : 0 1rem;
+    position        : relative;
+    display         : flex;
+    flex-flow       : column nowrap;
+}
+.mv-card{
+    width           : 38rem;
+    height          : 22rem;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : center;
+    margin-top      : 1rem;
+    padding         : 2rem;
+    gap: 1rem;
+    background-color: var(--background-color);
+}
+.mv-card--vision{
+    margin-left     : auto;
+}
+.mv-card__title{
+    font-family     : "Nunito", sans-serif;
+    font-weight     : 700;
+    font-size       : 2rem;
+    letter-spacing  : -.04em;
+    padding         : 0 1rem;
+    color           : var(--primary-color);
+    border-left     : 2px solid var(--primary-color);
+}
+.mv-card__title--vision{
+    color           : var(--secondary-color);
+    border-left     : 2px solid var(--secondary-color);
+}
+.mv-card__subtitle{
+    font-size       : 1.5rem;
+    letter-spacing  : -.06em;
+}
+.mv-card__description{
+    font-size       : 1rem;
+    letter-spacing  : -.05em;
+}
+.mv-section__decoration{
+    position        : absolute;
+    top             : 0;
+    right           : 2rem;
+    width           : calc(100% - 5rem);
+    height          : 22rem;
+    border          : 1px var(--text-color) dashed;
+    z-index         : -2;
+}
+.mv-section__decoration--vision{
+    right           : 0;
+    left            : 2rem;
+}
+.mv-section__image{
+    margin-top      : -5rem;
+    align-self      : flex-end;
+    width           : 38rem;
+    height          : 25rem;
+    border-radius   : 4px;
+    z-index         : -1;
+}
+.mv-section__image--vision{
+    align-self       : flex-start;
+}
+</style>
