@@ -1,20 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import { projectData } from "@/data/projects";
 
-import { projectData } from "../data/projects";
-import ProjectCard from "../components/projects/ProjectCard.astro";
-
+import ProjectCard from "@/components/projects/ProjectCard.astro";
 ---
 
 <Layout title="proyectos - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
-    <main class="projects">
+    <div class="projects">
         {
             projectData.projects.map( project => (
                 <ProjectCard {... project} />
             ))
         }
-        
-    </main>
+    </div>
+    <!-- Agregar paginador -->
 </Layout>
 
 <style>
@@ -22,6 +21,6 @@ import ProjectCard from "../components/projects/ProjectCard.astro";
     display: flex;
     flex-direction: column;
     gap: .5rem;
-    padding: 2.5rem 1rem;
+    padding: 0 1rem;
 }
 </style>

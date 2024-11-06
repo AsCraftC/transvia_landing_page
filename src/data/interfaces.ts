@@ -17,7 +17,7 @@ export interface HomeData {
 }
 
 
-export interface aboutUs {
+export interface AboutUs {
     frase           : string;
     descripcion     : string;
     hitos           : {
@@ -36,7 +36,7 @@ export interface aboutUs {
     colaboracionesLogo  : string[]
 }
 
-export interface projectsI{
+export interface Projects{
     projects    :{
         imagenMuestra   : string;
         nombreProyecto  : string;

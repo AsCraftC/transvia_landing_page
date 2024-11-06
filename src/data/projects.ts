@@ -1,9 +1,9 @@
-import type { projectsI } from "../data/interfaces";
+import type { Projects } from "@/data/interfaces";
 
 //Imágenes de proyectos
-import project1 from "../assets/project/project.png";
+import project1 from "@/assets/project/project.png";
 
-export const projectData : projectsI = {
+export const projectData : Projects = {
     projects : [
         {
             imagenMuestra   : project1.src,

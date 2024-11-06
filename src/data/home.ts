@@ -1,8 +1,8 @@
-import type { CompanyData , HomeData } from "./interfaces";
+import type { CompanyData , HomeData } from "@/data/interfaces";
 
-import servicio1 from '../assets/home/service1.jpg';
-import servicio2 from '../assets/home/service2.jpg';
-import servicio3 from '../assets/home/service3.jpg';
+import servicio1 from '@/assets/home/service1.jpg';
+import servicio2 from '@/assets/home/service2.jpg';
+import servicio3 from '@/assets/home/service3.jpg';
 
 export const companyData : CompanyData = {
     nombreCompañia  : "Transvia Ingeniería",

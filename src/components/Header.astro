@@ -1,10 +1,14 @@
 ---
-import { companyData } from "../data/home";
+import { companyData } from "@/data/home";
+import { Image } from "astro:assets";
 
-import transviaLogo from "../assets/transviaLogo.png";
-import mobileMenuImage from "../assets/menu.jpg";
-import homeIcon from "../assets/home.svg";
-import arrowIcon from "../assets/chevron-right.svg";
+import transviaLogo from "@/assets/transviaLogo.png";
+import mobileMenuImage from "@/assets/menu.jpg";
+
+import MenuIcon from "@/icons/MenuIcon.astro";
+
+import homeIcon from "@/assets/home.svg";
+import arrowIcon from "@/assets/chevron-right.svg";
 
 const location : string = Astro.url.pathname;
 const isHome : boolean = location === "/";
@@ -80,15 +84,14 @@ if (!isHome) {
     </section>
 </header>
 {   
-    !isHome ? 
-        <nav class="path">
-            <a class="path__home-icon" href="/">
-                <img src={homeIcon.src} alt="Icono de redireccion al inicio">
-            </a>
-            <img class="path__path-icon" src={arrowIcon.src} alt="Icono de flecha a la derecha">
-            <span class="path__location-label">{locationLabel}</span>
-        </nav>
-    : ""
+    !isHome && 
+    <nav class="path">
+        <a class="path__home-icon" href="/">
+            <img src={homeIcon.src} alt="Icono de redireccion al inicio">
+        </a>
+        <img class="path__path-icon" src={arrowIcon.src} alt="Icono de flecha a la derecha">
+        <span class="path__location-label">{locationLabel}</span>
+    </nav>
 }
 
 

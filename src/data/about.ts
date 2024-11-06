@@ -1,13 +1,13 @@
-import type { aboutUs } from "../data/interfaces";
+import type { AboutUs } from "@/data/interfaces";
 
 //Imágenes de empleados
-import alarconPortrait from "../assets/employees/employee1.jpg"
-import CuevasPortrait from "../assets/employees/employee2.jpg";
+import alarconPortrait from "@/assets/employees/employee1.jpg"
+import CuevasPortrait from "@/assets/employees/employee2.jpg";
 
 //Logos de colaboraciones
-import logTransvia from "../assets/transviaLogo.png";
+import logTransvia from "@/assets/transviaLogo.png";
 
-export const about : aboutUs = {
+export const about : AboutUs = {
     frase       : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  tempor",
     descripcion : "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
 

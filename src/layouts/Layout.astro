@@ -1,6 +1,6 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 
 interface Props {
 	title: string;
@@ -37,10 +37,22 @@ TODO:
 	</head>
 	<body>
 		<Header/>
-		<slot />
+        <main>
+            <slot />
+        </main>
 		<Footer/>
 	</body>
 </html>
+
+<style>
+main{
+	display         : flex;
+	flex-direction  : column;
+	gap             : 3rem;
+	padding         : 3rem 0;
+}
+</style>
+
 
 
 <style is:global>
