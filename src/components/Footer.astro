@@ -33,17 +33,17 @@ const whatsapp = companyData.telefono;
         <p class="company-contact"> {companyData.telefono} </p>
         <ul class="social-network">
             <li class="social-network__link">
-                <a href={whatsapp}>
+                <a aria-label="Enlace hacia chat de WhatsApp" href={whatsapp}>
                     <WhatsappLogo />
                 </a>
             </li>
             <li class="social-network__link">
-                <a href={companyData.enlaceInstagram} >
+                <a aria-label="Enlace hacia perfil de Instagram" href={companyData.enlaceInstagram} >
                     <InstagramLogo />
                 </a>
             </li>
             <li class="social-network__link">
-                <a href={companyData.enlaceLinkedin} >
+                <a aria-label="Enlace hacia perfil de Linked In" href={companyData.enlaceLinkedin} >
                     <LinkedinLogo />
                 </a>
             </li>

@@ -1,8 +1,7 @@
 ---
 import { companyData } from "@/data/contact";
-import { Image } from "astro:assets";
 
-//Iamgens
+//Images
 import transviaLogo from "@/assets/transviaLogo.png";
 import mobileMenuImage from "@/assets/menu.jpg";
 
@@ -97,7 +96,7 @@ if (!isHome) {
 {   
     !isHome && 
     <nav class="path">
-        <a class="path__home-icon" href="/"> <HomeIcon /> </a>
+        <a aria-label="Icono para volver al inicio" class="path__home-icon" href="/"> <HomeIcon /> </a>
         <div class="path__path-icon"> <ArrowIcon /> </div>
         <span class="path__location-label">{locationLabel}</span>
     </nav>
