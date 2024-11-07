@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import SectionTitle from "../SectionTitle.astro";
+
+interface Props {
+    nombre          : string;
+    telefono        : string;
+    email           : string;
+    retrato         : ImageMetadata;
+}
+const { nombre, telefono, email, retrato } = Astro.props
+---
+
+<section class="legal">
+    <Image class="legal__portrait" src={retrato} alt=`Retrato de ${nombre}`/>
+    <aside class="legal__content">
+        <SectionTitle title="Respresentante Legal" />
+        <p class="legal__name"> {nombre} </p>
+        <p class="legal__contact"> 
+            {telefono} <br/>
+            {email}
+        </p>
+    </aside>
+</section>
+
+<style>
+.legal{
+    display         : flex;
+    gap             : 1rem;
+    padding         : 1rem;
+    background-color: var(--background-banner);
+}
+.legal__portrait{
+    width           : 18rem;
+    height          : 23rem;
+    object-fit      : cover;
+    border-radius   : 4px;
+}
+.legal__content{
+    display         : flex;
+    flex-direction  : column;
+    gap             : 1rem;
+}
+.legal__name{
+    font-size       : 2rem;
+    font-weight     : 600;
+    letter-spacing  : -.04em;
+}
+.legal__contact{
+    font-size       : 1.5rem;
+    letter-spacing  : -.05em;
+}
+</style>

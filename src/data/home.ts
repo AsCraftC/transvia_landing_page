@@ -1,16 +1,9 @@
-import type { CompanyData , HomeData } from "@/data/interfaces";
+import type { HomeData } from "@/data/interfaces";
 
+//Imágenes Servicios
 import servicio1 from '@/assets/home/service1.jpg';
 import servicio2 from '@/assets/home/service2.jpg';
 import servicio3 from '@/assets/home/service3.jpg';
-
-export const companyData : CompanyData = {
-    nombreCompañia  : "Transvia Ingeniería",
-    email           : "direccion@dominio.cl",
-    telefono        : "+56 9 1234 5678",
-    direccion       : "Dirección 123",
-    ciudad          : "Temuco, Chile"
-}
 
 export const homeData : HomeData = {
     eslogan         : "Lorem ipsum dolor sit amet, consectetur adipiscing elit",

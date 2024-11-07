@@ -1,3 +1,10 @@
+---
+interface Props {
+    color? : string;
+}
+const { color = "--footer-letter" } = Astro.props
+---
+
 <svg 
     width="20"
     height="20"
@@ -11,9 +18,9 @@
     </g>
 </svg>
 
-<style>
+<style define:vars={{color}}>
     svg{
-        color: var(--footer-letter);
+        color: var(--color);
         width: 100%;
         height: 100%;
     }

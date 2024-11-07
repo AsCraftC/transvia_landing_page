@@ -9,7 +9,7 @@ import ValueCarussel from "@/components/values/ValueCarussel.astro";
 <Layout title="Valores - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
     <MVCard isMision={true} {... values.mision} />
     <MVCard isMision={false} {... values.vision} />
-    <ValueCarussel client:load valores={values.valores} />
+    <ValueCarussel valores={values.valores} />
 </Layout>
 
 <style>

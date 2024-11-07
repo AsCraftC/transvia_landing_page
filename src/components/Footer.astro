@@ -1,10 +1,12 @@
 ---
-import { companyData } from "@/data/home";
+import { companyData } from "@/data/contact";
 
 import transviaLogoWhite from "@/assets/transviaLogoClaro.png";
 import WhatsappLogo from "@/icons/WhatsappLogo.astro";
 import InstagramLogo from "@/icons/InstagramLogo.astro";
 import LinkedinLogo from "@/icons/LinkedinLogo.astro";
+
+const whatsapp = companyData.telefono;
 ---
 
 <footer class="footer">
@@ -31,17 +33,17 @@ import LinkedinLogo from "@/icons/LinkedinLogo.astro";
         <p class="company-contact"> {companyData.telefono} </p>
         <ul class="social-network">
             <li class="social-network__link">
-                <a href="">
+                <a href={whatsapp}>
                     <WhatsappLogo />
                 </a>
             </li>
             <li class="social-network__link">
-                <a href="">
+                <a href={companyData.enlaceInstagram} >
                     <InstagramLogo />
                 </a>
             </li>
             <li class="social-network__link">
-                <a href="">
+                <a href={companyData.enlaceLinkedin} >
                     <LinkedinLogo />
                 </a>
             </li>

@@ -1,0 +1,61 @@
+---
+import SectionTitle from "@/components/SectionTitle.astro";
+import WhatsappLogo from "@/icons/WhatsappLogo.astro";
+import InstagramLogo from "@/icons/InstagramLogo.astro";
+import LinkedinLogo from "@/icons/LinkedinLogo.astro";
+
+interface Props {
+    linkInstagram   : string;
+    linkLinkedin    : string;
+    phone           : string;
+}
+const { linkInstagram, linkLinkedin, phone } = Astro.props
+const whatsapp = phone;
+---
+
+<section class="networks">
+    <SectionTitle title="Nuestras Redes" />
+    <a class="network" href={whatsapp}>
+        <span class="network__label">WhatsApp</span>
+        <div class="network__icon">
+            <WhatsappLogo color="--text-color" />
+        </div>
+    </a>
+    <a class="network" href={linkInstagram}>
+        <span class="network__label">Instagram</span>
+        <div class="network__icon">
+            <InstagramLogo color="--text-color" />
+        </div>
+    </a>
+    <a class="network" href={linkLinkedin}>
+        <span class="network__label">Linkedin</span>
+        <div class="network__icon">
+            <LinkedinLogo color="--text-color" />
+        </div>
+    </a>
+</section>
+
+<style>
+.networks{
+    display         : flex;
+    flex-direction  : column;
+    align-content   : end;
+    text-wrap       : nowrap;
+    gap             : 1rem;
+}
+.network{
+    display         : flex;
+    gap             : .5rem;
+    justify-content : flex-end;
+    align-items     : center;
+}
+.network__label{
+    font-size       : 2rem;
+    letter-spacing  : -.04em;
+}
+.network__icon{
+    width           : 3rem;
+    height          : 3rem;
+    padding         : .1rem;
+}
+</style>

@@ -1,0 +1,56 @@
+---
+import SectionTitle from '../SectionTitle.astro'
+
+interface Props {
+    office      : string;
+    address     : string;
+    city        : string;
+}
+
+const { office, address, city } = Astro.props
+---
+
+<section class="map">
+    <iframe
+        class="map__google-map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.922391690484!2d-72.59571690777398!3d-38.73988692483416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9614d3e74498d3b5%3A0xbd2ee4fbcc6ce6b0!2sVicu%C3%B1a%20Mackenna%20678%2C%204791118%20Temuco%2C%20Araucan%C3%ADa!5e0!3m2!1ses-419!2scl!4v1730931761524!5m2!1ses-419!2scl"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+    >
+    </iframe>
+    <article class="map__direction">
+        <SectionTitle title="Ubicanos en" />
+        <p class="map__content">
+            {office} <br>
+            {address} <br>
+            {city}
+        </p>
+    </article>
+</section>
+
+<style>
+.map{
+    width           : 100%;
+    padding         : 0 1rem;
+    display         : flex;
+    gap             : 1rem;
+}
+.map__google-map{
+    width           : 60%;
+    height          : 30rem;
+    border          : none;
+}
+.map__direction{
+    display         : flex;
+    flex-direction  : column;
+    gap             : 1rem;
+}
+.map__content{
+    font-size       : 1.5rem;
+    line-height     : 1.4em;
+    font-weight     : 600;
+    letter-spacing  : -.04em;
+    color           : var(--text-color);
+}
+</style>

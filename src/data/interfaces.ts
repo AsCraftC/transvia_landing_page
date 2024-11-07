@@ -3,8 +3,18 @@ export interface CompanyData{
     nombreCompañia  : string;
     email           : string;
     telefono        : string;
+    oficina         : string;
     direccion       : string;
     ciudad          : string;
+    enlaceTerminos  : string;
+    enlaceInstagram : string;
+    enlaceLinkedin  : string;
+    representante   : {
+        nombre          : string;
+        telefono        : string;
+        email           : string;
+        retrato         : ImageMetadata;
+    }
 }
 
 export interface HomeData {
