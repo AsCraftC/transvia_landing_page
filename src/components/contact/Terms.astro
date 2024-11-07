@@ -36,4 +36,10 @@ const { termsLink } = Astro.props
     color           : var(--secondary-color);
     text-decoration : underline;
 }
+
+@media (prefers-color-scheme: dark) {
+    .terms__link{
+        color   : var(--accent-color);
+    }
+}
 </style>
