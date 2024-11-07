@@ -7,7 +7,7 @@ import Map from "@/components/contact/Map.astro";
 import Terms from "@/components/contact/Terms.astro";
 import Legal from "@/components/contact/Legal.astro";
 import SocialNetwork from "@/components/contact/SocialNetwork.astro";
-
+import ContactForm from "@/components/contact/ContactForm.astro";
 ---
 
 <Layout title="Valores - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
@@ -26,6 +26,7 @@ import SocialNetwork from "@/components/contact/SocialNetwork.astro";
             linkLinkedin={companyData.enlaceLinkedin}
         />
     </section>
+    <ContactForm />
 </Layout>
 
 <style>
