@@ -23,7 +23,6 @@ const { slogan } = Astro.props
 .overview{
     position    : relative;
     padding     : 0 clamp(1rem, 6vw - 1.6rem ,3rem);
-
 }
 .overview__slogan{
     position    : absolute;
@@ -56,4 +55,11 @@ const { slogan } = Astro.props
         margin-top  : clamp(4.5rem, 7vw - .3rem, 12rem);
     }
 }
+@media screen and (min-width: 1440px){
+    .overview{
+        width   : var(--max-width);
+        margin  : 0 auto;
+    }
+}
+
 </style>

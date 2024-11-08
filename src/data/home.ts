@@ -13,12 +13,12 @@ export const homeData : HomeData = {
             etiqueta: "AÑOS DE SERVICIO"
         },
         {
-            valor   : 472,
-            etiqueta: "PROYECTOS APROBADOS"
-        },
-        {
             valor   : 123456,
             etiqueta: "KILÓMETROS CONSTRUIDOS"
+        },
+        {
+            valor   : 472,
+            etiqueta: "PROYECTOS APROBADOS"
         },
     ],
     servicios       : [
