@@ -22,20 +22,20 @@ const { slogan } = Astro.props
 <style>
 .overview{
     position    : relative;
-    padding     : 0 clamp(1rem, 8vw - 2.6rem ,3rem);
+    padding     : 0 clamp(1rem, 6vw - 1.6rem ,3rem);
 
 }
 .overview__slogan{
     position    : absolute;
-    top         : clamp(1rem, 8vw - 2.6rem ,3rem);
-    font-size   : clamp(3rem, 6vw + .3rem, 4.5rem);
+    top         : clamp(1rem, 6vw - 1.6rem ,3rem);
+    font-size   : clamp(3rem, 6vw + .4rem, 5rem);
     font-weight : 700;
     letter-spacing: -.02em;
 }
 .overview__img{
     width       : 55vw;
-    height      : 62vw;
-    margin-left: auto;
+    aspect-ratio: 55 / 62;
+    margin-left : auto;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,14 +44,15 @@ const { slogan } = Astro.props
     }
 }
 
-@media screen and (min-width: 560px) {
+@media screen and (min-width: 641px) {
     .overview__slogan{
         top         : 0;
         font-size   : clamp(4.5rem, 7vw - .3rem, 12rem);
     }
     .overview__img{
         width       : 75vw;
-        height      : 42vw;
+        max-width   : 1080px;
+        aspect-ratio: 16 / 9;
         margin-top  : clamp(4.5rem, 7vw - .3rem, 12rem);
     }
 }
