@@ -46,10 +46,13 @@ TODO:
 
 <style>
 main{
-	display         : flex;
+    display         : flex;
 	flex-direction  : column;
 	gap             : 3rem;
 	padding         : 3rem 0;
+    
+    max-width       : var(--max-width);
+    margin          : 0 auto;
 }
 </style>
 
@@ -79,7 +82,7 @@ main{
     --text-color 		:#212529;
 
     --min-width-mobile  :360px;
-    --min-width-desktop :560px;
+    --min-width-desktop :640px;
     --max-width         :1440px;
 }
 /* Modo oscuro */
@@ -178,7 +181,6 @@ svg{
 }   
 body {
     min-width       : var(--min-width-mobile);
-    max-width       : var(--max-width);
 	min-height      : 100vh;
     max-height      : min-content;
     font-family     : "Work Sans", sans-serif;
