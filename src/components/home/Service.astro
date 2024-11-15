@@ -47,8 +47,8 @@ const lessThan10 : boolean = index < 10;
 }
 
 .service__img{
-    width           : 12rem;
-    height          : 13rem;
+    width           : 12em;
+    height          : 13em;
     /* animation-timeline: scroll(); */
 }
 
@@ -70,27 +70,56 @@ const lessThan10 : boolean = index < 10;
 .service__info{
     display         : flex;
     flex-direction  : column;
-    width           : 26rem;
+    width           : 26em;
     gap             : .5rem;
 }
 .service__info--reverse{
     text-align      : end;
 }
 .service__number{
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     font-weight     : 700;
 }
 .service__title{
     font-family     : "Nunito", sans-serif;
-    font-size       : 2.5rem;
+    font-size       : 2em;
 }
 hr{
-    height          : .7px;
+    height          : 1px;
     width           : auto;
     background-color: var(--text-color);
 }
 .service__desc{
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     letter-spacing  : -.07em;
 }
+
+@media (min-width: 641px){
+    .service{
+        padding     : 0 7em;
+    }
+    .service__img{
+        width       : 25em;
+        height      : 19em;
+    }
+    .service__info{
+        width       : 40em;
+    }
+    .service__number{
+        font-size   : 2em;
+    }
+    .service__title{
+        font-size   : 3em;
+    }
+    .service__desc{
+        font-size   : 2em;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    .service{
+        padding     : 0 calc(var(--big-pading) + 7em);
+    }
+}
+
 </style>
