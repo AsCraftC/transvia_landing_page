@@ -22,9 +22,9 @@ const { stats } = Astro.props
 
 <style>
 .badge-stats{
-    width           : clamp(360px, 100vw, 100vw);
+    width           : max(360px, 100vw);
     display         : flex;
-    padding         : 10% clamp(.5rem, 6vw - 2.2rem, 2rem);
+    padding         : 10% 0;
     justify-content : center;
     background      : var(--background-banner);
 }
@@ -40,27 +40,27 @@ const { stats } = Astro.props
     text-align      : center;
 }
 .stat__number{
-    font-size       : clamp(5rem, 11vw , 9rem);
+    font-size       : 5em;
     font-weight     : 700;
     line-height     : .8em;
 }
 .stat__label{
     width           : 100%;
-    font-size       : clamp(1.5rem, 3vw, 2rem);
+    font-size       : 1.5em;
     font-weight     : 900;
     letter-spacing  : -.04em;
 }
 .stat-0{
-    bottom          : clamp(4rem, 8vw + .2rem, 7rem);
+    bottom          : 3.5em;
     left            : 3vw;
 }
 .stat-1{
-    top             : clamp(4rem, 14vw - 2.4rem, 9rem);
+    top             : 4em;
     right           : 1vw;
     text-wrap       : nowrap;
 }
 .stat-2{
-    bottom          : clamp(2rem, 2vw + .7rem, 3rem);
+    bottom          : 2em;
     left            : 2vw;
 }
 
@@ -88,7 +88,7 @@ const { stats } = Astro.props
 }
 @media screen and (min-width: 1440px){
     .badge-stats{
-        padding : 2.5rem calc((100vw + 18rem - 1440px)/2);
+        padding : 2.5rem calc(var(--big-pading) + 9rem);
     }
 }
 </style>

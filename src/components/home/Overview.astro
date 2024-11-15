@@ -22,12 +22,12 @@ const { slogan } = Astro.props
 <style>
 .overview{
     position    : relative;
-    padding     : 0 clamp(1rem, 6vw - 1.6rem ,3rem);
+    padding     : 0 1em;
 }
 .overview__slogan{
     position    : absolute;
-    top         : clamp(1rem, 6vw - 1.6rem ,3rem);
-    font-size   : clamp(3rem, 6vw + .4rem, 5rem);
+    left        : 5rem;
+    font-size   : 3em;
     font-weight : 700;
     letter-spacing: -.02em;
 }
@@ -44,6 +44,9 @@ const { slogan } = Astro.props
 }
 
 @media screen and (min-width: 641px) {
+    .overview{
+        padding     : 0 5rem;
+    }
     .overview__slogan{
         top         : 0;
         font-size   : clamp(4.5rem, 7vw - .3rem, 12rem);
