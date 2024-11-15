@@ -57,80 +57,134 @@ const whatsapp = companyData.telefono;
 
 <style>
 .footer{
+    position        : relative;
+    bottom          : auto;
     display         : grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+        "title title"
+        "right left"
+        "footer footer";
     background-color: var(--footer-color);
     color           : var(--footer-letter);
-    padding         : 1rem;
+    padding         : 1em;
+    white-space     : nowrap;
 }
 .footer__title{
+    grid-area       : title;
     position        : relative;
     display         : flex;
     flex-flow       : row nowrap;
     font-family     : "Nunito", sans-serif;
-    grid-area       : 1 / 1 / 2 / 3;
+    font-size       : 5em;
     font-weight     : 600;
-    font-size       : 5rem;
-    white-space     : nowrap;
     overflow-x      : hidden;
 }
 .label{
     display         : inline-block;
     animation       : hTranslation 5s linear infinite;
-    max-width       : none;
 }
 @keyframes hTranslation {
     from{transform  : translateX(0);}
     to{transform    : translateX(-100%);}
 }
 .footer__right{
-    grid-area       : 2 / 1 / 3 / 2;
-    margin-bottom   : 3rem;
+    grid-area       : right;
+    margin-bottom   : 3em;
 }
 .logo{
-    width           : 10rem;
-    aspect-ratio    : 8 / 3;
+    width           : 11em;
+    height          : 4em;
 }
 .company-name{
     font-family     : "Nunito", sans-serif;
-    font-size       : 3rem;
+    font-size       : 3em;
     font-weight     : 600;
     text-wrap       : nowrap;
 }
 .company-location{
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
 }
 
 .footer__left{
-    grid-area       : 2 / 2/ 3 / 3;
-
+    grid-area       : left;
 }
 .company-contact{
     text-align      : end;
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     letter-spacing  : -.03em;
-    margin-bottom   : .5rem;
+    margin-bottom   : .5em;
 }
 .social-network{
     display         : flex;
     justify-content : end;
-    gap             : 1rem;
+    gap             : 1em;
 }
 .social-network__link{
-    width           : 3rem;
-    height          : 3rem;
+    width           : 3em;
+    height          : 3em;
 }
 
 .footer__botton{
+    grid-area       : footer;
     border-top      : 1px solid var(--footer-letter);
-    margin          : 0 1rem;
-    padding-top     : 1rem;
-    grid-area       : 3 / 1 / 4 / 3;
+    margin          : 0 1em;
+    padding-top     : 1em;
     display         : flex;
     flex-direction  : row;
     justify-content : space-between;
 }
 .botton__item{
-    font-size: 1rem;
+    font-size       : 1em;
+}
+
+@media screen and (min-width: 641px){
+    .footer{
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+            "right left"
+            "footer footer";
+    }
+    .footer__title{
+        display     : none;
+    }
+    .footer__right{
+        display         : grid;
+        grid-template-areas:
+            "logo name"
+            "location location";
+        justify-content : end;
+        margin-top      : 3em;
+        white-space     : nowrap;
+    }
+    .logo{
+        grid-area       : logo;
+        width           : 12em;
+        height          : 4.5em;
+    }
+    .company-name{
+        grid-area       : name;
+        align-self      : end;
+    }
+    .company-location{
+        grid-area       : location;
+        justify-self    : end;
+    }
+    
+    
+    .footer__left{
+        margin          : auto 0;
+        padding         : 0 3em;
+    }
+    .social-network{
+        margin          : 0 1em;
+    }
+
+    .footer__botton{
+        border-top      : none;
+        font-size       : 1.5em;
+        justify-content : center;
+        gap             : 2em;
+    }
 }
 </style>
