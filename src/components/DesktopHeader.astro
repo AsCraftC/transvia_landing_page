@@ -5,6 +5,13 @@ import transviaLogo from "@/assets/transviaLogo.png";
 import AtSymbolIcon from "@/icons/AtSymbolIcon.astro";
 import PhoneIcon from "@/icons/PhoneIcon.astro";
 import LocationMarkerIcon from "@/icons/LocationMarkerIcon.astro";
+
+const location  : string = Astro.url.pathname.replace("/","");
+
+let isProject   : boolean = location === "proyectos";
+let isValue     : boolean = location === "valores";
+let isAbout     : boolean = location === "nosotros";
+let isServices  : boolean = location === "contacto";
 ---
 
 <header class="header">
@@ -27,8 +34,8 @@ import LocationMarkerIcon from "@/icons/LocationMarkerIcon.astro";
 
     <section class="header__navbar">
         <nav class="menu-desktop">
-            <a class="menu-desktop__item" href="/proyectos">Proyectos</a>
-            <a class="menu-desktop__item" href="/valores">Valores</a>
+            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isProject}]} href="/proyectos">Proyectos</a>
+            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isValue}]} href="/valores">Valores</a>
         </nav>
 
         <a class="logo" href="/">
@@ -41,8 +48,8 @@ import LocationMarkerIcon from "@/icons/LocationMarkerIcon.astro";
         </a>
         
         <nav class="menu-desktop">
-            <a class="menu-desktop__item" href="/nosotros">Nosotros</a>
-            <a class="menu-desktop__item" href="/contacto">Contacto</a>
+            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isAbout}]} href="/nosotros">Nosotros</a>
+            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isServices}]} href="/contacto">Contacto</a>
         </nav>
     </section>
 </header>
@@ -53,7 +60,7 @@ import LocationMarkerIcon from "@/icons/LocationMarkerIcon.astro";
 }
 .header__contact{
     display             : none;
-    gap                 : 2rem;
+    gap                 : 1rem;
     justify-content     : end;
     padding             : .5rem 9rem;
     background-color    : var(--background-color);
@@ -64,19 +71,20 @@ import LocationMarkerIcon from "@/icons/LocationMarkerIcon.astro";
     align-items         : center;
 }
 .contact-item__contact-label{
-    font-size           : 3em;
+    font-size           : 1.5em;
 }
 .contact-item__icon{
-    width               : 3em;
-    height              : 3em;
+    width               : 2em;
+    height              : 2em;
     background-size     : cover;
     background-repeat   : no-repeat;
 }
 
 hr{
+    display             : none;
     position            : absolute;
     width               : calc(100% - 7rem);
-    height              : 1px;
+    height              : 2px;
     margin              : 0 3.5rem;
     background-color    : var(--text-color);
     z-index             : 1;
@@ -86,39 +94,51 @@ hr{
     display             : flex;
     justify-content     : space-between;
     align-items         : center;
-    padding             : calc(1px + .5rem) 9rem .5rem;
+    padding             : calc(1px + .5rem) 18rem .5rem;
     margin-top          : -1px;
     background-color    : var(--background-color);
 }
 .menu-desktop{
     display             : flex;
     flex-direction      : column;
-    gap                 : 1rem;
+    gap                 : 1em;
 }
 .menu-desktop__item{
     font-family         : "Nunito", sans-serif;
-    font-size           : 3em;
+    font-size           : 2em;
     padding             : 0 1rem;
 }
+.menu-desktop__item--active{
+    color               : var(--primary-color);
+}
 .logo{
-    width               : 24em;
-    height              : 10em;
+    width               : 12em;
+    height              : 5em;
 }
 
 
 
-@media (min-width: 640px) {
+@media (min-width: 641px) {
     .header{
         display         : block;
     }
 }
-@media (min-width: 1100px) {
+@media (min-width: 899px) {
     .header__contact{
         display         : flex;
     }
+    hr{
+        display         : block;
+    }
+    .header__navbar{
+        padding         : calc(1px + .5rem) 9rem .5rem;
+    }
     .menu-desktop{
         flex-direction  : row;
-        gap             : 5rem;
+        gap             : 5em;
+    }
+    .menu-desktop__item{
+        font-size       : 1.5em;
     }
 }
 @media (min-width: 1440px) {
