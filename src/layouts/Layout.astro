@@ -1,6 +1,8 @@
 ---
-import Header from "@/components/Header.astro";
+import DesktopHeader from "@/components/DesktopHeader.astro";
+import MobileHeader from "@/components/MobileHeader.astro";
 import Footer from "@/components/Footer.astro";
+import Path from "@/components/Path.astro";
 
 interface Props {
 	title: string;
@@ -36,7 +38,9 @@ TODO:
 		<meta name="description" content={description} />
 	</head>
 	<body>
-		<Header/>
+        <DesktopHeader/>
+		<MobileHeader/>
+        <Path/>
         <main>
             <slot />
         </main>
@@ -183,6 +187,12 @@ body {
     font-family     : "Work Sans", sans-serif;
     color           : var(--text-color);
     background      : border-box var(--background-grad) border-box no-repeat fixed;
-    font-size       : 2rem;
+    font-size       : clamp(1rem, 2.8571485714vw - .2857142857143rem, 2rem);
+}
+@media (min-width: 640px) {
+    body{
+        font-size   : 1rem;
+    }
+    
 }
 </style>

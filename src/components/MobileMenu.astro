@@ -1,0 +1,70 @@
+---
+import { companyData } from "@/data/contact";
+
+import mobileMenuImage from "@/assets/menu.jpg";
+---
+
+<img 
+    class="menu-image"
+    src={mobileMenuImage.src}
+    alt="Calle en plano cenital"
+    loading="lazy"
+    decoding="async"
+>
+<nav class="mobile-nav">
+    <a class="mobile-nav__item" href="/">Inicio</a>
+    <a class="mobile-nav__item" href="/nosotros">Nosotros</a>
+    <a class="mobile-nav__item" href="/valores">Valores</a>
+    <a class="mobile-nav__item" href="/proyectos">Proyectos</a>
+    <a class="mobile-nav__item" href="/contacto">Contacto</a>
+</nav>
+<aside class="company-information">
+    <p class="company-information__item">
+        {companyData.email}
+        <br>
+        {companyData.telefono}
+    </p>
+    <p class="company-information__item">
+        {companyData.direccion}
+        <br>
+        {companyData.ciudad}
+    </p>
+    <span class="company-information__copyright">© Transvia Ingeniería 2024</span>
+</aside>
+
+<style>
+.menu-image{
+    width           : max(15rem, 33vw);
+    height          : max(25rem, 55vw);
+}
+.mobile-nav{
+    display         : flex;
+    flex-direction  : column;
+    gap             : 2em;
+
+}
+.mobile-nav__item{
+    width           : min-content;
+    padding         : 0 .5rem;
+    font-family     : "Nunito", sans-serif;
+    font-size       : 2em;
+    font-weight     : 600;
+    border-bottom   : 1px solid var(--text-color);
+}
+.company-information{
+    flex-grow       : 1;
+    display         : flex;
+    flex-direction  : column;
+    justify-content : end;
+    align-items     : end;
+    gap             : 1rem;
+}
+.company-information__item{
+    font-size       : 1em;
+    text-align      : end;
+}
+.company-information__copyright{
+    font-size       : .9em;
+    width           : max-content;
+}
+</style>

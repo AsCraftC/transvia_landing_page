@@ -1,0 +1,124 @@
+---
+import { companyData } from "@/data/contact";
+
+import transviaLogo from "@/assets/transviaLogo.png";
+import AtSymbolIcon from "@/icons/AtSymbolIcon.astro";
+import PhoneIcon from "@/icons/PhoneIcon.astro";
+import LocationMarkerIcon from "@/icons/LocationMarkerIcon.astro";
+---
+
+<header class="header">
+    <ul class="header__contact">
+        <li class="contact-item">
+            <div class="contact-item__icon"> <AtSymbolIcon color="--text-color" /> </div>
+            <span class="contact-item__contact-label">{companyData.email}</span>
+        </li>
+        <li class="contact-item">
+            <div class="contact-item__icon"> <PhoneIcon color="--text-color" /> </div>
+            <span class="contact-item__contact-label">{companyData.telefono}</span>
+        </li>
+        <li class="contact-item">
+            <div class="contact-item__icon"> <LocationMarkerIcon color="--text-color" /> </div>
+            <span class="contact-item__contact-label">{companyData.direccion}, {companyData.ciudad}</span>
+        </li>
+    </ul>
+
+    <hr>
+
+    <section class="header__navbar">
+        <nav class="menu-desktop">
+            <a class="menu-desktop__item" href="/proyectos">Proyectos</a>
+            <a class="menu-desktop__item" href="/valores">Valores</a>
+        </nav>
+
+        <a class="logo" href="/">
+            <img 
+                src={transviaLogo.src} 
+                alt="Logo Transvia Ingenieria"
+                loading="lazy"
+                decoding="async"
+            >
+        </a>
+        
+        <nav class="menu-desktop">
+            <a class="menu-desktop__item" href="/nosotros">Nosotros</a>
+            <a class="menu-desktop__item" href="/contacto">Contacto</a>
+        </nav>
+    </section>
+</header>
+
+<style>
+.header{
+    display : none;
+}
+.header__contact{
+    display             : none;
+    gap                 : 2rem;
+    justify-content     : end;
+    padding             : .5rem 9rem;
+    background-color    : var(--background-color);
+}
+.contact-item{
+    display             : flex;
+    gap                 : .5rem;
+    align-items         : center;
+}
+.contact-item__contact-label{
+    font-size           : 3em;
+}
+.contact-item__icon{
+    width               : 3em;
+    height              : 3em;
+    background-size     : cover;
+    background-repeat   : no-repeat;
+}
+
+hr{
+    position            : absolute;
+    width               : calc(100% - 7rem);
+    height              : 1px;
+    margin              : 0 3.5rem;
+    background-color    : var(--text-color);
+    z-index             : 1;
+}
+
+.header__navbar{
+    display             : flex;
+    justify-content     : space-between;
+    align-items         : center;
+    padding             : calc(1px + .5rem) 9rem .5rem;
+    margin-top          : -1px;
+    background-color    : var(--background-color);
+}
+.menu-desktop{
+    display             : flex;
+    flex-direction      : column;
+    gap                 : 1rem;
+}
+.menu-desktop__item{
+    font-family         : "Nunito", sans-serif;
+    font-size           : 3em;
+    padding             : 0 1rem;
+}
+.logo{
+    width               : 24em;
+    height              : 10em;
+}
+
+
+
+@media (min-width: 640px) {
+    .header{
+        display         : block;
+    }
+}
+@media (min-width: 1100px) {
+    .header__contact{
+        display         : flex;
+    }
+    .menu-desktop{
+        flex-direction  : row;
+        gap             : 5rem;
+    }
+}
+</style>

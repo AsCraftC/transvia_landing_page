@@ -8,7 +8,7 @@ export const companyData : CompanyData = {
     telefono        : "+56 9 1234 5678",
     oficina         : "Oficina 704",
     direccion       : "Vicuña Mackenna 678",
-    ciudad          : "Temuco, Araucania, Chile",
+    ciudad          : "Temuco, Chile",
     enlaceTerminos  : "#",
     enlaceInstagram : "#",
     enlaceLinkedin  : "#",
