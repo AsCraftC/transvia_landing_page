@@ -121,4 +121,19 @@ hr{
         gap             : 5rem;
     }
 }
+@media (min-width: 1440px) {
+    .header{
+        --calculo       : calc((100vw - 1440px) / 2);
+    }
+    .header__contact{
+        padding         : 0 calc(var(--calculo) + 9rem);
+    }
+    hr{
+        width           : calc(100% - var(--calculo) * 2 - 7rem);
+        margin          : 0 calc(var(--calculo) + 3.5rem);
+    }
+    .header__navbar{
+        padding         : calc(1px + .5rem) calc(var(--calculo) + 9rem) .5rem;
+    }
+}
 </style>
