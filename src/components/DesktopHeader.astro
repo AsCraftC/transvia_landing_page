@@ -34,11 +34,11 @@ let isServices  : boolean = location === "contacto";
 
     <section class="header__navbar">
         <nav class="menu-desktop">
-            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isProject}]} href="/proyectos">Proyectos</a>
-            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isValue}]} href="/valores">Valores</a>
+            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isProject}]} href="/transvia_landing_page/proyectos">Proyectos</a>
+            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isValue}]} href="/transvia_landing_page/valores">Valores</a>
         </nav>
 
-        <a class="logo" href="/">
+        <a class="logo" href="/transvia_landing_page/">
             <img 
                 src={transviaLogo.src} 
                 alt="Logo Transvia Ingenieria"
@@ -48,8 +48,8 @@ let isServices  : boolean = location === "contacto";
         </a>
         
         <nav class="menu-desktop">
-            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isAbout}]} href="/nosotros">Nosotros</a>
-            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isServices}]} href="/contacto">Contacto</a>
+            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isAbout}]} href="/transvia_landing_page/nosotros">Nosotros</a>
+            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isServices}]} href="/transvia_landing_page/contacto">Contacto</a>
         </nav>
     </section>
 </header>
