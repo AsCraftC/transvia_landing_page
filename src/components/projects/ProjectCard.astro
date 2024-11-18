@@ -1,7 +1,7 @@
 ---
 import type { ImageMetadata } from 'astro';
 
-import LocationIcon from "@/icons/LocationMarkerIcon.astro";
+import LocationMarkerIcon from "@/icons/LocationMarkerIcon.astro";
 import CalendarIcon from "@/icons/CalendarIcon.astro";
 import ClockIcon from "@/icons/ClockIcon.astro";
 
@@ -32,7 +32,7 @@ const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
         <ul class="project__labels">
             <li class="project__li">
                 <div class="project__icon">
-                    <LocationIcon />
+                    <LocationMarkerIcon />
                 </div>
                 <p class="project__label"> {direccion} </p>
             </li>
@@ -58,7 +58,7 @@ const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
     position        : relative;
     cursor          : pointer;
 }
-.project:focus .project__impact,
+.project:focus  .project__impact,
 .project:hover  .project__impact{
     display         : block;
 }
@@ -72,11 +72,11 @@ const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
     display         : flex;
     flex-direction  : column;
     background-color: rgba(4, 108, 188, 70%);
-    padding         : 2rem;
-    gap             : 1rem;
+    padding         : 2em;
+    gap             : 1em;
 }
 .project__title{
-    font-size       : 2rem;
+    font-size       : 2em;
     font-weight     : 700;
     color           : var(--footer-letter);
 }
@@ -90,20 +90,52 @@ const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
     align-items     : center;
 }
 .project__icon{
-    width           : 2rem;
-    height          : 2rem;
+    width           : 2em;
+    height          : 2em;
     display         : inline-block;
 }
 .project__label{
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     color           : var(--footer-letter); 
 }
 .project__impact{
     display: none;
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     color           : var(--footer-letter);
 }
 .project__label span{
     font-weight     : 700;
+}
+
+@media (min-width: 641px) {
+    .project__info{
+        padding         : 1em;
+    }
+    .project__img{
+        aspect-ratio    : 4 / 3;
+    }
+    .project__title{
+        font-size       : 1.5em;
+    }
+    .project__labels{
+        gap             : 1em;
+    }
+    .project__label{
+        font-size       : 1em;
+    }
+    .project__icon{
+        width           : 1.5em;
+        height          : 1.5em;
+    }
+    .project__impact{
+        font-size       : 1em;
+        letter-spacing  : -.1em;
+    }
+    
+}
+@media (min-width: 899px) {
+    .project__impact{
+        letter-spacing  : 0em;
+    }
 }
 </style>
