@@ -17,9 +17,7 @@ import ArrowPointIcon from "@/icons/ArowPointIcon.astro";
 
 
 <section class="history">
-    <div class="history__padding">
-        <SectionTitle title="Nuestra Historia"/>
-    </div>
+    <SectionTitle title="Nuestra Historia"/>
     <div class="history-line">
         <div class="history-line__end">
             <ArrowPointIcon />
@@ -38,33 +36,74 @@ import ArrowPointIcon from "@/icons/ArowPointIcon.astro";
 <style>
 .history{
     position        : relative;
-    padding         : 0 3rem;
+    padding         : 0 3em;
     display         : flex;
     flex-direction  : column;
-    gap             : 3rem;
-}
-.history__padding{
-    padding         : 0 4.5rem;
+    gap             : 3em;
 }
 .history-line{
     position        : absolute;
-    top             : 3rem;
-    left            : 6.75rem;
+    top             : 3em;
+    left            : 6.75em;
     height          : 100%;
 }
 .history-line__end{
-    width           : 2rem;
+    width           : 2em;
     margin-bottom   : -1px;
 }
 .history-line__body{
     margin          : 0 auto;
-    width           : 6px;
-    height          : calc(100% - 12rem);
+    width           : .75em;
+    height          : calc(100% - 23%);
     background-color: var(--primary-color);
 }
 .milestones{
     display         : flex;
     flex-direction  : column;
-    gap             : 2rem;
+    gap             : 2em;
+}
+@media (min-width: 641px){
+	.history{
+        padding         : 0 5rem;
+        gap             : 3rem;
+    }
+    .history-line{
+        top             : 4.5rem;
+        left            : 10.25rem;
+    }
+    .history-line__body{
+        margin          : 0 auto;
+        width           : .75rem;
+        height          : calc(100% - 23%);
+    }
+    .milestones{
+        gap             : 3rem;
+    }
+}
+@media (min-width: 904px){
+	.history{
+        padding         : 0 9rem;
+        gap             : 3rem;
+    }
+    .history-line{
+        top             : 4.5rem;
+        left            : 14.25rem;
+    }
+    .history-line__body{
+        margin          : 0 auto;
+        width           : .75rem;
+        height          : calc(100% - 23%);
+    }
+    .milestones{
+        gap             : 3rem;
+    }
+}
+@media screen and (min-width: 1440px){
+    .history{
+        padding         : 0 calc(var(--big-padding) + 9rem);
+    }
+    .history-line{
+        left            : calc(var(--big-padding) + 14.25rem) ;
+    }
 }
 </style>

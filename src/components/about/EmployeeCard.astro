@@ -11,23 +11,23 @@ const { gradoAcademico, nombres, apellidos, cargo, retrato } = Astro.props
 ---
 
 <article class="employee">
-    <img class="employee__portrait" src={retrato.src} alt='Retrato de ${}'>
+    <img class="employee__portrait" src={retrato.src} alt='Retrato de ${}' loading="lazy" decoding="async">
     <div class="employee__info">
         <span class="employee__subData"> {gradoAcademico} </span>
-        <p class="employee__name">
-            <span> {nombres} </span>
+        <p>
+            <span class="employee__name"> {nombres} </span>
             <br>
-            <span> {apellidos} </span>
+            <span class="employee__name"> {apellidos} </span>
         </p>
-        <span class="employee__subData employee__subData__rol"> {cargo} </span>
+        <span class="employee__subData employee__subData--rol"> {cargo} </span>
     </div>
 </article>
 
 <style>
 .employee{
     position        : relative;
-    width           : 13rem;
-    flex-shrink: 0;
+    width           : 13em;
+    flex-shrink     : 0;
 }
 .employee__portrait{
     border-radius   : 4px;
@@ -35,42 +35,71 @@ const { gradoAcademico, nombres, apellidos, cargo, retrato } = Astro.props
 .employee__info {
     position        : absolute;
     max-width       : 100%;
-    bottom          : .5rem;
+    bottom          : .5em;
     display         : flex;
     flex-direction  : column;
-    gap             : .5rem;
-    padding         : .5rem;
+    gap             : .5em;
+    padding         : .5em;
 }
 .employee__subData{
     width           : max-content;
     max-width       : 100%;
-    padding         : 0 .5rem;
+    padding         : 0 .5em;
     border-radius   : 3px;
-    font-size       : 1rem;
+    font-size       : 1em;
     letter-spacing  : -.05em;
     text-wrap       : nowrap;
     color           : #FFF;
     background-color: var(--primary-color);
 }
-.employee__subData__rol{
+.employee__subData--rol{
     background-color: var(--accent-color);
     align-self      : center;
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
 }
 .employee__name{
-    width           : max-content;
-    max-width       : 100%;
-    font-size       : 1.5rem;
+    text-wrap       : nowrap;
+    font-size       : 1.5em;
     font-weight     : 600;
     letter-spacing  : -.05em;
-    color           :#FFF;
-    text-decoration-color: var(--primary-color);
-    text-wrap       : nowrap;
-}
-.employee__name span {
     padding         : 0 .5rem;
+    color           :#FFF;
     border-radius   : 3px;
     background-color: var(--primary-color);
+}
+@media (min-width: 641px){
+	.employee{
+        width           : 15rem;
+    }
+    .employee__subData{
+        font-size       : 1.5rem;
+    }
+    .employee__subData--rol{
+        font-size       : 1.5rem;
+    }
+    .employee__name{
+        font-size       : 1.75rem;
+        border-radius   : 3px;
+        background-color: var(--primary-color);
+    }
+}
+@media (min-width: 904px){
+	.employee{
+        width           : 30rem;
+    }
+    .employee__info {
+        bottom          : 0;
+        gap             : 1rem;
+        padding         : 2rem;
+    }
+    .employee__subData{
+        padding         : 0 .5rem;
+        font-size       : 2rem;
+    }
+    .employee__name{
+        font-size       : 3rem;
+        padding         : 0 .5rem;
+    }
 }
 
 </style>

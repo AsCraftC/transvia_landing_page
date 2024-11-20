@@ -40,7 +40,39 @@ const { description } = Astro.props
     gap             : .5rem;
 }
 .company-description__desc{
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     letter-spacing  : -.03em;
+}
+
+@media (min-width: 641px){
+    .company-description{
+        flex-direction: row-reverse;
+        gap: 3rem;
+    }
+    .company-description__img{
+        width       : min(50vw, 84em);
+    }
+    .company-description__info{
+        gap             : 2rem;
+        justify-content : center;
+        align-content   : end;
+    }
+
+    .company-description__desc{
+        font-size   : 2rem;
+    }
+}
+@media (min-width: 904px){
+    .company-description{
+        padding     : 2rem 5rem;
+    }
+    .company-description__desc{
+        font-size   : 3rem;
+    }
+}
+@media screen and (min-width: 1440px){
+    .company-description{
+        padding         : 2rem calc(var(--big-padding) + 9rem);
+    }
 }
 </style>
