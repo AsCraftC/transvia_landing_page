@@ -153,13 +153,13 @@ const whatsapp = companyData.telefono;
             "logo name"
             "location location";
         justify-content : end;
-        margin-top      : 3em;
+        margin-top      : 3rem;
         white-space     : nowrap;
     }
     .logo{
         grid-area       : logo;
-        width           : 12em;
-        height          : 4.5em;
+        width           : 12rem;
+        height          : 4.5rem;
     }
     .company-name{
         grid-area       : name;
@@ -173,18 +173,42 @@ const whatsapp = companyData.telefono;
     
     .footer__left{
         margin          : auto 0;
-        padding         : 0 3em;
+        padding         : 0 3rem;
     }
     .social-network{
-        margin          : 0 1em;
+        margin          : 0 1rem;
     }
 
     .footer__bottom{
         border-top      : none;
-        font-size       : 1.5em;
+        font-size       : 1.5rem;
         justify-content : center;
-        gap             : 2em;
-        padding-bottom  : 1em;
+        gap             : 2rem;
+        padding-bottom  : 1rem;
+    }
+}
+@media (min-width: 904px) {
+    .logo{
+        width           : 18rem;
+        height          : 7rem;
+    }
+    .company-name{
+        font-size       : 4rem;
+    }
+    .company-location{
+        font-size       : 2rem;
+    }
+
+    .company-contact{
+        font-size       : 2.5rem;
+        margin-bottom   : 1rem;
+    }
+    .social-network{
+        gap             : 2rem;
+    }
+    .social-network__link{
+        width           : 3.5rem;
+        height          : 3.5rem;
     }
 }
 
