@@ -20,17 +20,18 @@ const { termsLink } = Astro.props
 
 <style>
 .terms{
+    grid-area       : terms;
     display         : flex;
     flex-direction  : column;
-    gap             : 1rem;
+    gap             : 1em;
 }
 .terms__message{
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     line-height     : 1em;
     letter-spacing  : -.04em;
 }
 .terms__link{
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     line-height     : 1em;
     letter-spacing  : -.04em;
     color           : var(--secondary-color);
@@ -40,6 +41,17 @@ const { termsLink } = Astro.props
 @media (prefers-color-scheme: dark) {
     .terms__link{
         color   : var(--accent-color);
+    }
+}
+@media (min-width: 904px){
+    .terms{
+        gap             : 1rem;
+    }
+    .terms__message{
+        font-size       : 1.5rem;
+    }
+    .terms__link{
+        font-size       : 2rem;
     }
 }
 </style>
