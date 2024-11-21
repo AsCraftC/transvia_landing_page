@@ -27,21 +27,19 @@ const { isMision, titulo, descripcion, imagen, altImage} = Astro.props
 
 <style>
 .mv-section{
-    width           : 100%;
-    padding         : 0 1rem;
+    padding         : 0 1em;
     position        : relative;
     display         : flex;
     flex-flow       : column nowrap;
 }
 .mv-card{
-    width           : 38rem;
-    height          : 22rem;
+    width           : calc(100% - 2em);
     display         : flex;
     flex-direction  : column;
     justify-content : center;
-    margin-top      : 1rem;
-    padding         : 2rem;
-    gap: 1rem;
+    margin-top      : 1em;
+    padding         : 3em;
+    gap             : 1rem;
     background-color: var(--background-color);
 }
 .mv-card--vision{
@@ -50,9 +48,9 @@ const { isMision, titulo, descripcion, imagen, altImage} = Astro.props
 .mv-card__title{
     font-family     : "Nunito", sans-serif;
     font-weight     : 700;
-    font-size       : 2rem;
+    font-size       : 2em;
     letter-spacing  : -.04em;
-    padding         : 0 1rem;
+    padding         : 0 1em;
     color           : var(--primary-color);
     border-left     : 2px solid var(--primary-color);
 }
@@ -61,35 +59,124 @@ const { isMision, titulo, descripcion, imagen, altImage} = Astro.props
     border-left     : 2px solid var(--secondary-color);
 }
 .mv-card__subtitle{
-    font-size       : 1.5rem;
+    font-size       : 1.5em;
     letter-spacing  : -.06em;
 }
 .mv-card__description{
-    font-size       : 1rem;
+    font-size       : 1em;
     letter-spacing  : -.05em;
 }
 .mv-section__decoration{
     position        : absolute;
     top             : 0;
-    right           : 2rem;
-    width           : calc(100% - 5rem);
-    height          : 22rem;
+    right           : 2em;
+    width           : calc(100% - 5em);
+    height          : 22em;
     border          : 1px var(--text-color) dashed;
     z-index         : -2;
 }
 .mv-section__decoration--vision{
     right           : 0;
-    left            : 2rem;
+    left            : 2em;
 }
 .mv-section__image{
     margin-top      : -5rem;
     align-self      : flex-end;
-    width           : 38rem;
-    height          : 25rem;
+    width           : calc(100% - 2em);
+    height          : 25em;
     border-radius   : 4px;
     z-index         : -1;
 }
 .mv-section__image--vision{
     align-self       : flex-start;
+}
+
+@media (min-width: 641px) {
+    .mv-section{
+        padding         : 0 5rem;
+        flex-flow       : row nowrap;
+        justify-content : center;
+        align-items     : center;
+    }
+    .mv-card{
+        flex-shrink     : 0;
+        width           : min(48vw, 86rem);
+        margin          : 0 -3rem 0 0;
+    }
+    .mv-card--vision{
+        order           : 1;
+        margin          : 0 0 0 -3rem;
+    }
+    
+    .mv-section__decoration{
+        top             : 2rem;
+        left            : 4rem;
+        width           : min(50%, 80rem);
+        height          : 70%;
+    }
+    .mv-section__decoration--vision{
+        left            : auto;
+        right           : 4rem;
+    }
+    .mv-section__image{
+        flex-shrink     : 0;
+        width           : min(47vw, 85rem);
+        height          : 30rem;
+        margin          : 0 0 0 -3rem;
+    }
+    .mv-section__image--vision{
+        margin          : 0 -3rem 0 0;
+    }
+}
+@media (min-width: 904px) {
+    .mv-section{
+        padding         : 0 9rem;
+    }
+    .mv-card{
+        width           : min(48vw, 86rem);
+        padding-top     : 9rem;
+        padding-bottom  : 9rem;
+        margin          : 0 -8rem 0 0;
+    }
+    .mv-card--vision{
+        margin          : 0 0 0 -8rem;
+    }
+    .mv-card__title{
+        font-size       : 3rem;
+        padding         : 0 2rem;
+    }
+    .mv-card__subtitle{
+        font-size       : 2rem;
+    }
+    .mv-card__description{
+        font-size       : 1.5rem;
+    }
+    .mv-section__decoration{
+        border-width    : 2px;
+        left            : 9rem;
+    }
+    .mv-section__decoration--vision{
+        left            : auto;
+        right           : 9rem;
+    }
+    .mv-section__image{
+        height          : 56rem;
+        margin          : 0 0 0 -8rem;
+    }
+    .mv-section__image--vision{
+        margin          : 0 -8rem 0 0;
+    }
+}
+@media (min-width: 1440px) {
+    .mv-section{
+        padding         : 0 calc(var(--big-padding) + 9rem);
+    }
+    .mv-section__decoration{
+        left            : calc(var(--big-padding) + 9rem);
+    }
+    .mv-section__decoration--vision{
+        left            : auto;
+        right           : calc(var(--big-padding) + 9rem);
+    }
 }
 </style>

@@ -15,13 +15,14 @@ const stringTotal : string  = total.toString();
 ---
 
 <article class="value-card">
-    <Image 
+    <img 
         class="value-card__background"
-        src={imagen} 
-        alt={`Icono de valor ${titulo}`} 
+        src={imagen.src} 
+        alt={`Icono de valor ${titulo}`}
+        loading="lazy"
+        decoding="async"
     />
     <div class="value-card__content">
-        <div></div>
         <div class="value-card__header">
             <div class="value-card__icon-line">
                 <Image 
@@ -44,7 +45,7 @@ const stringTotal : string  = total.toString();
 }
 .value-card__background{
     width           : 100%;
-    height          : 25rem;
+    aspect-ratio    : 17 / 9;
     object-fit      : cover;
     z-index         : -1;
 }
@@ -61,11 +62,11 @@ const stringTotal : string  = total.toString();
 .value-card__header{
     margin-right    : 1rem;
     display         : flex;
-    gap             : 1rem;
+    gap             : 1em;
     align-items     : center;
     background-color: rgba(33, 37, 41, 75%);
     border-radius   : 0 0 10px 0;
-    padding         : 1rem;
+    padding         : 1em;
 
 }
 .value-card__icon-line{
@@ -74,8 +75,8 @@ const stringTotal : string  = total.toString();
     border          : 1px solid var(--footer-letter) ;
 }
 .value-card__icon{
-    width           : 4rem;
-    height          : 4rem;
+    width           : 4em;
+    height          : 4em;
     background-color: var(--footer-letter);
     border-radius   : 4px;
 }
@@ -83,15 +84,64 @@ const stringTotal : string  = total.toString();
     padding         : 0 2rem;
     border-left     : 1px solid var(--accent-color);
     font-family     : "Nunito", sans-serif;
-    font-size       : 2rem;
+    font-size       : 2em;
     font-weight     : 700;
     letter-spacing  : -.04em;
     color           : var(--accent-color);
 }
 .value-card__description{
-    padding         : 1rem;
-    font-size       : 1.5rem;
+    padding         : 1em;
+    font-size       : 1.25em;
     letter-spacing  : -.07em;
     color           : var(--text-color);
+}
+@media (min-width: 641px) {
+    .value-card__background{
+        aspect-ratio    : 68 / 31;
+    }
+    .value-card__header{
+        margin-right    : 1rem;
+        gap             : 2rem;
+    }
+    .value-card__icon-line{
+        border-width    : 2px;
+    }
+    .value-card__icon{
+        width           : 5rem;
+        height          : 5rem;
+    }
+    .value-card__title{
+        border-width    : 2px;
+        font-size       : 2.5rem;
+    }
+    .value-card__description{
+        font-size       : 2rem;
+    }
+}
+@media (min-width: 904px) {
+    .value-card__background{
+        aspect-ratio    : 14 / 5;
+    }
+    .value-card__header{
+        margin-right    : 4rem;
+        gap             : 2rem;
+        padding         : 2rem;
+    }
+    .value-card__icon-line{
+        padding         : .5rem;
+        border-radius   : 12px;
+        border-width    : 2px;
+    }
+    .value-card__icon{
+        width           : 5rem;
+        height          : 5rem;
+        border-radius   : 8px;
+    }
+    .value-card__title{
+        font-size       : 3rem;
+    }
+    .value-card__description{
+        font-size       : 2rem;
+    }
 }
 </style>
