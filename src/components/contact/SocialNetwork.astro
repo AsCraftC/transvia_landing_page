@@ -37,25 +37,33 @@ const whatsapp = phone;
 
 <style>
 .networks{
+    width           : min-content;
+    grid-area       : networks;
     display         : flex;
     flex-direction  : column;
     align-content   : end;
     text-wrap       : nowrap;
-    gap             : 1rem;
+    gap             : 1em;
 }
 .network{
     display         : flex;
-    gap             : .5rem;
+    gap             : .5em;
     justify-content : flex-end;
     align-items     : center;
 }
 .network__label{
-    font-size       : 2rem;
+    font-size       : 2em;
     letter-spacing  : -.04em;
 }
 .network__icon{
-    width           : 3rem;
-    height          : 3rem;
-    padding         : .1rem;
+    flex-shrink     : 0;
+    width           : 3em;
+    height          : 3em;
+    padding         : .2em;
+}
+@media (min-width: 641px){
+    .network{
+        gap             : 1rem;
+    }
 }
 </style>

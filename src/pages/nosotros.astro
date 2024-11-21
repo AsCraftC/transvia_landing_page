@@ -18,10 +18,33 @@ import Colabs from "@/components/about/Colabs.astro";
 
 <style>
 .phrase{
-	font-size		: 3rem;
+	font-size		: 3em;
 	letter-spacing	: -.03em;
 	font-weight		: 700;
-	padding-left	: 3rem;
-	padding-right	: 1rem;
+	margin			: 0 1rem;
+	padding-left	: 2rem;
+}
+@media (min-width: 641px){
+	.phrase{
+		margin			: 0 5rem;
+		padding-left	: 1rem;
+		font-size		: 4rem;
+	}
+	
+}
+@media (min-width: 904px){
+	.phrase{
+		margin			: 0 9rem;
+		padding-left	: 0;
+		font-size		: 8rem;
+	}
+	
+}
+@media screen and (min-width: 1440px){
+	.phrase{
+		padding-left: 9rem;
+		margin		: 0 calc(var(--big-padding));
+	}
+	
 }
 </style>

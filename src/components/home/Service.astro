@@ -40,7 +40,7 @@ const lessThan10 : boolean = index < 10;
     display         : flex;
     padding         : 0 3rem;
     gap             : 1rem;
-    
+    align-items     : center;
 }
 .service--inverse{
     flex-direction  : row-reverse;
@@ -96,29 +96,44 @@ hr{
 
 @media (min-width: 641px){
     .service{
-        padding     : 0 7em;
+        padding     : 0 7rem;
     }
     .service__img{
-        width       : 25em;
-        height      : 19em;
+        width       : min(28vw, 50rem);
+        height      : min(21vw, 38rem);
     }
     .service__info{
-        width       : 40em;
+        width       : min(32vw, 55rem);
     }
     .service__number{
-        font-size   : 2em;
+        font-size   : 2rem;
     }
     .service__title{
-        font-size   : 3em;
+        font-size   : 3rem;
     }
     .service__desc{
-        font-size   : 2em;
+        font-size   : 2rem;
+    }
+}
+@media (min-width: 904px){
+    .service{
+        gap             : 8rem;
+    }
+    .service__number{
+        font-size       : 3rem;
+    }
+    .service__title{
+        font-size       : 4rem;
+    }
+    .service__desc{
+        font-size       : 2rem;
     }
 }
 
+
 @media screen and (min-width: 1440px){
     .service{
-        padding     : 0 calc(var(--big-pading) + 7em);
+        padding     : 0 calc(var(--big-padding) + 7em);
     }
 }
 

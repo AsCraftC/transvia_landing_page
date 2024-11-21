@@ -15,7 +15,7 @@ interface Props {
 }
 const { imagenMuestra, nombreProyecto, direccion, fechaInicio, duracion, impacto } = Astro.props
 
-const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
+const inicioString = fechaInicio.toLocaleDateString('es-CL', {}).replaceAll("-", "/");
 
 ---
 
@@ -23,7 +23,7 @@ const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
     <img 
         class="project__img"
         src={imagenMuestra.src}
-        alt=`Muestra aerea de proyecto ${nombreProyecto}`
+        alt=`Muestra aérea de proyecto ${nombreProyecto}`
         loading="lazy"
         decoding="async"
     >
@@ -109,16 +109,14 @@ const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
 
 @media (min-width: 641px) {
     .project__info{
-        padding         : 1em;
+        padding         : 1rem;
+        font-size       : clamp(1rem, 3vw - 1.42rem, 2rem);
     }
     .project__img{
         aspect-ratio    : 4 / 3;
     }
     .project__title{
-        font-size       : 1.5em;
-    }
-    .project__labels{
-        gap             : 1em;
+        font-size       : 2em;
     }
     .project__label{
         font-size       : 1em;
@@ -131,11 +129,29 @@ const inicioString = fechaInicio.toLocaleDateString('es-CL', {})
         font-size       : 1em;
         letter-spacing  : -.1em;
     }
-    
 }
-@media (min-width: 899px) {
+
+@media (min-width: 904px){
+    .project__info{
+        padding         : 1rem;
+        font-size       : 1rem;
+    }
+    .project__img{
+        aspect-ratio    : 4 / 3;
+    }
+    .project__title{
+        font-size       : 2rem;
+    }
+    .project__label{
+        font-size       : 1.5em;
+    }
+    .project__icon{
+        width           : 1.5em;
+        height          : 1.5em;
+    }
     .project__impact{
-        letter-spacing  : 0em;
+        font-size       : 1.5em;
+        letter-spacing  : -.1em;
     }
 }
 </style>

@@ -16,31 +16,31 @@ const numeroValores = valores.length;
 ---
 
 <script>
-    const show : HTMLElement = document.querySelector('.carussel__show');
-    const dots : NodeListOf<HTMLElement> = document.querySelectorAll('.carussel__dot');
+    const show : HTMLElement = document.querySelector('.carousel__show');
+    const dots : NodeListOf<HTMLElement> = document.querySelectorAll('.carousel__dot');
     
     dots.forEach( (dot, index) => {
         dot.addEventListener('click', () => {
             let position = index * (-100/dots.length);
             show.style.transform = `translateX( calc(${ position }% - calc(1rem * ${index}) ))`;
-            dots.forEach( dot => dot.classList.remove('carussel__dot--active'));
-            dot.classList.add('carussel__dot--active');
+            dots.forEach( dot => dot.classList.remove('carousel__dot--active'));
+            dot.classList.add('carousel__dot--active');
         })
     })
 </script>
 
-<section class="carussel" tabindex="0">
-    <div class="carussel__show">
+<section class="carousel" tabindex="0">
+    <div class="carousel__show">
         {
             valores.map( valor => (
                 <ValueCard total={numeroValores} {... valor} />
             ))
         }
     </div>
-    <div class="carussel__dots">
+    <div class="carousel__dots">
         {
             valores.map( (valor, index) => (
-                <button class:list={["carussel__dot", { "carussel__dot--active" : index === 0 }]}>
+                <button class:list={["carousel__dot", { "carousel__dot--active" : index === 0 }]}>
                 </button>
             ))
         }
@@ -48,33 +48,49 @@ const numeroValores = valores.length;
 </section>
 
 <style define:vars={{numeroValores}}>
-.carussel{
-    padding         : 0 1rem;
+.carousel{
+    margin          : 0 1em;
     overflow-x      : hidden;
 }
 
-.carussel__show{
+.carousel__show{
     display         : flex;
     flex-flow       : row nowrap;
-    gap             : 1rem;
+    gap             : 1em;
     width           : calc( 100% * var(--numeroValores));
     transition      : all .5s ease;
 }
-.carussel__dots{
+.carousel__dots{
     width           : 100%;
     display         : flex;
     flex-flow       : row nowrap;
-    gap             : .5rem;
+    gap             : .5em;
     justify-content : center;
-    margin-top      : 1rem;
+    margin-top      : 1em;
 }
-.carussel__dot{
-    width           : 4rem;
-    height          : 1rem;
+.carousel__dot{
+    width           : 4em;
+    height          : 1em;
     border-radius   : 5px;
     background-color: var(--background-banner);
 }
-.carussel__dot--active{
+.carousel__dot--active{
     background-color: var(--primary-color);
+}
+
+@media (min-width: 641px) {
+    .carousel{
+        margin          : 0 5rem;
+    }
+    .carousel__dots{
+        gap             : 1rem;
+    }
+}
+
+@media (min-width: 904px) {
+    .carousel{
+        width           : min(60%, 108rem);
+        margin          : 0 auto;
+    }
 }
 </style>

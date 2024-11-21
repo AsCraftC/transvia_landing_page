@@ -71,16 +71,15 @@ let isServices  : boolean = location === "contacto";
     align-items         : center;
 }
 .contact-item__contact-label{
-    font-size           : 1.5em;
+    font-size           : 2rem;
 }
 .contact-item__icon{
-    width               : 1.5em;
-    height              : 1.5em;
+    width               : 2rem;
+    height              : 2rem;
     margin              : .5em .25em;
     background-size     : cover;
     background-repeat   : no-repeat;
 }
-
 hr{
     display             : none;
     position            : absolute;
@@ -90,7 +89,6 @@ hr{
     background-color    : var(--text-color);
     z-index             : 1;
 }
-
 .header__navbar{
     display             : flex;
     justify-content     : space-between;
@@ -116,15 +114,12 @@ hr{
     width               : 12em;
     height              : 5em;
 }
-
-
-
 @media (min-width: 641px) {
     .header{
         display         : block;
     }
 }
-@media (min-width: 899px) {
+@media (min-width: 904px) {
     .header__contact{
         display         : flex;
     }
@@ -136,22 +131,26 @@ hr{
     }
     .menu-desktop{
         flex-direction  : row;
-        gap             : 5em;
+        gap             : 5rem;
     }
     .menu-desktop__item{
-        font-size       : 1.5em;
+        font-size       : 2.5rem;
+    }
+    .logo{
+        width           : 18rem;
+        height          : 7rem;
     }
 }
 @media (min-width: 1440px) {
     .header__contact{
-        padding         : 0 calc(var(--big-pading) + 9rem);
+        padding         : 0 calc(var(--big-padding) + 9rem);
     }
     hr{
-        width           : calc(100% - var(--big-pading) * 2 - 7rem);
-        margin          : 0 calc(var(--big-pading) + 3.5rem);
+        width           : calc(100% - var(--big-padding) * 2 - 7rem);
+        margin          : 0 calc(var(--big-padding) + 3.5rem);
     }
     .header__navbar{
-        padding         : calc(1px + .5rem) calc(var(--big-pading) + 9rem) .5rem;
+        padding         : calc(1px + .5rem) calc(var(--big-padding) + 9rem) .5rem;
     }
 }
 </style>

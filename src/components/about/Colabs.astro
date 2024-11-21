@@ -11,64 +11,36 @@ const logosDown = logos.slice(Math.floor(logos.length / 2),logos.length)
 
 ---
 
-<section class="colaborations">
-    <div class="colaborations__show">
+<section class="collaborations">
+    <div class="collaborations__show">
         {
             logosTop.map(logo => (
-                <figure class="colaborations__logo">
-                    <img src={logo.src} alt="">
+                <figure class="collaborations__logo">
+                    <img src={logo.src} alt="" loading="lazy" decoding="async">
                 </figure>
             ))
         }
         {
             logosTop.map(logo => (
-                <figure class="colaborations__logo">
-                    <img src={logo.src} alt="">
-                </figure>
-            ))
-        }
-        {
-            logosTop.map(logo => (
-                <figure class="colaborations__logo">
-                    <img src={logo.src} alt="">
-                </figure>
-            ))
-        }
-        {
-            logosTop.map(logo => (
-                <figure class="colaborations__logo">
-                    <img src={logo.src} alt="">
+                <figure class="collaborations__logo collaborations__logo--repeat">
+                    <img src={logo.src} alt="" loading="lazy" decoding="async">
                 </figure>
             ))
         }
     </div>
-    <div class="colaborations__spacing"> <SectionTitle title="Clientes que confian en nosotros" /> </div>
-    <div class="colaborations__show">
+    <div class="collaborations__spacing"> <SectionTitle title="Clientes que confian en nosotros" /> </div>
+    <div class="collaborations__show collaborations__show--reverse">
         {
             logosDown.map(logo => (
-                <figure class="colaborations__logo">
-                    <img src={logo.src} alt="">
+                <figure class="collaborations__logo">
+                    <img src={logo.src} alt="" loading="lazy" decoding="async">
                 </figure>
             ))
         }
         {
             logosDown.map(logo => (
-                <figure class="colaborations__logo">
-                    <img src={logo.src} alt="">
-                </figure>
-            ))
-        }
-        {
-            logosDown.map(logo => (
-                <figure class="colaborations__logo">
-                    <img src={logo.src} alt="">
-                </figure>
-            ))
-        }
-        {
-            logosDown.map(logo => (
-                <figure class="colaborations__logo">
-                    <img src={logo.src} alt="">
+                <figure class="collaborations__logo collaborations__logo--repeat">
+                    <img src={logo.src} alt="" loading="lazy" decoding="async">
                 </figure>
             ))
         }
@@ -76,32 +48,70 @@ const logosDown = logos.slice(Math.floor(logos.length / 2),logos.length)
 </section>
 
 <style>
-.colaborations{
-    margin          : 0 1rem;
+.collaborations{
+    margin          : 0 1em;
     display         : flex;
     flex-direction  : column;
-    gap             : 3rem;
+    gap             : 3em;
     overflow-x      : hidden;
 }
 
-.colaborations__show{
+.collaborations__show{
     position        : relative;
     display         : flex;
-    gap             : 1rem;
+    gap             : 1em;
     animation       : linear colanH 15s infinite;
+}
+.collaborations__show--reverse{
+    animation       : linear colanH-reverse 15s infinite;
 }
 @keyframes colanH {
     from{left       : 0;}
-    to{left         : -36rem;}
+    to{left         : -100%;}
 }
-
-.colaborations__logo{
-    width           : 10rem;
+@keyframes colanH-reverse {
+    from{left       : -100%;}
+    to{left         : 0;}
+}
+.collaborations__logo{
+    width           : 10em;
     flex-shrink     : 0;
 }
-
-.colaborations__spacing{
-    padding-left: 5rem;
+.collaborations__spacing{
+    padding-left    : 5em;
 }
 
+@media (min-width: 641px){
+    .collaborations{
+        margin          : 0 5rem;
+    }
+    .collaborations__show{
+        animation       : none;
+    }
+    .collaborations__logo--repeat{
+        display         : none;
+    }
+
+    .collaborations__logo{
+        width           : 15rem;
+    }
+}
+@media (min-width: 904px){
+	.collaborations{
+        margin          : 0 9rem;
+    }
+
+    .collaborations__show{
+        gap             : 2rem;
+    }
+    .collaborations__logo{
+        width           : 20rem;
+    }
+}
+@media screen and (min-width: 1440px){
+	.collaborations{
+		margin		: 0 calc(var(--big-padding) + 9rem);
+	}
+	
+}
 </style>
