@@ -2,20 +2,21 @@
 interface Props {
     stats : {valor : number, etiqueta : string}[];
 }
+import IncreaseNumber from '@/components/home/IncreaseNumber';
 
 const { stats } = Astro.props
 ---
 <article class="badge-stats">
     <div class="stat stat-0">
-        <span class="stat__number"> {new Intl.NumberFormat("es-CL").format(stats[0].valor)} </span>
+        <span class="stat__number"> <IncreaseNumber value={stats[0].valor} client:visible/> </span>
         <p class="stat__label"> {stats[0].etiqueta} </p>
     </div>
     <div class="stat stat-1">
-        <span class="stat__number"> {new Intl.NumberFormat("es-CL").format(stats[1].valor)} </span>
+        <span class="stat__number"> <IncreaseNumber value={stats[1].valor} client:visible/> </span>
         <p class="stat__label"> {stats[1].etiqueta} </p>
     </div>
     <div class="stat stat-2">
-        <span class="stat__number"> {new Intl.NumberFormat("es-CL").format(stats[2].valor)} </span>
+        <span class="stat__number"> <IncreaseNumber value={stats[2].valor} client:visible/> </span>
         <p class="stat__label"> {stats[2].etiqueta} </p>
     </div>
 </article>
