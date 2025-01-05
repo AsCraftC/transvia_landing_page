@@ -1,29 +1,32 @@
 import type { CountUp } from "countup.js";
-import {  useEffect, useRef } from "react";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 interface props{
   value : number;
 }
 
 export default function IncreaseNumber({value}:props) {
-  const countupRef = useRef(null)
-  let countUpAnim : CountUp
-
-  useEffect(() => {
-    initCountUp()
-  },[])
-
-  async function initCountUp() {
-    const countUpModule = await import('countup.js')
-    countUpAnim = new countUpModule.CountUp(countupRef.current, value)
-    if (!countUpAnim.error) {
-      countUpAnim.start();
-    } else {
-      console.error(countUpAnim.error);
+  const number = useRef(null)
+  
+  useGSAP( () => {
+      gsap.from(number.current, {
+        innerText : 0,
+        duration  : 3,
+        snap : {
+          innerText : 1
+        },
+        scrollTrigger:{
+          trigger : number.current,
+          start   : 'bottom'
+        }
+      }
+    )
     }
-  }
+  )
 
   return (
-    <p ref={countupRef}>0</p>
+    <p ref={number}> {value} </p>
   )
 }
