@@ -2,6 +2,8 @@
 import SectionTitle from "@/components/SectionTitle.astro";
 import LoadingIcon from "@/icons/LoadingIcon.astro";
 import CheckIcon from "@/icons/CheckIcon.astro";
+
+import { ReactContactForm } from "@/components/contact/ContactForm/ReactContactForm";
 ---
 <script>
 
@@ -10,96 +12,11 @@ import CheckIcon from "@/icons/CheckIcon.astro";
 
 <section class="contact">
     <SectionTitle title="Dudas o Consultas"/>
-    <form class="contact__form">
-        <label class="contact__label" for="name">
-            Nombre 
-            <br>
-            <input class="contact__input" type="text" id="name">
-        </label>
-        
-        <label class="contact__label" for="email">
-            Correo Electronico
-            <br>
-            <input class="contact__input" type="email" id="email">
-        </label>
-        <label class="contact__label" for="message">
-            Mensaje
-            <br>
-            <textarea  class="contact__input contact__message"  id="message"></textarea>
-        </label>
-        <button disabled class="contact__button">
-            <span class="before active">
-                Enviar
-            </span>
-            <span class="sending">
-                <span class="button__icon">
-                    <LoadingIcon />
-                </span>
-                Enviando...
-            </span>
-            <span class="after ">
-                Enviado 
-                <span class="button__icon">
-                    <CheckIcon />
-                </span>
-            </span>
-        </button>
-    </form>
+    <ReactContactForm client:idle/>
 </section>
 
 <style>
 .contact{
     grid-area       : form;
-}
-.contact__form{
-    display         : flex;
-    flex-flow       : column nowrap;
-    gap             : .5em;
-    padding         : 1em 0;
-}
-.contact__label{
-    font-size       : 1.5em;
-    letter-spacing  : -.05em;
-}
-.contact__input{
-    font-size       : 1.5em;
-    padding         : 0 .5em;
-    width           : 50%;
-    background-color: var(--background-color);
-    border-radius   : 6px;
-    border          : 1px solid var(--accent-color);
-}
-.contact__message{
-    width           : 100%;
-    height          : 8em;
-    resize          : none;
-}
-.contact__button{
-    font-size       : 1.5em;
-    padding         : .5em 2em;
-    width           : min-content;
-    background-color: var(--background-color);
-    align-self      : flex-end;
-    border-radius   : 30px;
-    border          : 1px solid var(--accent-color);
-    cursor          : pointer;
-}
-.contact__button .before{
-    display         : none;
-}
-.contact__button .sending{
-    display         : none;
-}
-.button__icon{
-    width           : 1.5em;
-    height          : 1.5em;
-}
-.contact__button .after{
-    display         : none;
-}
-.contact__button .active{
-    display         : flex;
-    align-items     : center;
-    gap             : .5em;
 }
 </style>

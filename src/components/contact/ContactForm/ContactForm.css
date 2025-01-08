@@ -1,0 +1,6 @@
+.contact__form{
+  display         : flex;
+  flex-flow       : column nowrap;
+  gap             : .5em;
+  padding         : 1em 0;
+}

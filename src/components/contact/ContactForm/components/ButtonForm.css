@@ -1,0 +1,28 @@
+.contact__button{
+  font-size       : 1.5em;
+  padding         : .5em 2em;
+  width           : min-content;
+  background-color: var(--background-color);
+  align-self      : flex-end;
+  border-radius   : 30px;
+  border          : 1px solid var(--accent-color);
+  cursor          : pointer;
+}
+.contact__button .before{
+  display         : none;
+}
+.contact__button .sending{
+  display         : none;
+}
+.button__icon{
+  width           : 1.5em;
+  height          : 1.5em;
+}
+.contact__button .after{
+  display         : none;
+}
+.contact__button .active{
+  display         : flex;
+  align-items     : center;
+  gap             : .5em;
+}
