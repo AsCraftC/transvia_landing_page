@@ -21,7 +21,7 @@ export function InputForm({name, control, label, type, error} : Props) {
         control = {control}
         render  = { ({field}) => (
           isTextarea ?
-            <textarea id = {name} {... field} className= {`contact__input contact__message ${error && 'contact__input--is-invalid'}`}></textarea>
+            <textarea id = {name} {... field} className= {`contact__input contact__message ${error && 'contact__input--is-invalid'}`}/>
           :
             <input id = {name} type = {type} {... field} className= {`contact__input ${error && 'contact__input--is-invalid'}`}/>
         )
