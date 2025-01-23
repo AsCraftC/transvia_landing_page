@@ -4,103 +4,127 @@ import MobileHeader from "@/components/MobileHeader.astro";
 import Footer from "@/components/Footer.astro";
 import Path from "@/components/Path.astro";
 
+import defaultIMG from '@/assets/home/service1.jpg'
+
 interface Props {
-	title: string;
-	description: string;
-	keywords: string[]
+  title       : string;
+  description : string;
+  keywords    : string[];
+  ogImage    ?: ImageMetadata;
+  ogURL       : string;
 }
 
-const { title, description, keywords } = Astro.props;
+const { title, description, keywords, ogImage = defaultIMG, ogURL} = Astro.props;
 
-let keywordString : string = "";
-keywords.forEach(key => {
-	keywordString += key + ",";
+let keywordString: string = "";
+keywords.forEach((key) => {
+  keywordString += key + ",";
 });
 
 /*
 TODO:
     - Investigar Etiquetas Meta
 */
-
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="author" content="Cristóbal Contreras Beltrán">
-		<meta name="generator" content={Astro.generator} />
-		<meta name="keywords" content={keywordString}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="keywords" content={keywordString} />
+    <meta name="author" content="Cristóbal Contreras Beltrán" />
 
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<title>{title}</title>
-		<meta name="description" content={description} />
-	</head>
-	<body>
-        <DesktopHeader/>
-		<MobileHeader/>
-        <Path/>
-        <main>
-            <slot />
-        </main>
-		<Footer/>
-	</body>
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content={ogURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Transvia Ingeniería" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage.src} />
+    <meta property="og:locale" content="es_CL">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="ascraftc.github.io" />
+    <meta property="twitter:url" content={ogURL} />
+    <meta name="twitter:title" content="Transvia Ingeniería" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage.src} />
+
+  </head>
+  <body>
+    <DesktopHeader />
+    <MobileHeader />
+    <Path />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
 </html>
 
 <style>
-main{
-    display         : flex;
-	flex-direction  : column;
-	gap             : 3rem;
-	padding         : 3rem 0;
-}
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
 </style>
 
-
-
 <style is:global>
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Work+Sans:wght@100..900&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Work+Sans:wght@100..900&display=swap");
 
-:root{
+  :root {
     font-size: 50%;
     /* Colors */
-    --primary-color     :#73BC44;
-    --secondary-color  	:#046CBC;
-    --accent-color 	    :#44C4F4;
+    --primary-color: #73bc44;
+    --secondary-color: #046cbc;
+    --accent-color: #44c4f4;
 
-    --footer-color      :#040404;
-    --footer-letter     :#DCDCDC;
+    --footer-color: #040404;
+    --footer-letter: #dcdcdc;
 
-	--background-color  :#DCDCDC;
-    --background-banner :rgba(220, 220, 220, 75%);
-    --background-blur   :rgba(220,220,220,50%);
-	--background-grad   :
-        linear-gradient(var(--background-blur),var(--background-blur)),
-        linear-gradient(90deg, var(--background-color) 0%, var(--accent-color) 35%, var(--primary-color) 100%);
+    --background-color: #dcdcdc;
+    --background-banner: rgba(220, 220, 220, 75%);
+    --background-blur: rgba(220, 220, 220, 50%);
+    --background-grad: linear-gradient(
+        var(--background-blur),
+        var(--background-blur)
+      ),
+      linear-gradient(
+        90deg,
+        var(--background-color) 0%,
+        var(--accent-color) 35%,
+        var(--primary-color) 100%
+      );
 
-    --text-color 		:#212529;
+    --text-color: #212529;
 
-    --min-width-mobile  :360px;
-    --min-width-desktop :640px;
-    --tablet-size       :904px;
-    --max-width         :1440px;
+    --min-width-mobile: 360px;
+    --min-width-desktop: 640px;
+    --tablet-size: 904px;
+    --max-width: 1440px;
 
-    --big-padding       :calc((100vw - 1440px) / 2);;
-}
-/* Modo oscuro */
-@media (prefers-color-scheme: dark) {
-    :root{
-        --background-color  :#212529;
-        --background-blur   :rgba(4,4,4,50%);
-        --background-banner :rgba(4, 4, 4, 75%);
+    --big-padding: calc((100vw - 1440px) / 2);
+  }
+  /* Modo oscuro */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #212529;
+      --background-blur: rgba(4, 4, 4, 50%);
+      --background-banner: rgba(4, 4, 4, 75%);
 
-        --text-color		:#DEDEDE;
+      --text-color: #dedede;
     }
-}
-/* Modo alto contraste */
-/* @media (prefers-contrast: high){
+  }
+  /* Modo alto contraste */
+  /* @media (prefers-contrast: high){
     :root{
         --primary-color     :;
         --secondary-color   :;
@@ -111,91 +135,117 @@ main{
         --selection-bg-color:;
     }
 } */
-/* Modo sin animation */
-@media (prefers-reduced-motion: reduce) {
+  /* Modo sin animation */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Reset*/
   * {
-        animation           : none !important;
-        transition          : none !important;
-    }
-}
+    margin: 0;
+    padding: 0;
+    border: 0;
 
-
-/* Reset*/
-* { 
-    margin          : 0;
-    padding         : 0;
-    border          : 0;
-
-    box-sizing      : border-box;
-    vertical-align  : baseline; 
-    background-size : cover;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    background-size: cover;
     background-repeat: no-repeat;
-}
-img , picture , video , iframe , figure{
-    max-width       : 100%;
-    width           : 100%;
-    display         : block;
-    object-fit      : cover;            /* opcional */
-    object-position : center center;    /* opcional */
-}
-a {
-    display         : block;
-    text-decoration : none;
-    color           : inherit;
-    font-size       : inherit;
-}   
-p a {
-    display         : inline;
-}
-li {
-    list-style-type : none;
-}
-html {
-    scroll-behavior : smooth;
-}
-h1 , h2 , h3 , h4 , h5 , h6 , p ,span , a , strong , blockquote , i , b , u , em {
-    font-size       : inherit;
-    font-weight     : inherit;
-    font-style      : inherit;
-    line-height     : inherit;
-    text-decoration : none;
-    color           : inherit;
-}
-blockquote:before, blockquote:after, q:before, q:after {
-	content         : '';
-	content         : none;
-}
-form , input, textarea, select , button , label{
-    font-family     : inherit;
-    font-size       : inherit;
-    hyphens         : auto;
+  }
+  img,
+  picture,
+  video,
+  iframe,
+  figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover; /* opcional */
+    object-position: center center; /* opcional */
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+  }
+  p a {
+    display: inline;
+  }
+  li {
+    list-style-type: none;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  strong,
+  blockquote,
+  i,
+  b,
+  u,
+  em {
+    font-size: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    text-decoration: none;
+    color: inherit;
+  }
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
+    content: "";
+    content: none;
+  }
+  form,
+  input,
+  textarea,
+  select,
+  button,
+  label {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
     background-color: transparent;
-    color           : inherit;
-    display         : block;
-    appearance      : none;
-}
-table , tr , td {
-    border-collapse : collapse;
-    border-spacing  : 0;
-}
-svg{
-    width           : 100%;
-    display         : block;
-    fill            : currentColor;
-}   
-body {
-    min-width       : var(--min-width-mobile);
-	min-height      : 100vh;
-    max-height      : min-content;
-    font-family     : "Work Sans", sans-serif;
-    color           : var(--text-color);
-    background      : border-box var(--background-grad) border-box no-repeat fixed;
-    font-size       : clamp(1rem, 2.8571485714vw - .2857142857143rem, 2rem);
-}
-@media (min-width: 641px) {
-    body{
-        font-size   : 1rem;
+    color: inherit;
+    display: block;
+    appearance: none;
+  }
+  table,
+  tr,
+  td {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+  }
+  body {
+    min-width: var(--min-width-mobile);
+    min-height: 100vh;
+    max-height: min-content;
+    font-family: "Work Sans", sans-serif;
+    color: var(--text-color);
+    background: border-box var(--background-grad) border-box no-repeat fixed;
+    font-size: clamp(1rem, 2.8571485714vw - 0.2857142857143rem, 2rem);
+  }
+  @media (min-width: 641px) {
+    body {
+      font-size: 1rem;
     }
-    
-}
+  }
 </style>
