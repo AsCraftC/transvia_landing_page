@@ -1,131 +1,125 @@
 ---
 import MobileMenu from "@/components/MobileMenu.astro";
-//Logo
 import transviaLogo from "@/assets/transviaLogo.png";
-//Icons
 import MenuIcon from "@/icons/MenuIcon.astro";
 ---
 
 <header class="header">
-    <section class="header__navbar">
-        <a class="logo" href="/">
-            <img 
-                src={transviaLogo.src} 
-                alt="Logo Transvia Ingenieria"
-                loading="lazy"
-                decoding="async"
-            >
-        </a>
-        <label class="menu-deployer" for="isDeployed">
-            <div class="menu-deployer__menu-icon"> <MenuIcon /> </div>
-            <span class="menu-deployer__menu-label">Menú</span>
-        </label>
-    </section>
+  <header class="header__navbar">
+    <a class="logo" href="/">
+      <img
+        src={transviaLogo.src}
+        alt="Logo Transvia Ingenieria"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+    <label class="menu-deployer" for="isDeployed">
+      <div class="menu-deployer__menu-icon"><MenuIcon /></div>
+      <span class="menu-deployer__menu-label">Menú</span>
+    </label>
+  </header>
 
-    <input class="header__checker" type="checkbox" id="isDeployed">
-    <hr>
-    <section class="header__deploy-menu">
-        <MobileMenu />
-    </section>
+  <input class="header__checker" type="checkbox" id="isDeployed" />
+  <hr />
+  <div class="header__deploy-menu">
+    <MobileMenu />
+  </div>
 </header>
 
 <style>
-.header{
-    position        : sticky;
-    top             : 0;
-    z-index         : 100;
-    display         : flex;
-    flex-direction  : column;
-    align-items     : stretch;
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     background-color: var(--background-color);
-    box-sizing      : border-box;
-}
-.header__navbar{
-    padding         : .5rem 1rem;
-    display         : flex;
-    justify-content : space-between;
-}
-.logo{
-    width           : 10em;
-    height          : 4em;
-}
+  }
+  .header__navbar {
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo {
+    width: 10em;
+    height: 4em;
+  }
 
-.menu-deployer{
-    display         : flex;
-    gap             : .5rem;
-    align-items     : center;
-}
-.menu-deployer__menu-icon{
-    width           : 3em;
-    height          : 3em;
-}
-.menu-deployer__menu-label{
-    font-family     : "Nunito", sans-serif;
-    font-size       : 2em;
-}
+  .menu-deployer {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+  .menu-deployer__menu-icon {
+    width: 3em;
+    height: 3em;
+  }
+  .menu-deployer__menu-label {
+    font-family: "Nunito", sans-serif;
+    font-size: 2em;
+  }
 
-.header__checker{
-    display         : none;
-}
-.header__deploy-menu{
-    display         : none;
-}
+  .header__checker {
+    display: none;
+  }
+  .header__deploy-menu {
+    display: none;
+  }
 
-.header__checker:checked ~ hr{
-    z-index         : 1;
-    margin          : 0 2rem;
-    height          : 1px;
-    width           : auto;
-    box-sizing      : content-box;
+  .header__checker:checked ~ hr {
+    z-index: 1;
+    margin: 0 2em;
+    height: 1px;
+    width: auto;
+    box-sizing: content-box;
     background-color: var(--text-color);
-}
-.header__checker:checked ~ .header__deploy-menu{
-    position        : fixed;
-    top             : calc(4em + 1rem);
-    width           : 100%;
-    display         : flex;
-    padding         : 1rem;
-    gap             : .5rem;
-    background-color: var(--background-color);
-    -webkit-animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-    animation       : swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-}
-@-webkit-keyframes swing-in-top-fwd {
+  }
+  .header__checker:checked ~ .header__deploy-menu {
+    position: relative;
+    display: block;
+    -webkit-animation: swing-in-top-fwd 0.5s
+      cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      both;
+  }
+  @-webkit-keyframes swing-in-top-fwd {
     0% {
-        -webkit-transform: rotateX(-100deg);
-                transform: rotateX(-100deg);
-        -webkit-transform-origin: top;
-                transform-origin: top;
-        opacity: 0;
+      -webkit-transform: rotateX(-100deg);
+      transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 0;
     }
     100% {
-        -webkit-transform: rotateX(0deg);
-                transform: rotateX(0deg);
-        -webkit-transform-origin: top;
-                transform-origin: top;
-        opacity: 1;
+      -webkit-transform: rotateX(0deg);
+      transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 1;
     }
-}
-@keyframes swing-in-top-fwd {
+  }
+  @keyframes swing-in-top-fwd {
     0% {
-        -webkit-transform: rotateX(-100deg);
-                transform: rotateX(-100deg);
-        -webkit-transform-origin: top;
-                transform-origin: top;
-        opacity: 0;
+      -webkit-transform: rotateX(-100deg);
+      transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 0;
     }
     100% {
-        -webkit-transform: rotateX(0deg);
-                transform: rotateX(0deg);
-        -webkit-transform-origin: top;
-                transform-origin: top;
-        opacity: 1;
+      -webkit-transform: rotateX(0deg);
+      transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+      transform-origin: top;
+      opacity: 1;
     }
-}
+  }
 
-@media (min-width: 641px){
-    .header{
-        display     : none;
+  @media (min-width: 641px) {
+    .header {
+      display: none;
     }
-}
+  }
 </style>

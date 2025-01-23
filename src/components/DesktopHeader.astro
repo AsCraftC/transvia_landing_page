@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 import { companyData } from "@/data/contact";
 
 import transviaLogo from "@/assets/transviaLogo.png";
@@ -6,151 +8,208 @@ import AtSymbolIcon from "@/icons/AtSymbolIcon.astro";
 import PhoneIcon from "@/icons/PhoneIcon.astro";
 import LocationMarkerIcon from "@/icons/LocationMarkerIcon.astro";
 
-const location  : string = Astro.url.pathname.replace("/","");
+const location: string = Astro.url.pathname.replace("/", "");
 
-let isProject   : boolean = location === "proyectos";
-let isValue     : boolean = location === "valores";
-let isAbout     : boolean = location === "nosotros";
-let isServices  : boolean = location === "contacto";
+let isIMIV: boolean = location === "IMIV";
+let isITS: boolean = location === "ITS";
+let isProject: boolean = location === "proyectos";
+let isPrinciples: boolean = location === "principios";
+let isAbout: boolean = location === "nosotros";
+let isContact: boolean = location === "contacto";
 ---
 
 <header class="header">
-    <ul class="header__contact">
-        <li class="contact-item">
-            <div class="contact-item__icon"> <AtSymbolIcon color="--text-color" /> </div>
-            <span class="contact-item__contact-label">{companyData.email}</span>
-        </li>
-        <li class="contact-item">
-            <div class="contact-item__icon"> <PhoneIcon color="--text-color" /> </div>
-            <span class="contact-item__contact-label">{companyData.telefono}</span>
-        </li>
-        <li class="contact-item">
-            <div class="contact-item__icon"> <LocationMarkerIcon color="--text-color" /> </div>
-            <span class="contact-item__contact-label">{companyData.direccion}, {companyData.ciudad}</span>
-        </li>
-    </ul>
+  <ul class="header__contact">
+    <li class="contact-item">
+      <div class="contact-item__icon">
+        <AtSymbolIcon color="--text-color" />
+      </div>
+      <span class="contact-item__contact-label">{companyData.email}</span>
+    </li>
+    <li class="contact-item">
+      <div class="contact-item__icon"><PhoneIcon color="--text-color" /></div>
+      <span class="contact-item__contact-label">{companyData.telefono}</span>
+    </li>
+    <li class="contact-item">
+      <div class="contact-item__icon">
+        <LocationMarkerIcon color="--text-color" />
+      </div>
+      <span class="contact-item__contact-label"
+        >{companyData.direccion}, {companyData.ciudad}</span
+      >
+    </li>
+  </ul>
 
-    <hr>
+  <hr />
 
-    <section class="header__navbar">
-        <nav class="menu-desktop">
-            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isProject}]} href="/proyectos">Proyectos</a>
-            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isValue}]} href="/principios">Principios</a>
-        </nav>
+  <section class="header__navbar">
+    <nav class="menu-desktop">
+      <a
+        class:list={[
+          "menu-desktop__item",
+          { "menu-desktop__item--active": isIMIV },
+        ]}
+        href="/IMIV">IMIV</a
+      >
+      <a
+        class:list={[
+          "menu-desktop__item",
+          { "menu-desktop__item--active": isITS },
+        ]}
+        href="/ITS">ITS</a
+      >
+      <a
+        class:list={[
+          "menu-desktop__item",
+          { "menu-desktop__item--active": isProject },
+        ]}
+        href="/proyectos">Proyectos</a
+      >
+    </nav>
 
-        <a class="logo" href="/">
-            <img 
-                src={transviaLogo.src} 
-                alt="Logo Transvia Ingenieria"
-                loading="lazy"
-                decoding="async"
-            >
-        </a>
-        
-        <nav class="menu-desktop">
-            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isAbout}]} href="/nosotros">Nosotros</a>
-            <a class:list={["menu-desktop__item", { "menu-desktop__item--active" : isServices}]} href="/contacto">Contacto</a>
-        </nav>
-    </section>
+    <a href="/">
+      <Image class="logo" src={transviaLogo} alt="Logo Transvia Ingeniería" />
+      <!-- <img
+        src={transviaLogo.src}
+        alt="Logo Transvia Ingeniería"
+        loading="lazy"
+        decoding="async"
+      /> -->
+    </a>
+
+    <nav class="menu-desktop">
+      <a
+        class:list={[
+          "menu-desktop__item",
+          { "menu-desktop__item--active": isAbout },
+        ]}
+        href="/nosotros">Nosotros</a
+      >
+      <a
+        class:list={[
+          "menu-desktop__item",
+          { "menu-desktop__item--active": isPrinciples },
+        ]}
+        href="/principios">Principios</a
+      >
+      <a
+        class:list={[
+          "menu-desktop__item",
+          { "menu-desktop__item--active": isContact },
+        ]}
+        href="/contacto">Contacto</a
+      >
+    </nav>
+  </section>
 </header>
 
 <style>
-.header{
-    display : none;
-}
-.header__contact{
-    display             : none;
-    gap                 : 1rem;
-    justify-content     : end;
-    padding             : .5rem 9rem;
-    background-color    : var(--background-color);
-}
-.contact-item{
-    display             : flex;
-    gap                 : .5rem;
-    align-items         : center;
-}
-.contact-item__contact-label{
-    font-size           : 2rem;
-}
-.contact-item__icon{
-    width               : 2rem;
-    height              : 2rem;
-    margin              : .5em .25em;
-    background-size     : cover;
-    background-repeat   : no-repeat;
-}
-hr{
-    display             : none;
-    position            : absolute;
-    width               : calc(100% - 7rem);
-    height              : 2px;
-    margin              : 0 3.5rem;
-    background-color    : var(--text-color);
-    z-index             : 1;
-}
-.header__navbar{
-    display             : flex;
-    justify-content     : space-between;
-    align-items         : center;
-    padding             : calc(1px + .5rem) 18rem .5rem;
-    margin-top          : -1px;
-    background-color    : var(--background-color);
-}
-.menu-desktop{
-    display             : flex;
-    flex-direction      : column;
-    gap                 : 1em;
-}
-.menu-desktop__item{
-    font-family         : "Nunito", sans-serif;
-    font-size           : 2em;
-    padding             : 0 1rem;
-}
-.menu-desktop__item--active{
-    color               : var(--primary-color);
-}
-.logo{
-    width               : 12em;
-    height              : 5em;
-}
-@media (min-width: 641px) {
-    .header{
-        display         : block;
+  .header {
+    display: none;
+  }
+  .header__contact {
+    display: none;
+    gap: 3rem;
+    justify-content: end;
+    padding: 1rem 9rem;
+    background-color: var(--background-color);
+  }
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  .contact-item__contact-label {
+    font-size: 2rem;
+  }
+  .contact-item__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  hr {
+    display: none;
+    position: absolute;
+    width: calc(100% - 7rem);
+    height: 2px;
+    margin: 0 3.5rem;
+    background-color: var(--text-color);
+    z-index: 1;
+  }
+  .header__navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10rem;
+    background-color: var(--background-color);
+  }
+  .menu-desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .menu-desktop__item {
+    font-family: "Nunito", sans-serif;
+    font-size: 3rem;
+    padding: 0 1rem;
+  }
+  .menu-desktop__item--active {
+    color: var(--primary-color);
+  }
+  .logo {
+    height: 7rem;
+  }
+  @media (min-width: 641px) {
+    .header {
+      display: block;
     }
-}
-@media (min-width: 904px) {
-    .header__contact{
-        display         : flex;
+  }
+  @media (min-width: 904px) {
+    .header__contact {
+      display: flex;
     }
-    hr{
-        display         : block;
+    hr {
+      display: block;
     }
-    .header__navbar{
-        padding         : calc(1px + .5rem) 9rem .5rem;
+    .header__navbar {
+      padding: 1rem 9rem;
     }
-    .menu-desktop{
-        flex-direction  : row;
-        gap             : 5rem;
+    .menu-desktop {
+      flex-direction: row;
+      justify-content: space-between;
     }
-    .menu-desktop__item{
-        font-size       : 2.5rem;
+    .menu-desktop__item {
+      font-size: 2.5rem;
+      width: 12rem;
     }
-    .logo{
-        width           : 18rem;
-        height          : 7rem;
+    .logo {
+      width: 19rem;
+      height: 7rem;
     }
-}
-@media (min-width: 1440px) {
-    .header__contact{
-        padding         : 0 calc(var(--big-padding) + 9rem);
+  }
+
+  @media (min-width: 1200px) {
+    .contact-item__contact-label {
+      font-size: 3rem;
     }
-    hr{
-        width           : calc(100% - var(--big-padding) * 2 - 7rem);
-        margin          : 0 calc(var(--big-padding) + 3.5rem);
+    .contact-item__icon {
+      width: 3rem;
+      height: 3rem;
     }
-    .header__navbar{
-        padding         : calc(1px + .5rem) calc(var(--big-padding) + 9rem) .5rem;
+    .menu-desktop__item {
+      font-size: 3rem;
+      width: 15rem;
     }
-}
+  }
+  @media (min-width: 1440px) {
+    .header__contact {
+      padding: 1rem calc(var(--big-padding) + 9rem);
+    }
+    hr {
+      width: calc(100% - var(--big-padding) * 2 - 8rem);
+      margin: 0 calc(var(--big-padding) + 4rem);
+    }
+    .header__navbar {
+      padding: calc(1px + 0.5rem) calc(var(--big-padding) + 9rem) 0.5rem;
+    }
+  }
 </style>
