@@ -2,47 +2,58 @@
 import HomeIcon from "@/icons/HomeIcon.astro";
 import ArrowIcon from "@/icons/ChevronRightIcon.astro";
 
-const location : string = Astro.url.pathname.replace("/","");
-const isHome : boolean = location === "";
+const location: string = Astro.url.pathname.replace("/", "");
+const isHome: boolean = location === "";
 ---
 
-{   
-    !isHome && 
+{
+  !isHome && (
     <nav class="path">
-        <a aria-label="Icono para volver al inicio" class="path__home-icon" href="/"> <HomeIcon /> </a>
-        <div class="path__path-icon"> <ArrowIcon /> </div>
-        <h1 class="path__location-label">{location}</h1>
+      <a
+        aria-label="Icono para volver al inicio"
+        class="path__home-icon"
+        href="/"
+      >
+        {" "}
+        <HomeIcon />{" "}
+      </a>
+      <div class="path__path-icon">
+        {" "}
+        <ArrowIcon />{" "}
+      </div>
+      <h1 class="path__location-label">{location}</h1>
     </nav>
+  )
 }
 
 <style>
-.path{
-    display         : flex;
-    padding         : 1rem 3rem;
-    align-items     : center;
-}
-.path__home-icon{
-    width           : 3rem;
-    height          : 3rem;
-}
-.path__path-icon{
-    width           : 3rem;
-    height          : 2rem;
-}
-.path__location-label{
-    font-family     : "Nunito", sans-serif;
-    font-weight     : 700;
-    font-size       : 3rem;
-    line-height     : 2.5rem;
-    border-bottom   : 2px solid var(--text-color);
-}
-.path__location-label::first-letter{
-    text-transform  : capitalize;
-}
+  .path {
+    display: flex;
+    padding: 1rem 3rem;
+    align-items: center;
+  }
+  .path__home-icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  .path__path-icon {
+    width: 3rem;
+    height: 2rem;
+  }
+  .path__location-label {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 2.5rem;
+    border-bottom: 2px solid var(--text-color);
+  }
+  .path__location-label::first-letter {
+    text-transform: capitalize;
+  }
 
-@media screen and (min-width: 641px){
-    .path{
-        display: none;
+  @media screen and (min-width: 641px) {
+    .path {
+      display: none;
     }
-}
+  }
 </style>

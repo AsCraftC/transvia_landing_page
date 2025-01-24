@@ -1,57 +1,59 @@
 ---
-import SectionTitle from '../SectionTitle.astro';
+import SectionTitle from "../SectionTitle.astro";
 
 interface Props {
-    termsLink       : string;
+  termsLink: string;
 }
 
-const { termsLink } = Astro.props
+const { termsLink } = Astro.props;
 ---
 
-
-
 <section class="terms">
-    <SectionTitle title="Términos y Condiciones" />
-    <p class="terms__message">
-        Sabemos lo tentador que es saltarse los términos de servicio, pero al tratarse de proyectos de alto valor económico, recomendamos leer las condiciones que puedes esperar de nosotros y las cosas que esperamos de ti.
-    </p>
-    <a class="terms__link" href={termsLink}>Haz clic aquí para leer el documento.</a>
+  <SectionTitle title="Términos y Condiciones" />
+  <p class="terms__message">
+    Sabemos lo tentador que es saltarse los términos de servicio, pero al
+    tratarse de proyectos de alto valor económico, recomendamos leer las
+    condiciones que puedes esperar de nosotros y las cosas que esperamos de ti.
+  </p>
+  <a class="terms__link" href={termsLink}
+    >Haz clic aquí para leer el documento.</a
+  >
 </section>
 
 <style>
-.terms{
-    grid-area       : terms;
-    display         : flex;
-    flex-direction  : column;
-    gap             : 1em;
-}
-.terms__message{
-    font-size       : 1.5em;
-    line-height     : 1em;
-    letter-spacing  : -.04em;
-}
-.terms__link{
-    font-size       : 1.5em;
-    line-height     : 1em;
-    letter-spacing  : -.04em;
-    color           : var(--secondary-color);
-    text-decoration : underline;
-}
+  .terms {
+    grid-area: terms;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .terms__message {
+    font-size: 1.5em;
+    line-height: 1em;
+    letter-spacing: -0.04em;
+  }
+  .terms__link {
+    font-size: 1.5em;
+    line-height: 1em;
+    letter-spacing: -0.04em;
+    color: var(--secondary-color);
+    text-decoration: underline;
+  }
 
-@media (prefers-color-scheme: dark) {
-    .terms__link{
-        color   : var(--accent-color);
+  @media (prefers-color-scheme: dark) {
+    .terms__link {
+      color: var(--accent-color);
     }
-}
-@media (min-width: 904px){
-    .terms{
-        gap             : 1rem;
+  }
+  @media (min-width: 904px) {
+    .terms {
+      gap: 1rem;
     }
-    .terms__message{
-        font-size       : 1.5rem;
+    .terms__message {
+      font-size: 1.5rem;
     }
-    .terms__link{
-        font-size       : 2rem;
+    .terms__link {
+      font-size: 2rem;
     }
-}
+  }
 </style>

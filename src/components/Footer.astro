@@ -11,210 +11,221 @@ const whatsapp = companyData.telefono;
 ---
 
 <footer class="footer">
-    <h3 class="footer__title">
-        <span class="label"> Contactanos&nbsp; </span>
-        <span class="label"> Contactanos&nbsp; </span>       
-        <span class="label"> Contactanos&nbsp; </span>       
-        <span class="label"> Contactanos&nbsp; </span>       
-        <span class="label"> Contactanos&nbsp; </span>       
-    </h3>
-    <article class="footer__right">
-        <Image 
-          class="logo"
-          src={transviaLogoWhite}
-          alt="Logo de Transvia Ingeniería en color blanco"
-        />
-        <h2 class="company-name">{companyData.nombreCompañia}</h2>
-        <p class="company-location">{companyData.direccion}, {companyData.ciudad}</p>
-    </article>
-    <aside class="footer__left">
-        <p class="company-contact"> {companyData.email} </p>
-        <p class="company-contact"> {companyData.telefono} </p>
-        <ul class="social-network">
-            <li class="social-network__link">
-                <a aria-label="Enlace hacia chat de WhatsApp" href={whatsapp}>
-                    <WhatsappLogo />
-                </a>
-            </li>
-            <li class="social-network__link">
-                <a aria-label="Enlace hacia perfil de Instagram" href={companyData.enlaceInstagram} >
-                    <InstagramLogo />
-                </a>
-            </li>
-            <li class="social-network__link">
-                <a aria-label="Enlace hacia perfil de Linked In" href={companyData.enlaceLinkedin} >
-                    <LinkedinLogo />
-                </a>
-            </li>
-        </ul>
-    </aside>
-    <footer class="footer__bottom">
-        <small class="bottom__item">© Transvia Ingeniería 2024</small>
-        <small class="bottom__item">Cristóbal Contreras Beltrán</small>
-    </footer>
+  <h3 class="footer__title">
+    <span class="label"> Contactanos&nbsp; </span>
+    <span class="label"> Contactanos&nbsp; </span>
+    <span class="label"> Contactanos&nbsp; </span>
+    <span class="label"> Contactanos&nbsp; </span>
+    <span class="label"> Contactanos&nbsp; </span>
+  </h3>
+  <article class="footer__right">
+    <Image
+      class="logo"
+      src={transviaLogoWhite}
+      alt="Logo de Transvia Ingeniería en color blanco"
+    />
+    <h2 class="company-name">{companyData.nombreCompañia}</h2>
+    <p class="company-location">
+      {companyData.direccion}, {companyData.ciudad}
+    </p>
+  </article>
+  <aside class="footer__left">
+    <p class="company-contact">{companyData.email}</p>
+    <p class="company-contact">{companyData.telefono}</p>
+    <ul class="social-network">
+      <li class="social-network__link">
+        <a aria-label="Enlace hacia chat de WhatsApp" href={whatsapp}>
+          <WhatsappLogo />
+        </a>
+      </li>
+      <li class="social-network__link">
+        <a
+          aria-label="Enlace hacia perfil de Instagram"
+          href={companyData.enlaceInstagram}
+        >
+          <InstagramLogo />
+        </a>
+      </li>
+      <li class="social-network__link">
+        <a
+          aria-label="Enlace hacia perfil de Linked In"
+          href={companyData.enlaceLinkedin}
+        >
+          <LinkedinLogo />
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <footer class="footer__bottom">
+    <small class="bottom__item">© Transvia Ingeniería 2024</small>
+    <small class="bottom__item">Cristóbal Contreras Beltrán</small>
+  </footer>
 </footer>
 
 <style>
-.footer{
-    display         : grid;
+  .footer {
+    display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: 
-        "title title"
+    grid-template-areas:
+      "title title"
+      "right left"
+      "footer footer";
+    background-color: var(--footer-color);
+    color: var(--footer-letter);
+    padding: 1em;
+    white-space: nowrap;
+  }
+  .footer__title {
+    grid-area: title;
+    display: flex;
+    flex-flow: row nowrap;
+    font-family: "Nunito", sans-serif;
+    font-size: 5em;
+    font-weight: 600;
+    overflow-x: hidden;
+  }
+  .label {
+    display: inline-block;
+    animation: hTranslation 5s linear infinite;
+  }
+  @keyframes hTranslation {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  .footer__right {
+    grid-area: right;
+    margin-bottom: 2em;
+  }
+  .logo {
+    width: 11em;
+    height: 4em;
+  }
+  .company-name {
+    font-family: "Nunito", sans-serif;
+    font-size: 3em;
+    font-weight: 600;
+    text-wrap: nowrap;
+  }
+  .company-location {
+    font-size: 1.5em;
+  }
+
+  .footer__left {
+    grid-area: left;
+  }
+  .company-contact {
+    text-align: end;
+    font-size: 1.5em;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.5em;
+  }
+  .social-network {
+    display: flex;
+    justify-content: end;
+    gap: 1em;
+  }
+  .social-network__link {
+    width: 3em;
+    height: 3em;
+  }
+
+  .footer__bottom {
+    grid-area: footer;
+    border-top: 1px solid var(--footer-letter);
+    margin: 0 1em;
+    padding-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .bottom__item {
+    font-size: 1em;
+  }
+
+  @media screen and (min-width: 641px) {
+    .footer {
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas:
         "right left"
         "footer footer";
-    background-color: var(--footer-color);
-    color           : var(--footer-letter);
-    padding         : 1em;
-    white-space     : nowrap;
-}
-.footer__title{
-    grid-area       : title;
-    display         : flex;
-    flex-flow       : row nowrap;
-    font-family     : "Nunito", sans-serif;
-    font-size       : 5em;
-    font-weight     : 600;
-    overflow-x      : hidden;
-}
-.label{
-    display         : inline-block;
-    animation       : hTranslation 5s linear infinite;
-}
-@keyframes hTranslation {
-    from{transform  : translateX(0);}
-    to{transform    : translateX(-100%);}
-}
-.footer__right{
-    grid-area       : right;
-    margin-bottom   : 2em;
-}
-.logo{
-    width           : 11em;
-    height          : 4em;
-}
-.company-name{
-    font-family     : "Nunito", sans-serif;
-    font-size       : 3em;
-    font-weight     : 600;
-    text-wrap       : nowrap;
-}
-.company-location{
-    font-size       : 1.5em;
-}
-
-.footer__left{
-    grid-area       : left;
-}
-.company-contact{
-    text-align      : end;
-    font-size       : 1.5em;
-    letter-spacing  : .03em;
-    margin-bottom   : .5em;
-}
-.social-network{
-    display         : flex;
-    justify-content : end;
-    gap             : 1em;
-}
-.social-network__link{
-    width           : 3em;
-    height          : 3em;
-}
-
-.footer__bottom{
-    grid-area       : footer;
-    border-top      : 1px solid var(--footer-letter);
-    margin          : 0 1em;
-    padding-top     : 1em;
-    display         : flex;
-    flex-direction  : row;
-    justify-content : space-between;
-}
-.bottom__item{
-    font-size       : 1em;
-}
-
-@media screen and (min-width: 641px){
-    .footer{
-      grid-template-columns: 2fr 1fr;
-        grid-template-areas: 
-            "right left"
-            "footer footer";
-        padding: 5rem;
+      padding: 5rem;
     }
-    .footer__title{
-        display     : none;
+    .footer__title {
+      display: none;
     }
-    .footer__right{
-        display         : grid;
-        grid-template-areas:
-            "logo name"
-            "location location";
-        justify-content : end;
-        white-space     : nowrap;
+    .footer__right {
+      display: grid;
+      grid-template-areas:
+        "logo name"
+        "location location";
+      justify-content: end;
+      white-space: nowrap;
     }
-    .logo{
-        grid-area       : logo;
-        width           : 16rem;
-        height          : 5rem;
-        flex-shrink: 0;
+    .logo {
+      grid-area: logo;
+      width: 16rem;
+      height: 5rem;
+      flex-shrink: 0;
     }
-    .company-name{
-        grid-area       : name;
-        align-self      : end;
+    .company-name {
+      grid-area: name;
+      align-self: end;
     }
-    .company-location{
-        grid-area       : location;
-        justify-self    : end;
-    }
-    
-    
-    .footer__left{
-        margin          : auto 0;
-        padding         : 0 3rem;
-    }
-    .social-network{
-        margin          : 0 1rem;
+    .company-location {
+      grid-area: location;
+      justify-self: end;
     }
 
-    .footer__bottom{
-        border-top      : none;
-        font-size       : 1.5rem;
-        justify-content : center;
-        gap             : 2rem;
+    .footer__left {
+      margin: auto 0;
+      padding: 0 3rem;
     }
-}
-@media (min-width: 904px) {
-  .footer{
-    grid-template-columns: 1fr 1fr;
-  }  
-  .logo{
-        width           : 18rem;
-        height          : 7rem;
-    }
-    .company-name{
-        font-size       : 4rem;
-    }
-    .company-location{
-        font-size       : 2rem;
+    .social-network {
+      margin: 0 1rem;
     }
 
-    .company-contact{
-        font-size       : 2.5rem;
-        margin-bottom   : 1rem;
+    .footer__bottom {
+      border-top: none;
+      font-size: 1.5rem;
+      justify-content: center;
+      gap: 2rem;
     }
-    .social-network{
-        gap             : 2rem;
+  }
+  @media (min-width: 904px) {
+    .footer {
+      grid-template-columns: 1fr 1fr;
     }
-    .social-network__link{
-        width           : 3.5rem;
-        height          : 3.5rem;
+    .logo {
+      width: 18rem;
+      height: 7rem;
     }
-}
+    .company-name {
+      font-size: 4rem;
+    }
+    .company-location {
+      font-size: 2rem;
+    }
 
-@media (min-width: 1440px) {
-    .footer{
-        padding         : 5rem calc(var(--big-padding) + 9rem);
+    .company-contact {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
-}
+    .social-network {
+      gap: 2rem;
+    }
+    .social-network__link {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .footer {
+      padding: 5rem calc(var(--big-padding) + 9rem);
+    }
+  }
 </style>

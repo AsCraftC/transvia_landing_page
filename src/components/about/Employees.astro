@@ -3,60 +3,56 @@ import SectionTitle from "../SectionTitle.astro";
 import EmployeeCard from "./EmployeeCard.astro";
 
 interface Props {
-    employees : {
-        gradoAcademico  : string;
-        nombres         : string;
-        apellidos       : string;
-        cargo           : string;
-        retrato         : ImageMetadata;
-    }[];
+  employees: {
+    gradoAcademico: string;
+    nombres: string;
+    apellidos: string;
+    cargo: string;
+    retrato: ImageMetadata;
+  }[];
 }
-const { employees } = Astro.props
+const { employees } = Astro.props;
 ---
 
 <section class="team">
-    <SectionTitle title="Nuestro equipo"/>
-    <div class="flex">
-        {employees.map(employee => (
-            <EmployeeCard {... employee}/>
-        ))}
-        {employees.map(employee => (
-            <EmployeeCard {... employee}/>
-        ))}
-    </div>
+  <SectionTitle title="Nuestro equipo" />
+  <div class="flex">
+    {employees.map((employee) => <EmployeeCard {...employee} />)}
+    {employees.map((employee) => <EmployeeCard {...employee} />)}
+  </div>
 </section>
 
 <style>
-.team{
-    padding     : 0 1rem;
-}
-.flex{
-    display     : flex;
-    overflow-x  : auto;
-    gap         : 1rem;
-    padding-top : 2rem;
-}
+  .team {
+    padding: 0 1rem;
+  }
+  .flex {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-top: 2rem;
+  }
 
-@media (min-width: 641px){
-	.team{
-        padding     : 0 5rem;
+  @media (min-width: 641px) {
+    .team {
+      padding: 0 5rem;
     }
-    .flex{
-        overflow-x  : visible;
-        flex-wrap   : wrap;
+    .flex {
+      overflow-x: visible;
+      flex-wrap: wrap;
     }
-}
-@media (min-width: 904px){
-	.team{
-        padding     : 0 9rem;
+  }
+  @media (min-width: 904px) {
+    .team {
+      padding: 0 9rem;
     }
-    .flex{
-        gap         : 2rem;
+    .flex {
+      gap: 2rem;
     }
-}
-@media screen and (min-width: 1440px){
-	.team{
-		margin		: 0 calc(var(--big-padding));
+  }
+  @media screen and (min-width: 1440px) {
+    .team {
+      margin: 0 calc(var(--big-padding));
     }
-}
+  }
 </style>

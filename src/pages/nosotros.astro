@@ -8,43 +8,45 @@ import Employees from "@/components/about/Employees.astro";
 import Colabs from "@/components/about/Colabs.astro";
 ---
 
-<Layout title="Nosotros - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
-	<h2 class="phrase"> {about.frase} </h2>
-	<Description description={about.descripcion} />
-	<History hitos={about.hitos}/>
-	<Employees employees={about.empleados} />
-	<Colabs logos={about.colaboracionesLogo} />
+<Layout
+  title="Nosotros - Transvia Ingeniería"
+  description=""
+  keywords={["Transvia Ingenieria"]}
+  ogURL="/"
+>
+  <h2 class="phrase">{about.frase}</h2>
+  <Description description={about.descripcion} />
+  <History hitos={about.hitos} />
+  <Employees employees={about.empleados} />
+  <Colabs logos={about.colaboracionesLogo} />
 </Layout>
 
 <style>
-.phrase{
-	font-size		: 3em;
-	letter-spacing	: -.03em;
-	font-weight		: 700;
-	margin			: 0 1rem;
-	padding-left	: 2rem;
-}
-@media (min-width: 641px){
-	.phrase{
-		margin			: 0 5rem;
-		padding-left	: 1rem;
-		font-size		: 4rem;
-	}
-	
-}
-@media (min-width: 904px){
-	.phrase{
-		margin			: 0 9rem;
-		padding-left	: 0;
-		font-size		: 8rem;
-	}
-	
-}
-@media screen and (min-width: 1440px){
-	.phrase{
-		padding-left: 9rem;
-		margin		: 0 calc(var(--big-padding));
-	}
-	
-}
+  .phrase {
+    font-size: 3em;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    margin: 0 1rem;
+    padding-left: 2rem;
+  }
+  @media (min-width: 641px) {
+    .phrase {
+      margin: 0 5rem;
+      padding-left: 1rem;
+      font-size: 4rem;
+    }
+  }
+  @media (min-width: 904px) {
+    .phrase {
+      margin: 0 9rem;
+      padding-left: 0;
+      font-size: 8rem;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .phrase {
+      padding-left: 9rem;
+      margin: 0 calc(var(--big-padding));
+    }
+  }
 </style>

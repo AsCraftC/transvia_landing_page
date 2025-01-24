@@ -10,53 +10,57 @@ import SocialNetwork from "@/components/contact/SocialNetwork.astro";
 import ContactForm from "@/components/contact/ContactForm.astro";
 ---
 
-<Layout title="Valores - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
-    <Map 
-        office  = {companyData.oficina}
-        address = {companyData.direccion}
-        city    = {companyData.ciudad} 
+<Layout
+  title="Valores - Transvia Ingeniería"
+  description=""
+  keywords={["Transvia Ingenieria"]}
+  ogURL="/"
+>
+  <Map
+    office={companyData.oficina}
+    address={companyData.direccion}
+    city={companyData.ciudad}
+  />
+
+  <Legal {...companyData.representante} />
+  <section class="terms-networks">
+    <Terms termsLink={companyData.enlaceTerminos} />
+    <SocialNetwork
+      phone={companyData.telefono}
+      linkInstagram={companyData.enlaceInstagram}
+      linkLinkedin={companyData.enlaceLinkedin}
     />
-    
-    <Legal {... companyData.representante} />
-    <section class="terms-networks">
-        <Terms termsLink={companyData.enlaceTerminos} />
-        <SocialNetwork
-            phone={companyData.telefono}
-            linkInstagram={companyData.enlaceInstagram}
-            linkLinkedin={companyData.enlaceLinkedin}
-        />
-        <ContactForm/>
-    </section>
+    <ContactForm />
+  </section>
 </Layout>
 
 <style>
-.terms-networks{
-    display         : grid;
+  .terms-networks {
+    display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-template-areas: 
-        "terms networks"
-        "form form";
-    gap             : 1em;
-    padding         : 0 2em;
-}
-@media (min-width: 641px){
-    .terms-networks{
-        gap             : 2rem;
-        padding         : 0 5rem;
+    grid-template-areas:
+      "terms networks"
+      "form form";
+    gap: 1em;
+    padding: 0 2em;
+  }
+  @media (min-width: 641px) {
+    .terms-networks {
+      gap: 2rem;
+      padding: 0 5rem;
     }
-}
-@media (min-width: 904px){
-    .terms-networks{
-        grid-template-columns: 1fr 1fr 2fr;
-        grid-template-areas: 
-        "terms networks form";
-        gap             : 3rem;
-        padding         : 0 10rem;
+  }
+  @media (min-width: 904px) {
+    .terms-networks {
+      grid-template-columns: 1fr 1fr 2fr;
+      grid-template-areas: "terms networks form";
+      gap: 3rem;
+      padding: 0 10rem;
     }
-}
-@media (min-width: 1440px) {
-    .terms-networks{
-        padding         : 0 calc(var(--big-padding) + 18rem);
+  }
+  @media (min-width: 1440px) {
+    .terms-networks {
+      padding: 0 calc(var(--big-padding) + 18rem);
     }
-}
+  }
 </style>

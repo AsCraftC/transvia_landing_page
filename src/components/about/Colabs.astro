@@ -1,117 +1,125 @@
 ---
-import SectionTitle from '../SectionTitle.astro';
+import SectionTitle from "../SectionTitle.astro";
 
 interface Props {
-    logos   : ImageMetadata[];
+  logos: ImageMetadata[];
 }
-const { logos } = Astro.props
+const { logos } = Astro.props;
 
-const logosTop = logos.slice(0, Math.floor(logos.length / 2))
-const logosDown = logos.slice(Math.floor(logos.length / 2),logos.length)
-
+const logosTop = logos.slice(0, Math.floor(logos.length / 2));
+const logosDown = logos.slice(Math.floor(logos.length / 2), logos.length);
 ---
 
 <section class="collaborations">
-    <div class="collaborations__show">
-        {
-            logosTop.map(logo => (
-                <figure class="collaborations__logo">
-                    <img src={logo.src} alt="" loading="lazy" decoding="async">
-                </figure>
-            ))
-        }
-        {
-            logosTop.map(logo => (
-                <figure class="collaborations__logo collaborations__logo--repeat">
-                    <img src={logo.src} alt="" loading="lazy" decoding="async">
-                </figure>
-            ))
-        }
-    </div>
-    <div class="collaborations__spacing"> <SectionTitle title="Clientes que confian en nosotros" /> </div>
-    <div class="collaborations__show collaborations__show--reverse">
-        {
-            logosDown.map(logo => (
-                <figure class="collaborations__logo">
-                    <img src={logo.src} alt="" loading="lazy" decoding="async">
-                </figure>
-            ))
-        }
-        {
-            logosDown.map(logo => (
-                <figure class="collaborations__logo collaborations__logo--repeat">
-                    <img src={logo.src} alt="" loading="lazy" decoding="async">
-                </figure>
-            ))
-        }
-    </div>
+  <div class="collaborations__show">
+    {
+      logosTop.map((logo) => (
+        <figure class="collaborations__logo">
+          <img src={logo.src} alt="" loading="lazy" decoding="async" />
+        </figure>
+      ))
+    }
+    {
+      logosTop.map((logo) => (
+        <figure class="collaborations__logo collaborations__logo--repeat">
+          <img src={logo.src} alt="" loading="lazy" decoding="async" />
+        </figure>
+      ))
+    }
+  </div>
+  <div class="collaborations__spacing">
+    <SectionTitle title="Clientes que confian en nosotros" />
+  </div>
+  <div class="collaborations__show collaborations__show--reverse">
+    {
+      logosDown.map((logo) => (
+        <figure class="collaborations__logo">
+          <img src={logo.src} alt="" loading="lazy" decoding="async" />
+        </figure>
+      ))
+    }
+    {
+      logosDown.map((logo) => (
+        <figure class="collaborations__logo collaborations__logo--repeat">
+          <img src={logo.src} alt="" loading="lazy" decoding="async" />
+        </figure>
+      ))
+    }
+  </div>
 </section>
 
 <style>
-.collaborations{
-    margin          : 0 1em;
-    display         : flex;
-    flex-direction  : column;
-    gap             : 3em;
-    overflow-x      : hidden;
-}
+  .collaborations {
+    margin: 0 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    overflow-x: hidden;
+  }
 
-.collaborations__show{
-    position        : relative;
-    display         : flex;
-    gap             : 1em;
-    animation       : linear colanH 15s infinite;
-}
-.collaborations__show--reverse{
-    animation       : linear colanH-reverse 15s infinite;
-}
-@keyframes colanH {
-    from{left       : 0;}
-    to{left         : -100%;}
-}
-@keyframes colanH-reverse {
-    from{left       : -100%;}
-    to{left         : 0;}
-}
-.collaborations__logo{
-    width           : 10em;
-    flex-shrink     : 0;
-}
-.collaborations__spacing{
-    padding-left    : 5em;
-}
+  .collaborations__show {
+    position: relative;
+    display: flex;
+    gap: 1em;
+    animation: linear colanH 15s infinite;
+  }
+  .collaborations__show--reverse {
+    animation: linear colanH-reverse 15s infinite;
+  }
+  @keyframes colanH {
+    from {
+      left: 0;
+    }
+    to {
+      left: -100%;
+    }
+  }
+  @keyframes colanH-reverse {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 0;
+    }
+  }
+  .collaborations__logo {
+    width: 10em;
+    flex-shrink: 0;
+  }
+  .collaborations__spacing {
+    padding-left: 5em;
+  }
 
-@media (min-width: 641px){
-    .collaborations{
-        margin          : 0 5rem;
+  @media (min-width: 641px) {
+    .collaborations {
+      margin: 0 5rem;
     }
-    .collaborations__show{
-        animation       : none;
+    .collaborations__show {
+      animation: none;
     }
-    .collaborations__logo--repeat{
-        display         : none;
-    }
-
-    .collaborations__logo{
-        width           : 15rem;
-    }
-}
-@media (min-width: 904px){
-	.collaborations{
-        margin          : 0 9rem;
+    .collaborations__logo--repeat {
+      display: none;
     }
 
-    .collaborations__show{
-        gap             : 2rem;
+    .collaborations__logo {
+      width: 15rem;
     }
-    .collaborations__logo{
-        width           : 20rem;
+  }
+  @media (min-width: 904px) {
+    .collaborations {
+      margin: 0 9rem;
     }
-}
-@media screen and (min-width: 1440px){
-	.collaborations{
-		margin		: 0 calc(var(--big-padding) + 9rem);
-	}
-	
-}
+
+    .collaborations__show {
+      gap: 2rem;
+    }
+    .collaborations__logo {
+      width: 20rem;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .collaborations {
+      margin: 0 calc(var(--big-padding) + 9rem);
+    }
+  }
 </style>

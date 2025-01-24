@@ -1,95 +1,102 @@
 ---
 interface Props {
-    stats : {valor : number, etiqueta : string}[];
+  stats: { valor: number; etiqueta: string }[];
 }
-import IncreaseNumber from '@/components/home/IncreaseNumber';
+import IncreaseNumber from "@/components/home/IncreaseNumber";
 
-const { stats } = Astro.props
+const { stats } = Astro.props;
 ---
+
 <article class="badge-stats">
-    <div class="stat stat-0">
-        <span class="stat__number"> <IncreaseNumber value={stats[0].valor} client:visible/> </span>
-        <p class="stat__label"> {stats[0].etiqueta} </p>
-    </div>
-    <div class="stat stat-1">
-        <span class="stat__number"> <IncreaseNumber value={stats[1].valor} client:visible/> </span>
-        <p class="stat__label"> {stats[1].etiqueta} </p>
-    </div>
-    <div class="stat stat-2">
-        <span class="stat__number"> <IncreaseNumber value={stats[2].valor} client:visible/> </span>
-        <p class="stat__label"> {stats[2].etiqueta} </p>
-    </div>
+  <div class="stat stat-0">
+    <span class="stat__number">
+      <IncreaseNumber value={stats[0].valor} client:visible />
+    </span>
+    <p class="stat__label">{stats[0].etiqueta}</p>
+  </div>
+  <div class="stat stat-1">
+    <span class="stat__number">
+      <IncreaseNumber value={stats[1].valor} client:visible />
+    </span>
+    <p class="stat__label">{stats[1].etiqueta}</p>
+  </div>
+  <div class="stat stat-2">
+    <span class="stat__number">
+      <IncreaseNumber value={stats[2].valor} client:visible />
+    </span>
+    <p class="stat__label">{stats[2].etiqueta}</p>
+  </div>
 </article>
 
 <style>
-.badge-stats{
-    width           : max(360px, 100vw);
-    display         : flex;
-    padding         : 10% 0;
-    justify-content : center;
-    background      : var(--background-banner);
-}
-.stat{
-    flex-grow       : 0;
-    flex-shrink     : 0;
-    position        : relative;
-    width           : min-content;
-    display         : flex;
-    flex-direction  : column;
-    justify-content : center;
-    align-items     : center;
-    text-align      : center;
-}
-.stat__number{
-    font-size       : 5em;
-    font-weight     : 700;
-    line-height     : .8em;
-}
-.stat__label{
-    width           : 100%;
-    font-size       : 1.5em;
-    font-weight     : 900;
-    letter-spacing  : -.04em;
-}
-.stat-0{
-    bottom          : 3.5em;
-    left            : 3vw;
-}
-.stat-1{
-    top             : 4em;
-    right           : 1vw;
-    text-wrap       : nowrap;
-}
-.stat-2{
-    bottom          : 2em;
-    left            : 2vw;
-}
+  .badge-stats {
+    width: max(360px, 100vw);
+    display: flex;
+    padding: 10% 0;
+    justify-content: center;
+    background: var(--background-banner);
+  }
+  .stat {
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .stat__number {
+    font-size: 5em;
+    font-weight: 700;
+    line-height: 0.8em;
+  }
+  .stat__label {
+    width: 100%;
+    font-size: 1.5em;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+  }
+  .stat-0 {
+    bottom: 3.5em;
+    left: 3vw;
+  }
+  .stat-1 {
+    top: 4em;
+    right: 1vw;
+    text-wrap: nowrap;
+  }
+  .stat-2 {
+    bottom: 2em;
+    left: 2vw;
+  }
 
-@media screen and (min-width: 641px) {
-    .badge-stats{
-        padding         : 2.5rem clamp(2rem, 7vw - 3.6rem, 9rem);
-        height          : auto;
-        justify-content : space-between;
+  @media screen and (min-width: 641px) {
+    .badge-stats {
+      padding: 2.5rem clamp(2rem, 7vw - 3.6rem, 9rem);
+      height: auto;
+      justify-content: space-between;
     }
-    .stat{
-        position        : static;
-        flex-direction  : row;
-        gap             : .5rem;
-        text-align      : left;
+    .stat {
+      position: static;
+      flex-direction: row;
+      gap: 0.5rem;
+      text-align: left;
     }
-    .stat__number{
-        font-size       : clamp(5rem, 3vw + 2.6rem, 8rem);
+    .stat__number {
+      font-size: clamp(5rem, 3vw + 2.6rem, 8rem);
     }
-    .stat__label{
-        font-size       : clamp(2rem, 1vw + 1.2rem, 3rem);
+    .stat__label {
+      font-size: clamp(2rem, 1vw + 1.2rem, 3rem);
     }
-    .stat-1{
-        text-wrap       : wrap;
+    .stat-1 {
+      text-wrap: wrap;
     }
-}
-@media screen and (min-width: 1440px){
-    .badge-stats{
-        padding : 2.5rem calc(var(--big-padding) + 9rem);
+  }
+  @media screen and (min-width: 1440px) {
+    .badge-stats {
+      padding: 2.5rem calc(var(--big-padding) + 9rem);
     }
-}
+  }
 </style>

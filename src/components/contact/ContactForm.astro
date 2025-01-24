@@ -5,18 +5,14 @@ import CheckIcon from "@/icons/CheckIcon.astro";
 
 import { ReactContactForm } from "@/components/contact/ContactForm/ReactContactForm";
 ---
-<script>
-
-</script>
-
 
 <section class="contact">
-    <SectionTitle title="Dudas o Consultas"/>
-    <ReactContactForm client:idle/>
+  <SectionTitle title="Dudas o Consultas" />
+  <ReactContactForm client:idle />
 </section>
 
 <style>
-.contact{
-    grid-area       : form;
-}
+  .contact {
+    grid-area: form;
+  }
 </style>

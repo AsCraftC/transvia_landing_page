@@ -1,78 +1,78 @@
 ---
-import SectionTitle from '@/components/SectionTitle.astro';
+import SectionTitle from "@/components/SectionTitle.astro";
 import descriptionIMG from "@/assets/about/description.jpg";
 
 interface Props {
-    description  : string;
+  description: string;
 }
 
-const { description } = Astro.props
+const { description } = Astro.props;
 ---
 
 <section class="company-description">
-    <img 
-        class="company-description__img"
-        src={descriptionIMG.src}
-        alt="Imagen de un paso de zebra"
-        loading="lazy"
-        decoding="async"
-    >
-    <div class="company-description__info">
-        <SectionTitle title="Quienes Somos" />
-        <p class="company-description__desc"> { description } </p>
-    </div>
+  <img
+    class="company-description__img"
+    src={descriptionIMG.src}
+    alt="Imagen de un paso de zebra"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="company-description__info">
+    <SectionTitle title="Quienes Somos" />
+    <p class="company-description__desc">{description}</p>
+  </div>
 </section>
 
 <style>
-.company-description{
-    padding         : 2rem;
-    display         : flex;
-    flex-direction  : column;
-    gap             : 1rem;
-    background      : var(--background-banner);
-}
-.company-description__img{
+  .company-description {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--background-banner);
+  }
+  .company-description__img {
     aspect-ratio: 21 / 19;
-}
-.company-description__info{
-    display         : flex;
-    flex-direction  : column;
-    gap             : .5rem;
-}
-.company-description__desc{
-    font-size       : 1.5em;
-    letter-spacing  : -.03em;
-}
+  }
+  .company-description__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .company-description__desc {
+    font-size: 1.5em;
+    letter-spacing: -0.03em;
+  }
 
-@media (min-width: 641px){
-    .company-description{
-        flex-direction: row-reverse;
-        gap: 3rem;
+  @media (min-width: 641px) {
+    .company-description {
+      flex-direction: row-reverse;
+      gap: 3rem;
     }
-    .company-description__img{
-        width       : min(50vw, 84em);
+    .company-description__img {
+      width: min(50vw, 84em);
     }
-    .company-description__info{
-        gap             : 2rem;
-        justify-content : center;
-        align-content   : end;
+    .company-description__info {
+      gap: 2rem;
+      justify-content: center;
+      align-content: end;
     }
 
-    .company-description__desc{
-        font-size   : 2rem;
+    .company-description__desc {
+      font-size: 2rem;
     }
-}
-@media (min-width: 904px){
-    .company-description{
-        padding     : 2rem 5rem;
+  }
+  @media (min-width: 904px) {
+    .company-description {
+      padding: 2rem 5rem;
     }
-    .company-description__desc{
-        font-size   : 3rem;
+    .company-description__desc {
+      font-size: 3rem;
     }
-}
-@media screen and (min-width: 1440px){
-    .company-description{
-        padding         : 2rem calc(var(--big-padding) + 9rem);
+  }
+  @media screen and (min-width: 1440px) {
+    .company-description {
+      padding: 2rem calc(var(--big-padding) + 9rem);
     }
-}
+  }
 </style>

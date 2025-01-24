@@ -4,12 +4,16 @@ import { values } from "@/data/values";
 import MVCard from "@/components/values/MVCard.astro";
 import ValueCarussel from "@/components/values/ValueCarussel.astro";
 import { ReactCarussel } from "@/components/values/reactCarussel/ReactCarussel";
-
 ---
 
-<Layout title="Principios - Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]}>
-    <MVCard isMision={true} {... values.mision} />
-    <MVCard isMision={false} {... values.vision} />
-    <ValueCarussel client:visible valores={values.valores} />
-    <!-- <ReactCarussel client:load valores={values.valores}/> -->
+<Layout
+  title="Principios - Transvia Ingeniería"
+  description=""
+  keywords={["Transvia Ingenieria"]}
+  ogURL="/"
+>
+  <MVCard isMision={true} {...values.mision} />
+  <MVCard isMision={false} {...values.vision} />
+  <ValueCarussel client:visible valores={values.valores} />
+  <!-- <ReactCarussel client:load valores={values.valores}/> -->
 </Layout>

@@ -1,10 +1,10 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Layout from "@/layouts/Layout.astro";
 import { homeData } from "@/data/home";
 
 import Overview from "@/components/home/Overview.astro";
-import Stats from '@/components/home/Stats.astro';
-import Service from '@/components/home/Service.astro';
+import Stats from "@/components/home/Stats.astro";
+import Service from "@/components/home/Service.astro";
 
 /* TODO:
 	- Animar numero para que aumenten al aparecer.
@@ -12,23 +12,27 @@ import Service from '@/components/home/Service.astro';
 */
 ---
 
-<Layout title="Transvia Ingeniería" description="" keywords={["Transvia Ingenieria"]} ogURL='/'>
-	<Overview slogan={homeData.eslogan} />
-	<Stats stats={homeData.estadisticas}/>
-	<section class="services">
-		{
-			homeData.servicios.map((service, index) => (
-				<Service index={index} {... service}
-				/>
-			))
-		}
-	</section>
+<Layout
+  title="Transvia Ingeniería"
+  description=""
+  keywords={["Transvia Ingenieria"]}
+  ogURL="/"
+>
+  <Overview slogan={homeData.eslogan} />
+  <Stats stats={homeData.estadisticas} />
+  <section class="services">
+    {
+      homeData.servicios.map((service, index) => (
+        <Service index={index} {...service} />
+      ))
+    }
+  </section>
 </Layout>
 
 <style>
-.services{
-	display			: flex;
-	flex-direction	: column;
-	gap				: 3rem;
-}
+  .services {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
 </style>

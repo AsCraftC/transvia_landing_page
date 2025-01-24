@@ -1,13 +1,26 @@
 ---
 interface Props {
-    hitos       : {
-        mes         : "Ene" | "Feb" | "Mar" | "Abr" | "May" | "Jun" | "Jul" | "Ago" | "Sep" | "Oct" | "Nov" | "Dic" | "Xxx";
-        año         : number | "20XX";
-        titulo      : string;
-        descripcion : string;
-    }[]
+  hitos: {
+    mes:
+      | "Ene"
+      | "Feb"
+      | "Mar"
+      | "Abr"
+      | "May"
+      | "Jun"
+      | "Jul"
+      | "Ago"
+      | "Sep"
+      | "Oct"
+      | "Nov"
+      | "Dic"
+      | "Xxx";
+    año: number | "20XX";
+    titulo: string;
+    descripcion: string;
+  }[];
 }
-const { hitos } = Astro.props
+const { hitos } = Astro.props;
 
 import SectionTitle from "@/components/SectionTitle.astro";
 import Milestone from "@/components/about/Milestone.astro";
@@ -15,95 +28,90 @@ import Milestone from "@/components/about/Milestone.astro";
 import ArrowPointIcon from "@/icons/ArowPointIcon.astro";
 ---
 
-
 <section class="history">
-    <SectionTitle title="Nuestra Historia"/>
-    <div class="history-line">
-        <div class="history-line__end">
-            <ArrowPointIcon />
-        </div>
-        <div class="history-line__body"></div>
+  <SectionTitle title="Nuestra Historia" />
+  <div class="history-line">
+    <div class="history-line__end">
+      <ArrowPointIcon />
     </div>
-    <div class="milestones">
-        {
-            hitos.map( milestone => (
-                <Milestone {... milestone}/>
-            ))
-        }
-    </div>
+    <div class="history-line__body"></div>
+  </div>
+  <div class="milestones">
+    {hitos.map((milestone) => <Milestone {...milestone} />)}
+  </div>
 </section>
 
 <style>
-.history{
-    position        : relative;
-    padding         : 0 3em;
-    display         : flex;
-    flex-direction  : column;
-    gap             : 3em;
-}
-.history-line{
-    position        : absolute;
-    top             : 3em;
-    left            : 6.75em;
-    height          : 100%;
-}
-.history-line__end{
-    width           : 2em;
-    margin-bottom   : -1px;
-}
-.history-line__body{
-    margin          : 0 auto;
-    width           : .75em;
-    height          : calc(100% - 23%);
+  .history {
+    position: relative;
+    padding: 0 3em;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+  }
+  .history-line {
+    position: absolute;
+    top: 3em;
+    left: 6.75em;
+    height: 100%;
+  }
+  .history-line__end {
+    width: 2em;
+    margin-bottom: -1px;
+  }
+  .history-line__body {
+    margin: 0 auto;
+    width: 0.75em;
+    height: calc(100% - 23%);
     background-color: var(--primary-color);
-}
-.milestones{
-    display         : flex;
-    flex-direction  : column;
-    gap             : 2em;
-}
-@media (min-width: 641px){
-	.history{
-        padding         : 0 5rem;
-        gap             : 3rem;
+  }
+  .milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+  @media (min-width: 641px) {
+    .history {
+      padding: 0 5rem;
+      gap: 3rem;
     }
-    .history-line{
-        top             : 4.5rem;
-        left            : 10.25rem;
+    .history-line {
+      top: 4.5rem;
+      left: 10.25rem;
     }
-    .history-line__body{
-        margin          : 0 auto;
-        width           : .75rem;
-        height          : calc(100% - 23%);
+    .history-line__body {
+      margin: 0 auto;
+      width: 0.75rem;
+      height: calc(100% - 23%);
     }
-    .milestones{
-        gap             : 3rem;
+    .milestones {
+      gap: 3rem;
     }
-}
-@media (min-width: 904px){
-	.history{
-        padding         : 0 9rem;
-        gap             : 3rem;
+  }
+  @media (min-width: 904px) {
+    .history {
+      padding: 0 9rem;
+      gap: 3rem;
     }
-    .history-line{
-        top             : 4.5rem;
-        left            : 14.25rem;
+    .history-line {
+      top: 4.5rem;
+      left: 14.25rem;
     }
-    .history-line__body{
-        margin          : 0 auto;
-        width           : .75rem;
-        height          : calc(100% - 23%);
+    .history-line__body {
+      margin: 0 auto;
+      width: 0.75rem;
+      height: calc(100% - 23%);
     }
-    .milestones{
-        gap             : 3rem;
+    .milestones {
+      gap: 3rem;
     }
-}
-@media screen and (min-width: 1440px){
-    .history{
-        padding         : 0 calc(var(--big-padding) + 9rem);
+  }
+  @media screen and (min-width: 1440px) {
+    .history {
+      padding: 0 calc(var(--big-padding) + 9rem);
     }
-    .history-line{
-        left            : calc(var(--big-padding) + 14.25rem) ;
+    .history-line {
+      left: calc(var(--big-padding) + 14.25rem);
     }
-}
+  }
 </style>

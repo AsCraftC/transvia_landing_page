@@ -3,93 +3,94 @@ import { Image } from "astro:assets";
 import SectionTitle from "../SectionTitle.astro";
 
 interface Props {
-    nombre          : string;
-    telefono        : string;
-    email           : string;
-    retrato         : ImageMetadata;
+  nombre: string;
+  telefono: string;
+  email: string;
+  retrato: ImageMetadata;
 }
-const { nombre, telefono, email, retrato } = Astro.props
+const { nombre, telefono, email, retrato } = Astro.props;
 ---
 
 <section class="legal">
-    <Image class="legal__portrait" src={retrato} alt=`Retrato de ${nombre}`/>
-    <aside class="legal__content">
-        <SectionTitle title="Respresentante Legal" />
-        <p class="legal__name"> {nombre} </p>
-        <p class="legal__contact"> 
-            {telefono} <br/>
-            {email}
-        </p>
-    </aside>
+  <Image class="legal__portrait" src={retrato} alt=`Retrato de ${nombre}` />
+  <aside class="legal__content">
+    <SectionTitle title="Respresentante Legal" />
+    <p class="legal__name">{nombre}</p>
+    <p class="legal__contact">
+      {telefono}
+      <br />
+      {email}
+    </p>
+  </aside>
 </section>
 
 <style>
-.legal{
-    display         : flex;
-    gap             : 1em;
-    padding         : 1em;
+  .legal {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
     background-color: var(--background-banner);
-}
-.legal__portrait{
-    width           : 18em;
-    height          : 23em;
-    object-fit      : cover;
-    border-radius   : 4px;
-}
-.legal__content{
-    display         : flex;
-    flex-direction  : column;
-    gap             : 1em;
-}
-.legal__name{
-    font-size       : 1.75em;
-    font-weight     : 600;
-    letter-spacing  : -.04em;
-}
-.legal__contact{
-    font-size       : 1.5em;
-    letter-spacing  : -.05em;
-}
-@media (min-width: 641px){
-    .legal{
-        padding         : 1rem 5rem;
-        gap             : 2rem;
+  }
+  .legal__portrait {
+    width: 18em;
+    height: 23em;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  .legal__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .legal__name {
+    font-size: 1.75em;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+  }
+  .legal__contact {
+    font-size: 1.5em;
+    letter-spacing: -0.05em;
+  }
+  @media (min-width: 641px) {
+    .legal {
+      padding: 1rem 5rem;
+      gap: 2rem;
     }
-    .legal__portrait{
-        width           : 23rem;
-        height          : 30rem;
+    .legal__portrait {
+      width: 23rem;
+      height: 30rem;
     }
-    .legal__name{
-        font-size       : 2.5rem;
+    .legal__name {
+      font-size: 2.5rem;
     }
-    .legal__contact{
-        font-size       : 2rem;
+    .legal__contact {
+      font-size: 2rem;
     }
-}
-@media (min-width: 904px){
-    .legal{
-        padding         : 2rem 9rem;
+  }
+  @media (min-width: 904px) {
+    .legal {
+      padding: 2rem 9rem;
     }
-    .legal__portrait{
-        width           : 38rem;
-        height          : 50rem;
-        object-fit      : cover;
-        border-radius   : 4px;
+    .legal__portrait {
+      width: 38rem;
+      height: 50rem;
+      object-fit: cover;
+      border-radius: 4px;
     }
-    .legal__content{
-        padding-top     : 5rem;
-        gap             : 2rem;
+    .legal__content {
+      padding-top: 5rem;
+      gap: 2rem;
     }
-    .legal__name{
-        font-size       : 3rem;
+    .legal__name {
+      font-size: 3rem;
     }
-    .legal__contact{
-        font-size       : 2rem;
+    .legal__contact {
+      font-size: 2rem;
     }
-}
-@media (min-width: 1440px) {
-    .legal{
-        padding         : 2rem calc(var(--big-padding) + 9rem);
+  }
+  @media (min-width: 1440px) {
+    .legal {
+      padding: 2rem calc(var(--big-padding) + 9rem);
     }
-}
+  }
 </style>

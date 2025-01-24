@@ -2,99 +2,112 @@
 import Dot from "@/icons/MilestoneDot.astro";
 
 interface Props {
-    mes         : "Ene" | "Feb" | "Mar" | "Abr" | "May" | "Jun" | "Jul" | "Ago" | "Sep" | "Oct" | "Nov" | "Dic" | "Xxx";
-    año         : number | "20XX";
-    titulo      : string;
-    descripcion : string;
+  mes:
+    | "Ene"
+    | "Feb"
+    | "Mar"
+    | "Abr"
+    | "May"
+    | "Jun"
+    | "Jul"
+    | "Ago"
+    | "Sep"
+    | "Oct"
+    | "Nov"
+    | "Dic"
+    | "Xxx";
+  año: number | "20XX";
+  titulo: string;
+  descripcion: string;
 }
-const { mes, año, titulo, descripcion } = Astro.props
+const { mes, año, titulo, descripcion } = Astro.props;
 ---
 
 <article class="milestone">
-    <div class="milestone__date">
-        <p class="milestone__date-label">{mes}</p>
-        <p class="milestone__date-label">{año}</p>
-    </div>
-    <div class="milestone__dot">
-        <Dot />
-    </div>
-    <div class="milestone__info">
-        <h3 class="milestone__title">{titulo}</h3>
-        <hr>
-        <p class="milestone__description">{descripcion}</p>
-    </div>
+  <div class="milestone__date">
+    <p class="milestone__date-label">{mes}</p>
+    <p class="milestone__date-label">{año}</p>
+  </div>
+  <div class="milestone__dot">
+    <Dot />
+  </div>
+  <div class="milestone__info">
+    <h3 class="milestone__title">{titulo}</h3>
+    <hr />
+    <p class="milestone__description">{descripcion}</p>
+  </div>
 </article>
 
 <style>
-.milestone{
-    display         : flex;
-    align-items     : flex-start;
-    gap             : .5em;
-}
-.milestone__date{
-    width           : 3em;
-    flex-shrink     : 0;
-}
-.milestone__date-label{
-    font-size       : 1.5em;
-    letter-spacing  : -.04em;
-    text-align      : end;
-}
-.milestone__dot{
-    width           : 2.5em;
-    height          : 2.5em;
-    margin-top      : .5em;
-    flex-shrink     : 0;
-    z-index         : 1;
-}
-.milestone__info{
-    display         : flex;
-    flex-direction  : column;
-    gap             : .5em;
-    width           : 32em;
-}
-.milestone__title{
-    font-size       : 2em;
-    letter-spacing  : -.04em;
-    font-weight     : 600;
-}
-hr{
-    margin-right    : 1em;
-    height          : 1px;
-    width           : auto;
+  .milestone {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5em;
+  }
+  .milestone__date {
+    width: 3em;
+    flex-shrink: 0;
+  }
+  .milestone__date-label {
+    font-size: 1.5em;
+    letter-spacing: -0.04em;
+    text-align: end;
+  }
+  .milestone__dot {
+    width: 2.5em;
+    height: 2.5em;
+    margin-top: 0.5em;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .milestone__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 32em;
+  }
+  .milestone__title {
+    font-size: 2em;
+    letter-spacing: -0.04em;
+    font-weight: 600;
+  }
+  hr {
+    margin-right: 1em;
+    height: 1px;
+    width: auto;
     background-color: var(--text-color);
-}
-.milestone__description{
-    font-size       : 1.5em;
-    letter-spacing  : -.04em;
-}
-@media (min-width: 641px){
-	.milestone{
-        gap             : 1rem;
+  }
+  .milestone__description {
+    font-size: 1.5em;
+    letter-spacing: -0.04em;
+  }
+  @media (min-width: 641px) {
+    .milestone {
+      gap: 1rem;
     }
-    .milestone__date{
-        width           : 4rem;
+    .milestone__date {
+      width: 4rem;
     }
-    .milestone__info{
-        gap             : .5em;
-        width           : 45rem;
+    .milestone__info {
+      gap: 0.5em;
+      width: 45rem;
     }
-    hr{
-        height          : 2px;
+    hr {
+      height: 2px;
     }
-}
-@media (min-width: 904px){
-    .milestone__date-label{
-        font-size       : 2rem;
+  }
+  @media (min-width: 904px) {
+    .milestone__date-label {
+      font-size: 2rem;
     }
-    .milestone__info{
-        width           : 50rem;
+    .milestone__info {
+      width: 50rem;
     }
-    .milestone__title{
-        font-size       : 3rem;
+    .milestone__title {
+      font-size: 3rem;
     }
-    .milestone__description{
-        font-size       : 2rem;
+    .milestone__description {
+      font-size: 2rem;
     }
-}
+  }
 </style>

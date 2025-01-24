@@ -5,44 +5,45 @@ import { projectData } from "@/data/projects";
 import ProjectCard from "@/components/projects/ProjectCard.astro";
 ---
 
-<Layout title="Proyectos - Transvia Ingeniería" description="" keywords={["Transvia Ingeniería"]}>
-    <div class="projects">
-        {
-            projectData.projects.map( project => (
-                <ProjectCard {... project} />
-            ))
-        }
-    </div>
-    <!-- Agregar paginador -->
+<Layout
+  title="Proyectos - Transvia Ingeniería"
+  description=""
+  keywords={["Transvia Ingeniería"]}
+  ogURL="/"
+>
+  <div class="projects">
+    {projectData.projects.map((project) => <ProjectCard {...project} />)}
+  </div>
+  <!-- Agregar paginador -->
 </Layout>
 
 <style>
-.projects{
-    display         : flex;
-    flex-direction  : column;
-    gap             : 2rem;
-    padding         : 0 1rem;
-}
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
 
-@media (min-width: 641px) {
-    .projects{
-        display         : grid;
-        grid-template-columns: 1fr 1fr;
-        gap             : 3rem 6rem;
-        padding         : 0 9rem;
+  @media (min-width: 641px) {
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem 6rem;
+      padding: 0 9rem;
     }
-}
+  }
 
-@media (min-width: 904px){
-    .projects{
-        display         : grid;
-        grid-template-columns: 1fr 1fr 1fr;
+  @media (min-width: 904px) {
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
     }
-}
+  }
 
-@media (min-width: 1440px) {
-    .projects{
-        padding         : calc(1px + .5rem) calc(var(--big-padding) + 9rem) .5rem;
+  @media (min-width: 1440px) {
+    .projects {
+      padding: calc(1px + 0.5rem) calc(var(--big-padding) + 9rem) 0.5rem;
     }
-}
+  }
 </style>

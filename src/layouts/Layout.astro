@@ -4,17 +4,23 @@ import MobileHeader from "@/components/MobileHeader.astro";
 import Footer from "@/components/Footer.astro";
 import Path from "@/components/Path.astro";
 
-import defaultIMG from '@/assets/home/service1.jpg'
+import defaultIMG from "@/assets/home/service1.jpg";
 
 interface Props {
-  title       : string;
-  description : string;
-  keywords    : string[];
-  ogImage    ?: ImageMetadata;
-  ogURL       : string;
+  title: string;
+  description: string;
+  keywords: string[];
+  ogImage?: ImageMetadata;
+  ogURL: string;
 }
 
-const { title, description, keywords, ogImage = defaultIMG, ogURL} = Astro.props;
+const {
+  title,
+  description,
+  keywords,
+  ogImage = defaultIMG,
+  ogURL,
+} = Astro.props;
 
 let keywordString: string = "";
 keywords.forEach((key) => {
@@ -45,7 +51,7 @@ TODO:
     <meta property="og:title" content="Transvia Ingeniería" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage.src} />
-    <meta property="og:locale" content="es_CL">
+    <meta property="og:locale" content="es_CL" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -54,7 +60,6 @@ TODO:
     <meta name="twitter:title" content="Transvia Ingeniería" />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage.src} />
-
   </head>
   <body>
     <DesktopHeader />

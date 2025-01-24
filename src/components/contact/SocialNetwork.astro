@@ -5,65 +5,65 @@ import InstagramLogo from "@/icons/InstagramLogo.astro";
 import LinkedinLogo from "@/icons/LinkedinLogo.astro";
 
 interface Props {
-    linkInstagram   : string;
-    linkLinkedin    : string;
-    phone           : string;
+  linkInstagram: string;
+  linkLinkedin: string;
+  phone: string;
 }
-const { linkInstagram, linkLinkedin, phone } = Astro.props
+const { linkInstagram, linkLinkedin, phone } = Astro.props;
 const whatsapp = phone;
 ---
 
 <section class="networks">
-    <SectionTitle title="Nuestras Redes" />
-    <a class="network" href={whatsapp}>
-        <span class="network__label">WhatsApp</span>
-        <div class="network__icon">
-            <WhatsappLogo color="--text-color" />
-        </div>
-    </a>
-    <a class="network" href={linkInstagram}>
-        <span class="network__label">Instagram</span>
-        <div class="network__icon">
-            <InstagramLogo color="--text-color" />
-        </div>
-    </a>
-    <a class="network" href={linkLinkedin}>
-        <span class="network__label">Linkedin</span>
-        <div class="network__icon">
-            <LinkedinLogo color="--text-color" />
-        </div>
-    </a>
+  <SectionTitle title="Nuestras Redes" />
+  <a class="network" href={whatsapp}>
+    <span class="network__label">WhatsApp</span>
+    <div class="network__icon">
+      <WhatsappLogo color="--text-color" />
+    </div>
+  </a>
+  <a class="network" href={linkInstagram}>
+    <span class="network__label">Instagram</span>
+    <div class="network__icon">
+      <InstagramLogo color="--text-color" />
+    </div>
+  </a>
+  <a class="network" href={linkLinkedin}>
+    <span class="network__label">Linkedin</span>
+    <div class="network__icon">
+      <LinkedinLogo color="--text-color" />
+    </div>
+  </a>
 </section>
 
 <style>
-.networks{
-    width           : min-content;
-    grid-area       : networks;
-    display         : flex;
-    flex-direction  : column;
-    align-content   : end;
-    text-wrap       : nowrap;
-    gap             : 1em;
-}
-.network{
-    display         : flex;
-    gap             : .5em;
-    justify-content : flex-end;
-    align-items     : center;
-}
-.network__label{
-    font-size       : 2em;
-    letter-spacing  : -.04em;
-}
-.network__icon{
-    flex-shrink     : 0;
-    width           : 3em;
-    height          : 3em;
-    padding         : .2em;
-}
-@media (min-width: 641px){
-    .network{
-        gap             : 1rem;
+  .networks {
+    width: min-content;
+    grid-area: networks;
+    display: flex;
+    flex-direction: column;
+    align-content: end;
+    text-wrap: nowrap;
+    gap: 1em;
+  }
+  .network {
+    display: flex;
+    gap: 0.5em;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .network__label {
+    font-size: 2em;
+    letter-spacing: -0.04em;
+  }
+  .network__icon {
+    flex-shrink: 0;
+    width: 3em;
+    height: 3em;
+    padding: 0.2em;
+  }
+  @media (min-width: 641px) {
+    .network {
+      gap: 1rem;
     }
-}
+  }
 </style>

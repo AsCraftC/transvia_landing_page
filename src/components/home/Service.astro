@@ -1,140 +1,146 @@
 ---
 interface Props {
-    index       : number;
-    id          : number,
-    imagen      : ImageMetadata,
-    titulo      : string,
-    descripcion : string
+  index: number;
+  id: number;
+  imagen: ImageMetadata;
+  titulo: string;
+  descripcion: string;
 }
 
-const { index, id, imagen, titulo, descripcion } = Astro.props
+const { index, id, imagen, titulo, descripcion } = Astro.props;
 
-const isOdd : boolean = index % 2 === 1;
-const lessThan10 : boolean = index < 10;
+const isOdd: boolean = index % 2 === 1;
+const lessThan10: boolean = index < 10;
 //hacer funcion modulo para definir posicion
 //hacer modulo para posicion de texto.
 ---
 
-<article class:list={['service', isOdd && 'service--inverse']}>
-    <img 
-        class:list={[
-            'service__img', 
-            isOdd && 'service__img--transition-reverse',
-            !isOdd && '.service__img--transition'
-            ]} 
-        src={imagen.src}
-        alt="Imagen de servicio"
-        loading="lazy"
-        decoding="async"
-    >
-    <div class:list={['service__info', isOdd && 'service__info--reverse']}>
-        <span class="service__number"> {lessThan10 && "0"}{id} </span>
-        <p class="service__title"> {titulo} </p>
-        <hr>
-        <p class="service__desc"> {descripcion} </p>
-    </div>
+<article class:list={["service", isOdd && "service--inverse"]}>
+  <img
+    class:list={[
+      "service__img",
+      isOdd && "service__img--transition-reverse",
+      !isOdd && ".service__img--transition",
+    ]}
+    src={imagen.src}
+    alt="Imagen de servicio"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class:list={["service__info", isOdd && "service__info--reverse"]}>
+    <span class="service__number"> {lessThan10 && "0"}{id} </span>
+    <p class="service__title">{titulo}</p>
+    <hr />
+    <p class="service__desc">{descripcion}</p>
+  </div>
 </article>
 
 <style>
-.service{
-    display         : flex;
-    padding         : 0 3rem;
-    gap             : 1rem;
-    align-items     : center;
-}
-.service--inverse{
-    flex-direction  : row-reverse;
-}
+  .service {
+    display: flex;
+    padding: 0 3rem;
+    gap: 1rem;
+    align-items: center;
+  }
+  .service--inverse {
+    flex-direction: row-reverse;
+  }
 
-.service__img{
-    width           : 12em;
-    height          : 13em;
+  .service__img {
+    width: 12em;
+    height: 13em;
     /* animation-timeline: scroll(); */
-}
+  }
 
-.service__img--transition{
-    animation       : paralax linear alternate;
-}
-.service__img--transition-reverse{
-    animation       : paralax-reverse linear alternate;
-}
-@keyframes paralax {
-    form {transform : translateY(-1rem);}
-    to {transform   : translateY(3rem);}
-}
-@keyframes paralax-reverse {
-    form {transform : translateY(3rem);}
-    to {transform   : translateY(-1rem);}
-}
+  .service__img--transition {
+    animation: paralax linear alternate;
+  }
+  .service__img--transition-reverse {
+    animation: paralax-reverse linear alternate;
+  }
+  @keyframes paralax {
+    form {
+      transform: translateY(-1rem);
+    }
+    to {
+      transform: translateY(3rem);
+    }
+  }
+  @keyframes paralax-reverse {
+    form {
+      transform: translateY(3rem);
+    }
+    to {
+      transform: translateY(-1rem);
+    }
+  }
 
-.service__info{
-    display         : flex;
-    flex-direction  : column;
-    width           : 26em;
-    gap             : .5rem;
-}
-.service__info--reverse{
-    text-align      : end;
-}
-.service__number{
-    font-size       : 1.5em;
-    font-weight     : 700;
-}
-.service__title{
-    font-family     : "Nunito", sans-serif;
-    font-size       : 2em;
-}
-hr{
-    height          : 1px;
-    width           : auto;
+  .service__info {
+    display: flex;
+    flex-direction: column;
+    width: 26em;
+    gap: 0.5rem;
+  }
+  .service__info--reverse {
+    text-align: end;
+  }
+  .service__number {
+    font-size: 1.5em;
+    font-weight: 700;
+  }
+  .service__title {
+    font-family: "Nunito", sans-serif;
+    font-size: 2em;
+  }
+  hr {
+    height: 1px;
+    width: auto;
     background-color: var(--text-color);
-}
-.service__desc{
-    font-size       : 1.5em;
-    letter-spacing  : -.07em;
-}
+  }
+  .service__desc {
+    font-size: 1.5em;
+    letter-spacing: -0.07em;
+  }
 
-@media (min-width: 641px){
-    .service{
-        padding     : 0 7rem;
+  @media (min-width: 641px) {
+    .service {
+      padding: 0 7rem;
     }
-    .service__img{
-        width       : min(28vw, 50rem);
-        height      : min(21vw, 38rem);
+    .service__img {
+      width: min(28vw, 50rem);
+      height: min(21vw, 38rem);
     }
-    .service__info{
-        width       : min(32vw, 55rem);
+    .service__info {
+      width: min(32vw, 55rem);
     }
-    .service__number{
-        font-size   : 2rem;
+    .service__number {
+      font-size: 2rem;
     }
-    .service__title{
-        font-size   : 3rem;
+    .service__title {
+      font-size: 3rem;
     }
-    .service__desc{
-        font-size   : 2rem;
+    .service__desc {
+      font-size: 2rem;
     }
-}
-@media (min-width: 904px){
-    .service{
-        gap             : 8rem;
+  }
+  @media (min-width: 904px) {
+    .service {
+      gap: 8rem;
     }
-    .service__number{
-        font-size       : 3rem;
+    .service__number {
+      font-size: 3rem;
     }
-    .service__title{
-        font-size       : 4rem;
+    .service__title {
+      font-size: 4rem;
     }
-    .service__desc{
-        font-size       : 2rem;
+    .service__desc {
+      font-size: 2rem;
     }
-}
+  }
 
-
-@media screen and (min-width: 1440px){
-    .service{
-        padding     : 0 calc(var(--big-padding) + 7em);
+  @media screen and (min-width: 1440px) {
+    .service {
+      padding: 0 calc(var(--big-padding) + 7em);
     }
-}
-
+  }
 </style>

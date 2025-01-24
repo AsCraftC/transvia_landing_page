@@ -1,147 +1,146 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 interface Props {
-    total       : number;
-    numero      : number;
-    titulo      : string;
-    descripcion : string;
-    icono       : ImageMetadata;
-    imagen      : ImageMetadata;
+  total: number;
+  numero: number;
+  titulo: string;
+  descripcion: string;
+  icono: ImageMetadata;
+  imagen: ImageMetadata;
 }
-const { total , numero, titulo, descripcion, icono, imagen } = Astro.props
+const { total, numero, titulo, descripcion, icono, imagen } = Astro.props;
 
-const stringTotal : string  = total.toString();
+const stringTotal: string = total.toString();
 ---
 
 <article class="value-card">
-    <img 
-        class="value-card__background"
-        src={imagen.src} 
-        alt={`Icono de valor ${titulo}`}
-        loading="lazy"
-        decoding="async"
-    />
-    <div class="value-card__content">
-        <div class="value-card__header">
-            <div class="value-card__icon-line">
-                <Image 
-                    class="value-card__icon"
-                    src={icono} 
-                    alt={`Icono de valor ${titulo}`} 
-                />
-            </div>
-            <h3 class="value-card__title"> {titulo} </h3>
-        </div>
-        <p class="value-card__description"> {descripcion} </p>
-    
+  <img
+    class="value-card__background"
+    src={imagen.src}
+    alt={`Icono de valor ${titulo}`}
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="value-card__content">
+    <div class="value-card__header">
+      <div class="value-card__icon-line">
+        <Image
+          class="value-card__icon"
+          src={icono}
+          alt={`Icono de valor ${titulo}`}
+        />
+      </div>
+      <h3 class="value-card__title">{titulo}</h3>
+    </div>
+    <p class="value-card__description">{descripcion}</p>
+  </div>
+
+  <style define:vars={{ stringTotal }}>
+    .value-card {
+      width: calc(100% / var(--stringTotal));
+      flex-shrink: 0;
+      position: relative;
+    }
+    .value-card__background {
+      width: 100%;
+      aspect-ratio: 17 / 9;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .value-card__content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 75%;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--background-banner);
+      border-radius: 0 0 10px 0;
+    }
+    .value-card__header {
+      margin-right: 1rem;
+      display: flex;
+      gap: 1em;
+      align-items: center;
+      background-color: rgba(33, 37, 41, 75%);
+      border-radius: 0 0 10px 0;
+      padding: 1em;
+    }
+    .value-card__icon-line {
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--footer-letter);
+    }
+    .value-card__icon {
+      width: 4em;
+      height: 4em;
+      background-color: var(--footer-letter);
+      border-radius: 4px;
+    }
+    .value-card__title {
+      padding: 0 2rem;
+      border-left: 1px solid var(--accent-color);
+      font-family: "Nunito", sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--accent-color);
+    }
+    .value-card__description {
+      padding: 1em;
+      font-size: 1.25em;
+      letter-spacing: -0.07em;
+      color: var(--text-color);
+    }
+    @media (min-width: 641px) {
+      .value-card__background {
+        aspect-ratio: 68 / 31;
+      }
+      .value-card__header {
+        margin-right: 1rem;
+        gap: 2rem;
+      }
+      .value-card__icon-line {
+        border-width: 2px;
+      }
+      .value-card__icon {
+        width: 5rem;
+        height: 5rem;
+      }
+      .value-card__title {
+        border-width: 2px;
+        font-size: 2.5rem;
+      }
+      .value-card__description {
+        font-size: 2rem;
+      }
+    }
+    @media (min-width: 904px) {
+      .value-card__background {
+        aspect-ratio: 14 / 5;
+      }
+      .value-card__header {
+        margin-right: 4rem;
+        gap: 2rem;
+        padding: 2rem;
+      }
+      .value-card__icon-line {
+        padding: 0.5rem;
+        border-radius: 12px;
+        border-width: 2px;
+      }
+      .value-card__icon {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 8px;
+      }
+      .value-card__title {
+        font-size: 3rem;
+      }
+      .value-card__description {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </article>
-
-<style define:vars={{ stringTotal }}> 
-.value-card{
-    width           : calc( 100% / var(--stringTotal));
-    flex-shrink     : 0;
-    position        : relative;
-}
-.value-card__background{
-    width           : 100%;
-    aspect-ratio    : 17 / 9;
-    object-fit      : cover;
-    z-index         : -1;
-}
-.value-card__content{
-    position        : absolute;
-    top             : 0;
-    left            : 0;
-    width           : 75%;
-    display         : flex;
-    flex-direction  : column;
-    background-color: var(--background-banner) ;
-    border-radius   : 0 0 10px 0;
-}
-.value-card__header{
-    margin-right    : 1rem;
-    display         : flex;
-    gap             : 1em;
-    align-items     : center;
-    background-color: rgba(33, 37, 41, 75%);
-    border-radius   : 0 0 10px 0;
-    padding         : 1em;
-
-}
-.value-card__icon-line{
-    padding         : .5rem;
-    border-radius   : 8px;
-    border          : 1px solid var(--footer-letter) ;
-}
-.value-card__icon{
-    width           : 4em;
-    height          : 4em;
-    background-color: var(--footer-letter);
-    border-radius   : 4px;
-}
-.value-card__title{
-    padding         : 0 2rem;
-    border-left     : 1px solid var(--accent-color);
-    font-family     : "Nunito", sans-serif;
-    font-size       : 2em;
-    font-weight     : 700;
-    letter-spacing  : -.04em;
-    color           : var(--accent-color);
-}
-.value-card__description{
-    padding         : 1em;
-    font-size       : 1.25em;
-    letter-spacing  : -.07em;
-    color           : var(--text-color);
-}
-@media (min-width: 641px) {
-    .value-card__background{
-        aspect-ratio    : 68 / 31;
-    }
-    .value-card__header{
-        margin-right    : 1rem;
-        gap             : 2rem;
-    }
-    .value-card__icon-line{
-        border-width    : 2px;
-    }
-    .value-card__icon{
-        width           : 5rem;
-        height          : 5rem;
-    }
-    .value-card__title{
-        border-width    : 2px;
-        font-size       : 2.5rem;
-    }
-    .value-card__description{
-        font-size       : 2rem;
-    }
-}
-@media (min-width: 904px) {
-    .value-card__background{
-        aspect-ratio    : 14 / 5;
-    }
-    .value-card__header{
-        margin-right    : 4rem;
-        gap             : 2rem;
-        padding         : 2rem;
-    }
-    .value-card__icon-line{
-        padding         : .5rem;
-        border-radius   : 12px;
-        border-width    : 2px;
-    }
-    .value-card__icon{
-        width           : 5rem;
-        height          : 5rem;
-        border-radius   : 8px;
-    }
-    .value-card__title{
-        font-size       : 3rem;
-    }
-    .value-card__description{
-        font-size       : 2rem;
-    }
-}
-</style>

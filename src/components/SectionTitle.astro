@@ -1,35 +1,35 @@
 ---
 interface Props {
-    title   : string;
-    color  ?: string;
+  title: string;
+  color?: string;
 }
 
-const { title, color = "--text-color" } = Astro.props
+const { title, color = "--text-color" } = Astro.props;
 ---
 
-<h2 class="section-title"> 
-    {title}
+<h2 class="section-title">
+  {title}
 </h2>
 
 <style define:vars={{ color }}>
-.section-title{
-    font-family     : "Nunito", sans-serif;
-    font-size       : 2em;
-    line-height     : 1.5em;
-    font-weight     : 300;
-    letter-spacing  : -.04em;
-    margin          : 0 .5em;
-    color           : var(--color);
-}
+  .section-title {
+    font-family: "Nunito", sans-serif;
+    font-size: 2em;
+    line-height: 1.5em;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    margin: 0 0.5em;
+    color: var(--color);
+  }
 
-@media (min-width: 641px){
-    .section-title{
-        font-size       : 2.5rem;
+  @media (min-width: 641px) {
+    .section-title {
+      font-size: 2.5rem;
     }
-}
-@media (min-width: 904px){
-    .section-title{
-        font-size       : 3rem;
+  }
+  @media (min-width: 904px) {
+    .section-title {
+      font-size: 3rem;
     }
-}
+  }
 </style>
