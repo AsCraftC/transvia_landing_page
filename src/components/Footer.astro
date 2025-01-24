@@ -5,6 +5,7 @@ import transviaLogoWhite from "@/assets/transviaLogoClaro.png";
 import WhatsappLogo from "@/icons/WhatsappLogo.astro";
 import InstagramLogo from "@/icons/InstagramLogo.astro";
 import LinkedinLogo from "@/icons/LinkedinLogo.astro";
+import { Image } from "astro:assets";
 
 const whatsapp = companyData.telefono;
 ---
@@ -18,13 +19,11 @@ const whatsapp = companyData.telefono;
         <span class="label"> Contactanos&nbsp; </span>       
     </h3>
     <article class="footer__right">
-        <img 
-            class="logo" 
-            src={transviaLogoWhite.src} 
-            alt="Logo de Transvia Ingeniería en color blanco"
-            loading="lazy"
-            decoding="async"
-        >
+        <Image 
+          class="logo"
+          src={transviaLogoWhite}
+          alt="Logo de Transvia Ingeniería en color blanco"
+        />
         <h2 class="company-name">{companyData.nombreCompañia}</h2>
         <p class="company-location">{companyData.direccion}, {companyData.ciudad}</p>
     </article>
@@ -50,15 +49,13 @@ const whatsapp = companyData.telefono;
         </ul>
     </aside>
     <footer class="footer__bottom">
-        <span class="bottom__item">© Transvia Ingeniería 2024</span>
-        <span class="bottom__item">Cristóbal Contreras Beltrán</span>
+        <small class="bottom__item">© Transvia Ingeniería 2024</small>
+        <small class="bottom__item">Cristóbal Contreras Beltrán</small>
     </footer>
 </footer>
 
 <style>
 .footer{
-    position        : relative;
-    bottom          : auto;
     display         : grid;
     grid-template-columns: 50% 50%;
     grid-template-areas: 
@@ -72,7 +69,6 @@ const whatsapp = companyData.telefono;
 }
 .footer__title{
     grid-area       : title;
-    position        : relative;
     display         : flex;
     flex-flow       : row nowrap;
     font-family     : "Nunito", sans-serif;
@@ -90,7 +86,7 @@ const whatsapp = companyData.telefono;
 }
 .footer__right{
     grid-area       : right;
-    margin-bottom   : 3em;
+    margin-bottom   : 2em;
 }
 .logo{
     width           : 11em;
@@ -112,7 +108,7 @@ const whatsapp = companyData.telefono;
 .company-contact{
     text-align      : end;
     font-size       : 1.5em;
-    letter-spacing  : -.03em;
+    letter-spacing  : .03em;
     margin-bottom   : .5em;
 }
 .social-network{
@@ -140,9 +136,11 @@ const whatsapp = companyData.telefono;
 
 @media screen and (min-width: 641px){
     .footer{
+      grid-template-columns: 2fr 1fr;
         grid-template-areas: 
             "right left"
             "footer footer";
+        padding: 5rem;
     }
     .footer__title{
         display     : none;
@@ -153,13 +151,13 @@ const whatsapp = companyData.telefono;
             "logo name"
             "location location";
         justify-content : end;
-        margin-top      : 3rem;
         white-space     : nowrap;
     }
     .logo{
         grid-area       : logo;
-        width           : 12rem;
-        height          : 4.5rem;
+        width           : 16rem;
+        height          : 5rem;
+        flex-shrink: 0;
     }
     .company-name{
         grid-area       : name;
@@ -184,11 +182,13 @@ const whatsapp = companyData.telefono;
         font-size       : 1.5rem;
         justify-content : center;
         gap             : 2rem;
-        padding-bottom  : 1rem;
     }
 }
 @media (min-width: 904px) {
-    .logo{
+  .footer{
+    grid-template-columns: 1fr 1fr;
+  }  
+  .logo{
         width           : 18rem;
         height          : 7rem;
     }
@@ -214,7 +214,7 @@ const whatsapp = companyData.telefono;
 
 @media (min-width: 1440px) {
     .footer{
-        padding         : 0 calc(var(--big-padding) + 9rem);
+        padding         : 5rem calc(var(--big-padding) + 9rem);
     }
 }
 </style>
