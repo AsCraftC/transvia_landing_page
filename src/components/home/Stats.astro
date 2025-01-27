@@ -50,7 +50,7 @@ const { stats } = Astro.props;
   .stat__number {
     font-size: 5em;
     font-weight: 700;
-    line-height: 0.8em;
+    line-height:em;
   }
   .stat__label {
     width: 100%;
@@ -74,14 +74,14 @@ const { stats } = Astro.props;
 
   @media screen and (min-width: 641px) {
     .badge-stats {
-      padding: 2.5rem clamp(2rem, 7vw - 3.6rem, 9rem);
+      padding: 3rem clamp(2rem, 7vw - 3.6rem, 9rem);
       height: auto;
       justify-content: space-between;
     }
     .stat {
       position: static;
       flex-direction: row;
-      gap: 0.5rem;
+      gap: 1rem;
       text-align: left;
     }
     .stat__number {

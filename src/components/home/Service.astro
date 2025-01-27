@@ -11,8 +11,6 @@ const { index, id, imagen, titulo, descripcion } = Astro.props;
 
 const isOdd: boolean = index % 2 === 1;
 const lessThan10: boolean = index < 10;
-//hacer funcion modulo para definir posicion
-//hacer modulo para posicion de texto.
 ---
 
 <article class:list={["service", isOdd && "service--inverse"]}>
@@ -38,7 +36,7 @@ const lessThan10: boolean = index < 10;
 <style>
   .service {
     display: flex;
-    padding: 0 3rem;
+    padding: 3rem;
     gap: 1rem;
     align-items: center;
   }
@@ -49,30 +47,6 @@ const lessThan10: boolean = index < 10;
   .service__img {
     width: 12em;
     height: 13em;
-    /* animation-timeline: scroll(); */
-  }
-
-  .service__img--transition {
-    animation: paralax linear alternate;
-  }
-  .service__img--transition-reverse {
-    animation: paralax-reverse linear alternate;
-  }
-  @keyframes paralax {
-    form {
-      transform: translateY(-1rem);
-    }
-    to {
-      transform: translateY(3rem);
-    }
-  }
-  @keyframes paralax-reverse {
-    form {
-      transform: translateY(3rem);
-    }
-    to {
-      transform: translateY(-1rem);
-    }
   }
 
   .service__info {

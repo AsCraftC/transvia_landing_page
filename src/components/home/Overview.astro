@@ -1,5 +1,6 @@
 ---
 import imagen from "@/assets/home/overview.jpg";
+import { Image } from "astro:assets";
 interface props {
   slogan: string;
 }
@@ -10,12 +11,11 @@ const { slogan } = Astro.props;
   <h2 class="overview__slogan">
     {slogan}
   </h2>
-  <img
+  
+  <Image 
     class="overview__img"
-    src={imagen.src}
+    src={imagen}
     alt="Imagen de un calle X de la ciudad"
-    loading="lazy"
-    decoding="async"
   />
 </article>
 
@@ -33,7 +33,7 @@ const { slogan } = Astro.props;
   }
   .overview__img {
     width: max(25rem, 55vw);
-    aspect-ratio: 55 / 62;
+    height: max(25rem, 55vw);
     margin-left: auto;
   }
 
@@ -58,7 +58,8 @@ const { slogan } = Astro.props;
     .overview__img {
       width: 75vw;
       max-width: 1080px;
-      aspect-ratio: 16 / 9;
+      height: 50vw;
+      max-height: 720px;
       margin-top: clamp(4.5rem, 7vw - 0.3rem, 12rem);
     }
   }
